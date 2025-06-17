@@ -50,75 +50,63 @@ object ApiModule {
 
     @Provides
     @Named(BTTV)
-    fun provideBttvRetrofitClient(builder: Retrofit.Builder): Retrofit {
-        return builder.baseUrl("https://api.betterttv.net/").build()
-    }
+    fun provideBttvRetrofitClient(builder: Retrofit.Builder): Retrofit =
+        builder.createRetrofit("https://api.betterttv.net/")
 
     @Provides
     @Named(STV_OLD_API)
-    fun provideStvOldApiRetrofitClient(builder: Retrofit.Builder): Retrofit {
-        return builder.baseUrl("https://api.7tv.app/").build()
-    }
+    fun provideStvOldApiRetrofitClient(builder: Retrofit.Builder): Retrofit =
+        builder.createRetrofit("https://api.7tv.app/")
 
     @Provides
     @Named(STV)
-    fun provideStvRetrofitClient(builder: Retrofit.Builder): Retrofit {
-        return builder.baseUrl("https://7tv.io/").build()
-    }
+    fun provideStvRetrofitClient(builder: Retrofit.Builder): Retrofit =
+        builder.createRetrofit("https://7tv.io/")
 
     @Provides
     @Named(FFZ)
-    fun provideFfzRetrofitClient(builder: Retrofit.Builder): Retrofit {
-        return builder.baseUrl("https://api.frankerfacez.com/").build()
-    }
+    fun provideFfzRetrofitClient(builder: Retrofit.Builder): Retrofit =
+        builder.createRetrofit("https://api.frankerfacez.com/")
 
     @Provides
     @Named(CHATTERINO)
-    fun provideChatterinoRetrofitClient(builder: Retrofit.Builder): Retrofit {
-        return builder.baseUrl("https://api.chatterino.com/").build()
-    }
+    fun provideChatterinoRetrofitClient(builder: Retrofit.Builder): Retrofit =
+        builder.createRetrofit("https://api.chatterino.com/")
 
     @Provides
     @Named(NOP)
-    fun provideNopRetrofitClient(builder: Retrofit.Builder): Retrofit {
-        return builder.baseUrl("https://api.nopbreak.ru/").build()
-    }
+    fun provideNopRetrofitClient(builder: Retrofit.Builder): Retrofit =
+        builder.createRetrofit("https://api.nopbreak.ru/")
 
     @Provides
     @Named(FFZAP)
-    fun provideFfzapRetrofitClient(builder: Retrofit.Builder): Retrofit {
-        return builder.baseUrl("https://api.ffzap.com/").build()
-    }
+    fun provideFfzapRetrofitClient(builder: Retrofit.Builder): Retrofit =
+        builder.createRetrofit("https://api.ffzap.com/")
 
     @Provides
     @Named(PRN)
-    fun providePronounsRetrofitClient(builder: Retrofit.Builder): Retrofit {
-        return builder.baseUrl("https://pronouns.alejo.io/").build()
-    }
+    fun providePronounsRetrofitClient(builder: Retrofit.Builder): Retrofit =
+        builder.createRetrofit("https://pronouns.alejo.io/")
 
     @Provides
     @Named(HOMIES)
-    fun provideHomiesRetrofitClient(builder: Retrofit.Builder): Retrofit {
-        return builder.baseUrl("https://itzalex.github.io/").build()
-    }
+    fun provideHomiesRetrofitClient(builder: Retrofit.Builder): Retrofit =
+        builder.createRetrofit("https://itzalex.github.io/")
 
     @Provides
     @Named(FLXRS)
-    fun provideFlxrsRetrofitClient(builder: Retrofit.Builder): Retrofit {
-        return builder.baseUrl("https://flxrs.com/").build()
-    }
+    fun provideFlxrsRetrofitClient(builder: Retrofit.Builder): Retrofit =
+        builder.createRetrofit("https://flxrs.com/")
 
     @Provides
     @Named(CHATSEN)
-    fun provideChatsenRetrofitClient(builder: Retrofit.Builder): Retrofit {
-        return builder.baseUrl("https://raw.githubusercontent.com/").build()
-    }
+    fun provideChatsenRetrofitClient(builder: Retrofit.Builder): Retrofit =
+        builder.createRetrofit("https://raw.githubusercontent.com/")
 
     @Provides
     @Named(CHATSEN2)
-    fun provideChatsen2RetrofitClient(builder: Retrofit.Builder): Retrofit {
-        return builder.baseUrl("https://api.chatsen.app/").build()
-    }
+    fun provideChatsen2RetrofitClient(builder: Retrofit.Builder): Retrofit =
+        builder.createRetrofit("https://api.chatsen.app/")
 
     @Singleton
     @Provides
@@ -135,79 +123,62 @@ object ApiModule {
 
     @Singleton
     @Provides
-    fun provideBttvApi(@Named(BTTV) retrofit: Retrofit): BttvApi {
-        return retrofit.create(BttvApi::class.java)
-    }
+    fun provideBttvApi(@Named(BTTV) retrofit: Retrofit): BttvApi = retrofit.create()
 
     @Singleton
     @Provides
-    fun provideStvApi(@Named(STV) retrofit: Retrofit): StvApi {
-        return retrofit.create(StvApi::class.java)
-    }
+    fun provideStvApi(@Named(STV) retrofit: Retrofit): StvApi = retrofit.create()
 
     @Singleton
     @Provides
-    fun provideStvOldApi(@Named(STV_OLD_API) retrofit: Retrofit): StvOldApi {
-        return retrofit.create(StvOldApi::class.java)
-    }
+    fun provideStvOldApi(@Named(STV_OLD_API) retrofit: Retrofit): StvOldApi = retrofit.create()
 
     @Singleton
     @Provides
-    fun provideFfzApi(@Named(FFZ) retrofit: Retrofit): FfzApi {
-        return retrofit.create(FfzApi::class.java)
-    }
+    fun provideFfzApi(@Named(FFZ) retrofit: Retrofit): FfzApi = retrofit.create()
 
     @Singleton
     @Provides
-    fun provideChatterinoApi(@Named(CHATTERINO) retrofit: Retrofit): ChatterinoApi {
-        return retrofit.create(ChatterinoApi::class.java)
-    }
+    fun provideChatterinoApi(@Named(CHATTERINO) retrofit: Retrofit): ChatterinoApi =
+        retrofit.create()
 
     @Singleton
     @Provides
-    fun provideNopApi(@Named(NOP) retrofit: Retrofit): NopApi {
-        return retrofit.create(NopApi::class.java)
-    }
+    fun provideNopApi(@Named(NOP) retrofit: Retrofit): NopApi = retrofit.create()
 
     @Singleton
     @Provides
-    fun provideFfzapApi(@Named(FFZAP) retrofit: Retrofit): FFZAPApi {
-        return retrofit.create(FFZAPApi::class.java)
-    }
+    fun provideFfzapApi(@Named(FFZAP) retrofit: Retrofit): FFZAPApi = retrofit.create()
 
     @Singleton
     @Provides
-    fun providePronounsApi(@Named(PRN) retrofit: Retrofit): PronounsApi {
-        return retrofit.create(PronounsApi::class.java)
-    }
+    fun providePronounsApi(@Named(PRN) retrofit: Retrofit): PronounsApi = retrofit.create()
 
     @Singleton
     @Provides
-    fun provideTwitchGQLApi(@Named(GQL) retrofit: Retrofit): TwitchGQLApi {
-        return retrofit.create(TwitchGQLApi::class.java)
-    }
+    fun provideTwitchGQLApi(@Named(GQL) retrofit: Retrofit): TwitchGQLApi = retrofit.create()
 
     @Singleton
     @Provides
-    fun provideHomiesApi(@Named(HOMIES) retrofit: Retrofit): HomiesApi {
-        return retrofit.create(HomiesApi::class.java)
-    }
+    fun provideHomiesApi(@Named(HOMIES) retrofit: Retrofit): HomiesApi = retrofit.create()
 
     @Singleton
     @Provides
-    fun provideFlxrsApi(@Named(FLXRS) retrofit: Retrofit): FlxrsApi {
-        return retrofit.create(FlxrsApi::class.java)
-    }
+    fun provideFlxrsApi(@Named(FLXRS) retrofit: Retrofit): FlxrsApi = retrofit.create()
 
     @Singleton
     @Provides
-    fun provideChatsenApi(@Named(CHATSEN) retrofit: Retrofit): ChatsenApi {
-        return retrofit.create(ChatsenApi::class.java)
-    }
+    fun provideChatsenApi(@Named(CHATSEN) retrofit: Retrofit): ChatsenApi = retrofit.create()
 
     @Singleton
     @Provides
-    fun provideChatsen2Api(@Named(CHATSEN2) retrofit: Retrofit): Chatsen2Api {
-        return retrofit.create(Chatsen2Api::class.java)
+    fun provideChatsen2Api(@Named(CHATSEN2) retrofit: Retrofit): Chatsen2Api = retrofit.create()
+
+    private inline fun <reified T> Retrofit.create(): T {
+        return create(T::class.java)
+    }
+
+    private fun Retrofit.Builder.createRetrofit(baseUrl: String): Retrofit {
+        return baseUrl(baseUrl).build()
     }
 }

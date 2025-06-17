@@ -27,133 +27,108 @@ import javax.inject.Singleton
 object ProxyModule {
     @Provides
     @Named(L_EU)
-    fun provideLEURetrofitClient(builder: Retrofit.Builder): Retrofit {
-        return builder.baseUrl("https://eu.luminous.dev/").build()
-    }
+    fun provideLEURetrofitClient(builder: Retrofit.Builder): Retrofit =
+        builder.createRetrofit("https://eu.luminous.dev/")
 
     @Provides
     @Named(L_EU2)
-    fun provideLEU2RetrofitClient(builder: Retrofit.Builder): Retrofit {
-        return builder.baseUrl("https://eu2.luminous.dev/").build()
-    }
+    fun provideLEU2RetrofitClient(builder: Retrofit.Builder): Retrofit =
+        builder.createRetrofit("https://eu2.luminous.dev/")
 
     @Provides
     @Named(L_AS)
-    fun provideLASRetrofitClient(builder: Retrofit.Builder): Retrofit {
-        return builder.baseUrl("https://as.luminous.dev/").build()
-    }
+    fun provideLASRetrofitClient(builder: Retrofit.Builder): Retrofit =
+        builder.createRetrofit("https://as.luminous.dev/")
 
     @Provides
     @Named(PP_EU)
-    fun providePP_EURetrofitClient(builder: Retrofit.Builder): Retrofit {
-        return builder.baseUrl("https://lb-eu.cdn-perfprod.com/").build()
-    }
+    fun providePP_EURetrofitClient(builder: Retrofit.Builder): Retrofit =
+        builder.createRetrofit("https://lb-eu.cdn-perfprod.com/")
 
     @Provides
     @Named(PP_EU2)
-    fun providePP_EU2RetrofitClient(builder: Retrofit.Builder): Retrofit {
-        return builder.baseUrl("https://lb-eu2.cdn-perfprod.com/").build()
-    }
+    fun providePP_EU2RetrofitClient(builder: Retrofit.Builder): Retrofit =
+        builder.createRetrofit("https://lb-eu2.cdn-perfprod.com/")
 
     @Provides
     @Named(PP_EU3)
-    fun providePP_EU3RetrofitClient(builder: Retrofit.Builder): Retrofit {
-        return builder.baseUrl("https://lb-eu3.cdn-perfprod.com/").build()
-    }
+    fun providePP_EU3RetrofitClient(builder: Retrofit.Builder): Retrofit =
+        builder.createRetrofit("https://lb-eu3.cdn-perfprod.com/")
 
     @Provides
     @Named(PP_EU4)
-    fun providePP_EU4RetrofitClient(builder: Retrofit.Builder): Retrofit {
-        return builder.baseUrl("https://lb-eu4.cdn-perfprod.com/").build()
-    }
+    fun providePP_EU4RetrofitClient(builder: Retrofit.Builder): Retrofit =
+        builder.createRetrofit("https://lb-eu4.cdn-perfprod.com/")
 
     @Provides
     @Named(PP_EU5)
-    fun providePP_EU5RetrofitClient(builder: Retrofit.Builder): Retrofit {
-        return builder.baseUrl("https://lb-eu5.cdn-perfprod.com/").build()
-    }
+    fun providePP_EU5RetrofitClient(builder: Retrofit.Builder): Retrofit =
+        builder.createRetrofit("https://lb-eu5.cdn-perfprod.com/")
 
     @Provides
     @Named(PP_NA)
-    fun providePP_NARetrofitClient(builder: Retrofit.Builder): Retrofit {
-        return builder.baseUrl("https://lb-na.cdn-perfprod.com/").build()
-    }
+    fun providePP_NARetrofitClient(builder: Retrofit.Builder): Retrofit =
+        builder.createRetrofit("https://lb-na.cdn-perfprod.com/")
 
     @Provides
     @Named(PP_AS)
-    fun providePP_ASRetrofitClient(builder: Retrofit.Builder): Retrofit {
-        return builder.baseUrl("https://lb-as.cdn-perfprod.com/").build()
-    }
+    fun providePP_ASRetrofitClient(builder: Retrofit.Builder): Retrofit =
+        builder.createRetrofit("https://lb-as.cdn-perfprod.com/")
 
     @Provides
     @Named(PP_SA)
-    fun providePP_SARetrofitClient(builder: Retrofit.Builder): Retrofit {
-        return builder.baseUrl("https://lb-sa.cdn-perfprod.com/").build()
-    }
+    fun providePP_SARetrofitClient(builder: Retrofit.Builder): Retrofit =
+        builder.createRetrofit("https://lb-sa.cdn-perfprod.com/")
 
     @Singleton
     @Provides
-    fun provideLEUApi(@Named(L_EU) retrofit: Retrofit): LuminousEUApi {
-        return retrofit.create(LuminousEUApi::class.java)
-    }
+    fun provideLEUApi(@Named(L_EU) retrofit: Retrofit): LuminousEUApi = retrofit.create()
 
     @Singleton
     @Provides
-    fun provideLEU2Api(@Named(L_EU2) retrofit: Retrofit): LuminousEU2Api {
-        return retrofit.create(LuminousEU2Api::class.java)
-    }
+    fun provideLEU2Api(@Named(L_EU2) retrofit: Retrofit): LuminousEU2Api = retrofit.create()
 
     @Singleton
     @Provides
-    fun provideLASApi(@Named(L_AS) retrofit: Retrofit): LuminousASApi {
-        return retrofit.create(LuminousASApi::class.java)
-    }
+    fun provideLASApi(@Named(L_AS) retrofit: Retrofit): LuminousASApi = retrofit.create()
 
     @Singleton
     @Provides
-    fun providePP_EU(@Named(PP_EU) retrofit: Retrofit): PerfprodApi {
-        return retrofit.create(PerfprodApi::class.java)
-    }
+    fun providePP_EU(@Named(PP_EU) retrofit: Retrofit): PerfprodApi = retrofit.create()
 
     @Singleton
     @Provides
-    fun providePP_EU2(@Named(PP_EU2) retrofit: Retrofit): PerfprodApi {
-        return retrofit.create(PerfprodApi::class.java)
-    }
+    fun providePP_EU2(@Named(PP_EU2) retrofit: Retrofit): PerfprodApi = retrofit.create()
 
     @Singleton
     @Provides
-    fun providePP_EU3(@Named(PP_EU3) retrofit: Retrofit): PerfprodApi {
-        return retrofit.create(PerfprodApi::class.java)
-    }
+    fun providePP_EU3(@Named(PP_EU3) retrofit: Retrofit): PerfprodApi = retrofit.create()
 
     @Singleton
     @Provides
-    fun providePP_EU4(@Named(PP_EU4) retrofit: Retrofit): PerfprodApi {
-        return retrofit.create(PerfprodApi::class.java)
-    }
+    fun providePP_EU4(@Named(PP_EU4) retrofit: Retrofit): PerfprodApi = retrofit.create()
 
     @Singleton
     @Provides
-    fun providePP_EU5(@Named(PP_EU5) retrofit: Retrofit): PerfprodApi {
-        return retrofit.create(PerfprodApi::class.java)
-    }
+    fun providePP_EU5(@Named(PP_EU5) retrofit: Retrofit): PerfprodApi = retrofit.create()
 
     @Singleton
     @Provides
-    fun providePP_NA(@Named(PP_NA) retrofit: Retrofit): PerfprodApi {
-        return retrofit.create(PerfprodApi::class.java)
-    }
+    fun providePP_NA(@Named(PP_NA) retrofit: Retrofit): PerfprodApi = retrofit.create()
 
     @Singleton
     @Provides
-    fun providePP_AS(@Named(PP_AS) retrofit: Retrofit): PerfprodApi {
-        return retrofit.create(PerfprodApi::class.java)
-    }
+    fun providePP_AS(@Named(PP_AS) retrofit: Retrofit): PerfprodApi = retrofit.create()
 
     @Singleton
     @Provides
-    fun providePP_SA(@Named(PP_SA) retrofit: Retrofit): PerfprodApi {
-        return retrofit.create(PerfprodApi::class.java)
+    fun providePP_SA(@Named(PP_SA) retrofit: Retrofit): PerfprodApi = retrofit.create()
+
+    private inline fun <reified T> Retrofit.create(): T {
+        return create(T::class.java)
+    }
+
+    private fun Retrofit.Builder.createRetrofit(baseUrl: String): Retrofit {
+        return baseUrl(baseUrl).build()
     }
 }

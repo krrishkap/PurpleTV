@@ -1,6 +1,6 @@
-package tv.twitch.android.models.settings;
+package tv.twitch.android.models.settings
 
-public enum SettingsDestination {
+enum class SettingsDestination {
     Account,
     AddEmail,
     ChallengeGates,

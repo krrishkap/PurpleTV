@@ -72,4 +72,8 @@ class BadgeSet(
     fun hasBadges(userId: Int): Boolean {
         return badges[userId]?.isNotEmpty() ?: false
     }
+
+    companion object {
+        val EMPTY = BadgeSet()
+    }
 }

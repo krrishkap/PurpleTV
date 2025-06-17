@@ -42,7 +42,7 @@ class BuildAppDex(BaseTask):
     __TASK_NAME__ = "BUILD_DEX_APP"
 
     def run(self, env: Env):
-        command = [env.app_dir.joinpath("gradlew.bat").as_posix(), "copyAppDex"]
+        command = [env.app_dir.joinpath("gradlew.bat").as_posix(), "genDex"]
         logger.debug({'command': command})
         subprocess.run(command, cwd=env.app_dir.as_posix())
 

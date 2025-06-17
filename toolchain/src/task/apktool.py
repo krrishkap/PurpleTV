@@ -27,7 +27,7 @@ class DecompileApk(BaseTask):
         print(f"Decompiling `{ctx.apk_desc.file.as_posix()}` to `{ctx.apk_dir.as_posix()}`...")
         command = [*RUN_JAVA_COMMAND, "-jar", env.apktool_jar.as_posix(),
                    "-p", env.bin_dir.joinpath("framework").as_posix(),
-                   "d", "-f", "-v", "-b", "--keep-broken-res", "--use-aapt2",
+                   "d", "-f", "-b", "--keep-broken-res", "--use-aapt2",
                    ctx.apk_desc.file.as_posix(), "-o", ctx.apk_dir.as_posix()]
         if self._verbose:
             command.append("-v")
@@ -273,7 +273,7 @@ class FixLauncherIcon(BaseTask):
 class UberSignApk(BaseTask):
     """
     Подписывает скомпилированный APK файл.
-
+co
     Использует uber-apk-signer для подписи APK с указанным ключом.
     """
     __NAME__ = "UBER_SIGN_APK"

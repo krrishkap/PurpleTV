@@ -13,31 +13,43 @@ import javax.inject.Singleton
 class BttvRepository @Inject constructor(
     private val bttvDataSource: BttvRemoteDataSource
 ) {
-    fun getBttvGlobalEmotes(useWebp: Boolean): Single<EmoteSet> {
+    fun getGlobalBttvEmotes(useWebp: Boolean): Single<EmoteSet> {
         return bttvDataSource.getGlobalBttvEmotes(useWebp)
-    }
-
-    fun getBttvChannelEmotes(channelId: Int, useWebp: Boolean): Single<EmoteSet> {
-        return bttvDataSource.getChannelBttvEmotes(channelId = channelId, useWebp = useWebp)
-            .onErrorResumeNext {
-                LoggerImpl.warning("[BTTV] Cannot fetch channel emotes: $channelId")
+            .onErrorResumeNext { throwable ->
+                LoggerImpl.error("[BTTV] Cannot fetch global emotes: ${throwable.message}")
                 Single.just(EmoteSet.EMPTY)
             }
     }
 
-    fun getFfzGlobalEmotes(): Single<EmoteSet> {
-        return bttvDataSource.getGlobalFfzEmotes()
+    fun getChannelBttvEmotes(channelId: Int, useWebp: Boolean): Single<EmoteSet> {
+        return bttvDataSource.getChannelBttvEmotes(channelId = channelId, useWebp = useWebp)
+            .onErrorResumeNext { throwable ->
+                LoggerImpl.warning("[BTTV] [$channelId] Cannot fetch channel emotes: ${throwable.message}")
+                Single.just(EmoteSet.EMPTY)
+            }
     }
 
-    fun getFfzChannelEmotes(channelId: Int): Single<EmoteSet> {
+    fun getGlobalFfzEmotes(): Single<EmoteSet> {
+        return bttvDataSource.getGlobalFfzEmotes()
+            .onErrorResumeNext { throwable ->
+                LoggerImpl.error("[FFZ] Cannot fetch global emotes: ${throwable.message}")
+                Single.just(EmoteSet.EMPTY)
+            }
+    }
+
+    fun getChannelFfzEmotes(channelId: Int): Single<EmoteSet> {
         return bttvDataSource.getChannelFfzEmotes(channelId = channelId)
-            .onErrorResumeNext {
-                LoggerImpl.warning("[BTTV] Cannot fetch channel emotes: $channelId")
+            .onErrorResumeNext { throwable ->
+                LoggerImpl.warning("[FFZ] [$channelId] Cannot fetch channel emotes: ${throwable.message}")
                 Single.just(EmoteSet.EMPTY)
             }
     }
 
     fun getBttvBadges(): Single<BadgeSet> {
         return bttvDataSource.getBadges()
+            .onErrorResumeNext { throwable ->
+                LoggerImpl.error("[BTTV] Cannot fetch badges: ${throwable.message}")
+                Single.just(BadgeSet.EMPTY)
+            }
     }
 }

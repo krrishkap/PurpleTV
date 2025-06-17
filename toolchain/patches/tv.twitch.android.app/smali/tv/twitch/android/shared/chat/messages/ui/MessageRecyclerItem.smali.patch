@@ -1,0 +1,120 @@
+diff --git a/smali_classes7/tv/twitch/android/shared/chat/messages/ui/MessageRecyclerItem.smali b/smali_classes7/tv/twitch/android/shared/chat/messages/ui/MessageRecyclerItem.smali
+--- a/smali_classes7/tv/twitch/android/shared/chat/messages/ui/MessageRecyclerItem.smali
++++ b/smali_classes7/tv/twitch/android/shared/chat/messages/ui/MessageRecyclerItem.smali
+@@ -10,6 +10,7 @@
+ .implements Ltv/twitch/android/shared/chat/pub/messages/ui/ModActionableAdapterItem;
+ .implements Ltv/twitch/android/shared/chat/pub/messages/ui/InlineClipChatAdapterItem;
+ .implements Ltv/twitch/android/shared/chat/pub/messages/ui/HighlightableChatAdapterItem;
++.implements Ltv/purple/monolith/bridge/ex/IMessageRecyclerItem;
+ 
+ 
+ # annotations
+@@ -109,6 +110,10 @@
+ 
+ .field private final viewerUserId:Ljava/lang/Integer;
+ 
++.field private abColor:Ljava/lang/Integer;
++
++.field private highlightColor:Ljava/lang/Integer;
++
+ 
+ # direct methods
+ .method static constructor <clinit>()V
+@@ -1910,3 +1915,97 @@
+ 
+     return-void
+ .end method
++
++.method public setHighlightColor(Ljava/lang/Integer;)V
++    .registers 2
++    .param p1, "highlightColor"    # Ljava/lang/Integer;
++        .annotation build Landroidx/annotation/Nullable;
++        .end annotation
++    .end param
++
++    .prologue
++    .line 94
++    iput-object p1, p0, Ltv/twitch/android/shared/chat/messages/ui/MessageRecyclerItem;->highlightColor:Ljava/lang/Integer;
++
++    .line 95
++    return-void
++.end method
++
++.method public getHighlightColor()Ljava/lang/Integer;
++    .registers 2
++    .annotation build Landroidx/annotation/Nullable;
++    .end annotation
++
++    .prologue
++    .line 100
++    iget-object v0, p0, Ltv/twitch/android/shared/chat/messages/ui/MessageRecyclerItem;->highlightColor:Ljava/lang/Integer;
++
++    return-object v0
++.end method
++
++.method public getAlternatingBackground()Ljava/lang/Integer;
++    .registers 2
++    .annotation build Landroidx/annotation/Nullable;
++    .end annotation
++
++    .prologue
++    .line 106
++    iget-object v0, p0, Ltv/twitch/android/shared/chat/messages/ui/MessageRecyclerItem;->abColor:Ljava/lang/Integer;
++
++    return-object v0
++.end method
++
++.method public setAlternatingBackground(Ljava/lang/Integer;)V
++    .registers 2
++    .param p1, "color"    # Ljava/lang/Integer;
++        .annotation build Landroidx/annotation/Nullable;
++        .end annotation
++    .end param
++
++    .prologue
++    .line 111
++    iput-object p1, p0, Ltv/twitch/android/shared/chat/messages/ui/MessageRecyclerItem;->abColor:Ljava/lang/Integer;
++
++    .line 112
++    return-void
++.end method
++
++.method public skipForAlternatingBackground()Z
++    .registers 4
++
++    .prologue
++    const/4 v0, 0x1
++
++    .line 136
++    iget-object v1, p0, Ltv/twitch/android/shared/chat/messages/ui/MessageRecyclerItem;->authorUserId:Ljava/lang/Integer;
++
++    if-nez v1, :cond_6
++
++    .line 140
++    :cond_5
++    :goto_5
++    return v0
++
++    :cond_6
++    iget-object v1, p0, Ltv/twitch/android/shared/chat/messages/ui/MessageRecyclerItem;->authorUserId:Ljava/lang/Integer;
++
++    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
++
++    move-result v1
++
++    if-eqz v1, :cond_5
++
++    iget-object v1, p0, Ltv/twitch/android/shared/chat/messages/ui/MessageRecyclerItem;->authorUserId:Ljava/lang/Integer;
++
++    invoke-virtual {v1}, Ljava/lang/Integer;->intValue()I
++
++    move-result v1
++
++    const/4 v2, -0x1
++
++    if-eq v1, v2, :cond_5
++
++    const/4 v0, 0x0
++
++    goto :goto_5
++.end method
