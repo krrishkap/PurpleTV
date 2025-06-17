@@ -18,14 +18,10 @@ class NopRepository @Inject constructor(
     private val nopApiDataSource: NopApiDataSource,
     private val nopFileDataSource: NopFileDataSource
 ) {
-    fun getDevIds(): Single<List<Int>> {
-        return Single.just(listOf(157861306))
-    }
-
     fun getPtvBadges(): Single<BadgeSet> {
         return nopApiDataSource.getBadges()
-            .onErrorResumeNext {
-                LoggerImpl.warning("[nop] Cannot fetch badges. Using a local data source")
+            .onErrorResumeNext { throwable ->
+                LoggerImpl.warning("[nop] Cannot fetch badges: ${throwable.message}. Using a local data source")
                 nopFileDataSource.getBadges()
             }
     }
@@ -36,8 +32,8 @@ class NopRepository @Inject constructor(
 
     fun getDonators(): Single<List<Donation>> {
         return nopApiDataSource.getDonators()
-            .onErrorResumeNext {
-                LoggerImpl.warning("[nop] Cannot fetch donators. Using a local data source")
+            .onErrorResumeNext { throwable ->
+                LoggerImpl.warning("[nop] Cannot fetch donators: ${throwable.message}. Using a local data source")
                 nopFileDataSource.getDonators()
             }
     }

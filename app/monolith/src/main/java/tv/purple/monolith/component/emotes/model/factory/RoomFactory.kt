@@ -28,7 +28,7 @@ class RoomFactory @Inject constructor(
             packages.add(
                 EmotePackageImpl(
                     source = EmoteFetcherFactory {
-                        bttv.getBttvChannelEmotes(
+                        bttv.getChannelBttvEmotes(
                             channelId,
                             configuration.useWebp
                         )
@@ -40,7 +40,7 @@ class RoomFactory @Inject constructor(
         if (configuration.ffz) {
             packages.add(
                 EmotePackageImpl(
-                    source = EmoteFetcherFactory { bttv.getFfzChannelEmotes(channelId) },
+                    source = EmoteFetcherFactory { bttv.getChannelFfzEmotes(channelId) },
                     token = EmotePackageSet.FfzChannel
                 )
             )
@@ -71,7 +71,7 @@ class RoomFactory @Inject constructor(
         if (configuration.bttv) {
             packages.add(
                 EmotePackageImpl(
-                    source = EmoteFetcherFactory { bttv.getBttvGlobalEmotes(configuration.useWebp) },
+                    source = EmoteFetcherFactory { bttv.getGlobalBttvEmotes(configuration.useWebp) },
                     token = EmotePackageSet.BttvGlobal
                 )
             )
@@ -79,7 +79,7 @@ class RoomFactory @Inject constructor(
         if (configuration.ffz) {
             packages.add(
                 EmotePackageImpl(
-                    source = EmoteFetcherFactory { bttv.getFfzGlobalEmotes() },
+                    source = EmoteFetcherFactory { bttv.getGlobalFfzEmotes() },
                     token = EmotePackageSet.FfzGlobal
                 )
             )

@@ -27,6 +27,20 @@ android {
     }
 }
 
+tasks.configureEach {
+    when (this.name) {
+        "compileReleaseJavaWithJavac" -> this.doLast {
+            delete(file("${layout.buildDirectory.get()}/intermediates/javac/release/compileReleaseJavaWithJavac/classes/tv/twitch"))
+        }
+        "bundleLibRuntimeToJarRelease" -> this.doFirst {
+            copy {
+                from("${rootProject.projectDir}/app/R.jar")
+                into("${layout.buildDirectory.get()}/intermediates/compile_r_class_jar/release/generateReleaseRFile")
+            }
+        }
+    }
+}
+
 dependencies {
     kapt(Dependencies.HiltCompiler)
     kapt(Dependencies.RoomCompiler)

@@ -21,7 +21,9 @@ class ExperimentHelperHookImpl(
                 Experiment.VISAGE_TRACKING -> false
 
                 Experiment.MESSAGE_EFFECT_RENDERING,
-                Experiment.ANIMATED_EMOTES -> true
+                Experiment.ANIMATED_EMOTES,
+                Experiment.PROFILE_SETTINGS_REORG,
+                Experiment.CHAT_SETTINGS_MVVM, -> true
 
                 else -> null
             }

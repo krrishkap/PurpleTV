@@ -18,8 +18,8 @@ class StvRepository @Inject constructor(
 
     fun getStvChannelEmotes(channelId: Int): Single<EmoteSet> {
         return stvDataSource.getChannelEmotes(channelId = channelId)
-            .onErrorResumeNext {
-                LoggerImpl.warning("[STV] Cannot fetch channel emotes: $channelId")
+            .onErrorResumeNext { throwable ->
+                LoggerImpl.warning("[STV] [$channelId] Cannot fetch channel emotes: ${throwable.message}")
                 Single.just(EmoteSet.EMPTY)
             }
     }
