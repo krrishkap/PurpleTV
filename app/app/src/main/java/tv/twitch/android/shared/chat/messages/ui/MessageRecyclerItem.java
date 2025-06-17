@@ -20,6 +20,7 @@ import tv.twitch.android.core.strings.StringResource;
 import tv.twitch.android.shared.chat.pub.messages.ui.CensorContentChatAdapterItem;
 import tv.twitch.android.shared.chat.pub.messages.ui.ChatItemClickEvent;
 import tv.twitch.android.shared.chat.pub.messages.ui.ChatMessageClickedEvents;
+import tv.twitch.android.shared.chat.pub.messages.ui.ChatMessageListStyle;
 import tv.twitch.android.shared.chat.pub.messages.ui.ChatMessageType;
 import tv.twitch.android.shared.chat.pub.messages.ui.DeletableChatAdapterItem;
 import tv.twitch.android.shared.chat.pub.messages.ui.ModActionableAdapterItem;
@@ -41,7 +42,7 @@ public class MessageRecyclerItem implements RecyclerAdapterItem, DeletableChatAd
     private final Function1<Context, Spanned> messageSpanCreator;
     private final Long messageTimestamp;
     private final ChatMessageType messageType;
-    private final SystemMessageType msgType;
+    //private final SystemMessageType msgType;
     private int paddingPx;
     private final String rawMessage;
     private float textSizePx;
@@ -53,7 +54,7 @@ public class MessageRecyclerItem implements RecyclerAdapterItem, DeletableChatAd
 
     /* ... */
 
-    public MessageRecyclerItem(String str, int i, String str2, String str3, int i2, Function1<? super Context, ? extends Spanned> messageSpanCreator, SystemMessageType systemMessageType, float f, int i3, float f2, boolean z, boolean z2, String str4, EventDispatcher<ChatItemClickEvent> eventDispatcher, EventDispatcher<ChatMessageClickedEvents> eventDispatcher2) {
+    public MessageRecyclerItem(String str, int i, String str2, String str3, int i2, Function1<? super Context, ? extends Spanned> messageSpanCreator/*, SystemMessageType systemMessageType */, float f, int i3, float f2, boolean z, boolean z2, String str4, EventDispatcher<ChatItemClickEvent> eventDispatcher, EventDispatcher<ChatMessageClickedEvents> eventDispatcher2) {
         /* ... */
 
         throw new VirtualImpl();
@@ -71,6 +72,11 @@ public class MessageRecyclerItem implements RecyclerAdapterItem, DeletableChatAd
 
     @Override
     public Integer getUserId() {
+        throw new VirtualImpl();
+    }
+
+    @Override
+    public void setMessageListStyle(ChatMessageListStyle chatMessageListStyle) {
         throw new VirtualImpl();
     }
 

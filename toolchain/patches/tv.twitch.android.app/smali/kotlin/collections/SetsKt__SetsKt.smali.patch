@@ -1,8 +1,8 @@
 diff --git a/smali/kotlin/collections/SetsKt__SetsKt.smali b/smali/kotlin/collections/SetsKt__SetsKt.smali
 --- a/smali/kotlin/collections/SetsKt__SetsKt.smali
 +++ b/smali/kotlin/collections/SetsKt__SetsKt.smali
-@@ -179,3 +179,41 @@
-     :goto_0
+@@ -208,3 +208,41 @@
+ 
      return-object p0
  .end method
 +
@@ -43,3 +43,4 @@ diff --git a/smali/kotlin/collections/SetsKt__SetsKt.smali b/smali/kotlin/collec
 +
 +    return-object p0
 +.end method
+\ No newline at end of file

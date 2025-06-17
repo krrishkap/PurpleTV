@@ -1,28 +1,28 @@
 diff --git a/smali_classes7/tv/twitch/android/shared/chat/ChatViewPresenter.smali b/smali_classes7/tv/twitch/android/shared/chat/ChatViewPresenter.smali
 --- a/smali_classes7/tv/twitch/android/shared/chat/ChatViewPresenter.smali
 +++ b/smali_classes7/tv/twitch/android/shared/chat/ChatViewPresenter.smali
-@@ -2836,6 +2836,20 @@
+@@ -2842,6 +2842,20 @@
  
-     move-result-object v3
+     move-result-object v2
  
-+    const/4 v5, 0x1
++    const/4 v4, 0x1
 +
-+    instance-of v4, v3, Ltv/purple/monolith/features/logs/bridge/ChatLocalLogsCommand;
++    instance-of v3, v2, Ltv/purple/monolith/features/logs/bridge/ChatLocalLogsCommand;
 +
-+    if-eqz v4, :cond_z
++    if-eqz v3, :cond_z
 +
 +    :cond_zz
-+    return v5
++    return v4
 +
 +    :cond_z
-+    instance-of v4, v3, Ltv/purple/monolith/features/logs/bridge/ChatTwitchLogsCommand;
++    instance-of v3, v2, Ltv/purple/monolith/features/logs/bridge/ChatTwitchLogsCommand;
 +
-+    if-nez v4, :cond_zz
++    if-nez v3, :cond_zz
 +
-     instance-of v4, v3, Ltv/twitch/android/shared/chat/command/ChatCommandAction$WhisperUnverified;
+     instance-of v3, v2, Ltv/twitch/android/shared/chat/command/ChatCommandAction$WhisperUnverified;
  
-     const/4 v5, 0x1
-@@ -5614,6 +5628,8 @@
+     const/4 v4, 0x1
+@@ -5704,6 +5718,8 @@
  
      invoke-virtual {v0}, Ltv/twitch/android/core/mvp/viewdelegate/BaseViewDelegate;->onConfigurationChanged()V
  

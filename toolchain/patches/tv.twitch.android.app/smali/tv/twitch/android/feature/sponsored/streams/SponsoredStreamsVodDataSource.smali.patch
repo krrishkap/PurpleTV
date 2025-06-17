@@ -1,6 +1,6 @@
-diff --git a/smali_classes6/tv/twitch/android/feature/sponsored/streams/SponsoredStreamsVodDataSource.smali b/smali_classes6/tv/twitch/android/feature/sponsored/streams/SponsoredStreamsVodDataSource.smali
---- a/smali_classes6/tv/twitch/android/feature/sponsored/streams/SponsoredStreamsVodDataSource.smali
-+++ b/smali_classes6/tv/twitch/android/feature/sponsored/streams/SponsoredStreamsVodDataSource.smali
+diff --git a/smali_classes5/tv/twitch/android/feature/sponsored/streams/SponsoredStreamsVodDataSource.smali b/smali_classes5/tv/twitch/android/feature/sponsored/streams/SponsoredStreamsVodDataSource.smali
+--- a/smali_classes5/tv/twitch/android/feature/sponsored/streams/SponsoredStreamsVodDataSource.smali
++++ b/smali_classes5/tv/twitch/android/feature/sponsored/streams/SponsoredStreamsVodDataSource.smali
 @@ -125,7 +125,7 @@
  
  # virtual methods
@@ -22,9 +22,9 @@ diff --git a/smali_classes6/tv/twitch/android/feature/sponsored/streams/Sponsore
 -
 -    sget-object v1, Ltv/twitch/android/feature/sponsored/streams/SponsoredStreamsVodDataSource$observeModelUpdates$1;->INSTANCE:Ltv/twitch/android/feature/sponsored/streams/SponsoredStreamsVodDataSource$observeModelUpdates$1;
 -
--    new-instance v2, Lte/k;
+-    new-instance v2, Lbd/k;
 -
--    invoke-direct {v2, v1}, Lte/k;-><init>(Lkotlin/jvm/functions/Function1;)V
+-    invoke-direct {v2, v1}, Lbd/k;-><init>(Lkotlin/jvm/functions/Function1;)V
 -
 -    invoke-virtual {v0, v2}, Lio/reactivex/Flowable;->switchMap(Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
 +    sget-object v0, Ltv/twitch/android/models/ads/SponsoredStream$NotSponsored;->INSTANCE:Ltv/twitch/android/models/ads/SponsoredStream$NotSponsored;
@@ -35,9 +35,9 @@ diff --git a/smali_classes6/tv/twitch/android/feature/sponsored/streams/Sponsore
 -
 -    invoke-direct {v1, p0}, Ltv/twitch/android/feature/sponsored/streams/SponsoredStreamsVodDataSource$observeModelUpdates$2;-><init>(Ltv/twitch/android/feature/sponsored/streams/SponsoredStreamsVodDataSource;)V
 -
--    new-instance v2, Lte/l;
+-    new-instance v2, Lbd/l;
 -
--    invoke-direct {v2, v1}, Lte/l;-><init>(Lkotlin/jvm/functions/Function1;)V
+-    invoke-direct {v2, v1}, Lbd/l;-><init>(Lkotlin/jvm/functions/Function1;)V
 -
 -    invoke-virtual {v0, v2}, Lio/reactivex/Flowable;->switchMapSingle(Lio/reactivex/functions/Function;)Lio/reactivex/Flowable;
 +    invoke-static {v0}, Lio/reactivex/Flowable;->just(Ljava/lang/Object;)Lio/reactivex/Flowable;

@@ -232,7 +232,7 @@ diff --git a/smali_classes6/tv/twitch/android/shared/ads/dsa/DSAWebViewPresenter
 -
 -    if-eqz p2, :cond_8
 -
--    const/4 p2, 0x1
+-    move p2, v1
 -
 -    goto :goto_0
 -
@@ -246,7 +246,7 @@ diff --git a/smali_classes6/tv/twitch/android/shared/ads/dsa/DSAWebViewPresenter
 -    :goto_0
 -    if-eqz p2, :cond_9
 -
--    const/4 p2, 0x1
+-    move p2, v1
 -
 -    goto :goto_1
 -
@@ -335,7 +335,7 @@ diff --git a/smali_classes6/tv/twitch/android/shared/ads/dsa/DSAWebViewPresenter
 -
 -    if-eqz p2, :cond_e
 -
--    const/4 p2, 0x1
+-    move p2, v1
 -
 -    goto :goto_3
 -
@@ -349,7 +349,7 @@ diff --git a/smali_classes6/tv/twitch/android/shared/ads/dsa/DSAWebViewPresenter
 -    :goto_3
 -    if-eqz p2, :cond_f
 -
--    const/4 p2, 0x1
+-    move p2, v1
 -
 -    goto :goto_4
 -

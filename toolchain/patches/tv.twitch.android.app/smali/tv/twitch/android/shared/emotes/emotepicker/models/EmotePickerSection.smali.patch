@@ -1,16 +1,7 @@
 diff --git a/smali_classes7/tv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection.smali b/smali_classes7/tv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection.smali
 --- a/smali_classes7/tv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection.smali
 +++ b/smali_classes7/tv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection.smali
-@@ -14,8 +14,6 @@
- 
- 
- # static fields
--.field private static final synthetic $ENTRIES:Lkotlin/enums/EnumEntries;
--
- .field private static final synthetic $VALUES:[Ltv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection;
- 
- .field public static final enum ALL:Ltv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection;
-@@ -24,39 +22,57 @@
+@@ -24,10 +24,14 @@
  
  .field public static final enum FREQUENTLY_USED:Ltv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection;
  
@@ -22,100 +13,37 @@ diff --git a/smali_classes7/tv/twitch/android/shared/emotes/emotepicker/models/E
  # direct methods
  .method private static final synthetic $values()[Ltv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection;
 -    .locals 3
-+    .registers 3
++    .locals 5
  
--    const/4 v0, 0x3
-+    const/4 v0, 0x5
+     sget-object v0, Ltv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection;->FREQUENTLY_USED:Ltv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection;
  
-     new-array v0, v0, [Ltv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection;
+@@ -35,7 +39,11 @@
  
--    sget-object v1, Ltv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection;->FREQUENTLY_USED:Ltv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection;
-+    const/4 v1, 0x0
+     sget-object v2, Ltv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection;->ALL:Ltv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection;
  
--    const/4 v2, 0x0
-+    sget-object v2, Ltv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection;->FREQUENTLY_USED:Ltv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection;
- 
--    aput-object v1, v0, v2
-+    aput-object v2, v0, v1
- 
--    sget-object v1, Ltv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection;->CHANNEL:Ltv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection;
-+    const/4 v1, 0x1
- 
--    const/4 v2, 0x1
-+    sget-object v2, Ltv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection;->CHANNEL:Ltv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection;
- 
--    aput-object v1, v0, v2
-+    aput-object v2, v0, v1
- 
--    sget-object v1, Ltv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection;->ALL:Ltv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection;
-+    const/4 v1, 0x2
- 
--    const/4 v2, 0x2
-+    sget-object v2, Ltv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection;->ALL:Ltv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection;
+-    filled-new-array {v0, v1, v2}, [Ltv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection;
++    sget-object v3, Ltv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection;->PURPLETV:Ltv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection;
 +
-+    aput-object v2, v0, v1
++    sget-object v4, Ltv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection;->PURPLETV_FAV:Ltv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection;
 +
-+    const/4 v1, 0x3
-+
-+    sget-object v2, Ltv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection;->PURPLETV:Ltv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection;
-+
-+    aput-object v2, v0, v1
++    filled-new-array {v0, v1, v2, v3, v4}, [Ltv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection;
  
--    aput-object v1, v0, v2
-+    const/4 v1, 0x4
-+
-+    sget-object v2, Ltv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection;->PURPLETV_FAV:Ltv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection;
-+
-+    aput-object v2, v0, v1
+     move-result-object v0
  
-     return-object v0
- .end method
- 
- .method static constructor <clinit>()V
--    .locals 3
-+    .registers 3
- 
-+    .prologue
-+    .line 4
-     new-instance v0, Ltv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection;
- 
-     const-string v1, "FREQUENTLY_USED"
-@@ -67,6 +83,7 @@
- 
-     sput-object v0, Ltv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection;->FREQUENTLY_USED:Ltv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection;
- 
-+    .line 5
-     new-instance v0, Ltv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection;
- 
-     const-string v1, "CHANNEL"
-@@ -77,6 +94,7 @@
- 
-     sput-object v0, Ltv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection;->CHANNEL:Ltv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection;
- 
-+    .line 6
-     new-instance v0, Ltv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection;
- 
-     const-string v1, "ALL"
-@@ -87,66 +105,72 @@
+@@ -75,6 +83,26 @@
  
      sput-object v0, Ltv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection;->ALL:Ltv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection;
  
--    invoke-static {}, Ltv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection;->$values()[Ltv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection;
-+    .line 7
 +    new-instance v0, Ltv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection;
- 
--    move-result-object v0
++
 +    const-string v1, "PURPLETV"
- 
--    sput-object v0, Ltv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection;->$VALUES:[Ltv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection;
++
 +    const/4 v2, 0x3
 +
 +    invoke-direct {v0, v1, v2}, Ltv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection;-><init>(Ljava/lang/String;I)V
- 
--    invoke-static {v0}, Lkotlin/enums/EnumEntriesKt;->enumEntries([Ljava/lang/Enum;)Lkotlin/enums/EnumEntries;
++
 +    sput-object v0, Ltv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection;->PURPLETV:Ltv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection;
 +
-+    .line 8
 +    new-instance v0, Ltv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection;
 +
 +    const-string v1, "PURPLETV_FAV"
@@ -126,73 +54,6 @@ diff --git a/smali_classes7/tv/twitch/android/shared/emotes/emotepicker/models/E
 +
 +    sput-object v0, Ltv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection;->PURPLETV_FAV:Ltv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection;
 +
-+    invoke-static {}, Ltv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection;->$values()[Ltv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection;
+     invoke-static {}, Ltv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection;->$values()[Ltv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection;
  
      move-result-object v0
- 
--    sput-object v0, Ltv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection;->$ENTRIES:Lkotlin/enums/EnumEntries;
-+    sput-object v0, Ltv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection;->$VALUES:[Ltv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection;
- 
-     return-void
- .end method
- 
- .method private constructor <init>(Ljava/lang/String;I)V
--    .locals 0
-+    .registers 3
-+    .param p1, "$enum$name"    # Ljava/lang/String;
-+    .param p2, "$enum$ordinal"    # I
-     .annotation system Ldalvik/annotation/Signature;
-         value = {
-             "()V"
-         }
-     .end annotation
- 
-+    .prologue
-+    .line 3
-     invoke-direct {p0, p1, p2}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
- 
-     return-void
- .end method
- 
--.method public static getEntries()Lkotlin/enums/EnumEntries;
--    .locals 1
--    .annotation system Ldalvik/annotation/Signature;
--        value = {
--            "()",
--            "Lkotlin/enums/EnumEntries<",
--            "Ltv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection;",
--            ">;"
--        }
--    .end annotation
--
--    sget-object v0, Ltv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection;->$ENTRIES:Lkotlin/enums/EnumEntries;
--
--    return-object v0
--.end method
--
- .method public static valueOf(Ljava/lang/String;)Ltv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection;
--    .locals 1
-+    .registers 2
-+    .param p0, "value"    # Ljava/lang/String;
- 
-+    .prologue
-     const-class v0, Ltv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection;
- 
-     invoke-static {v0, p0}, Ljava/lang/Enum;->valueOf(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
- 
--    move-result-object p0
-+    move-result-object v0
- 
--    check-cast p0, Ltv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection;
-+    check-cast v0, Ltv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection;
- 
--    return-object p0
-+    return-object v0
- .end method
- 
- .method public static values()[Ltv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection;
--    .locals 1
-+    .registers 1
- 
-     sget-object v0, Ltv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection;->$VALUES:[Ltv/twitch/android/shared/emotes/emotepicker/models/EmotePickerSection;
- 

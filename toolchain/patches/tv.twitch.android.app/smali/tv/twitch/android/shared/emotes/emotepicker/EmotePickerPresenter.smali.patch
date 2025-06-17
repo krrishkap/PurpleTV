@@ -14,12 +14,12 @@ diff --git a/smali_classes7/tv/twitch/android/shared/emotes/emotepicker/EmotePic
  
      invoke-direct {v3, p0, p1, p2}, Ltv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter$createAllEmoteSetsFlowable$1;-><init>(Ltv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter;Ljava/lang/Integer;Ltv/twitch/android/shared/emotes/emotepicker/EmotePickerSource;)V
  
--    new-instance p1, Lfr/f;
-+    new-instance v4, Lfr/f;
+-    new-instance p1, Lpp/f;
++    new-instance v4, Lpp/f;
 +
-+    invoke-direct {v4, v3}, Lfr/f;-><init>(Lkotlin/jvm/functions/Function3;)V
++    invoke-direct {v4, v3}, Lpp/f;-><init>(Lkotlin/jvm/functions/Function3;)V
  
--    invoke-direct {p1, v3}, Lfr/f;-><init>(Lkotlin/jvm/functions/Function3;)V
+-    invoke-direct {p1, v3}, Lpp/f;-><init>(Lkotlin/jvm/functions/Function3;)V
 +    invoke-static {v0, v1, v2, v4}, Lio/reactivex/Flowable;->combineLatest(Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lio/reactivex/functions/Function3;)Lio/reactivex/Flowable;
 +
 +    move-result-object v4

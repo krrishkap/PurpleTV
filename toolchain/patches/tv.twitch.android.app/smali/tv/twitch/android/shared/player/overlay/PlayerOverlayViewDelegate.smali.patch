@@ -1,7 +1,7 @@
 diff --git a/smali_classes8/tv/twitch/android/shared/player/overlay/PlayerOverlayViewDelegate.smali b/smali_classes8/tv/twitch/android/shared/player/overlay/PlayerOverlayViewDelegate.smali
 --- a/smali_classes8/tv/twitch/android/shared/player/overlay/PlayerOverlayViewDelegate.smali
 +++ b/smali_classes8/tv/twitch/android/shared/player/overlay/PlayerOverlayViewDelegate.smali
-@@ -437,6 +437,18 @@
+@@ -409,6 +409,18 @@
  
      invoke-virtual {v1, v2}, Ltv/twitch/android/shared/player/overlay/BottomPlayerControlOverlayViewDelegate;->setBottomPlayerControlListener(Ltv/twitch/android/shared/player/overlay/BottomPlayerControlOverlayViewDelegate$BottomPlayerControlListener;)V
  
@@ -20,20 +20,7 @@ diff --git a/smali_classes8/tv/twitch/android/shared/player/overlay/PlayerOverla
      return-void
  .end method
  
-@@ -1286,6 +1298,12 @@
-     :goto_4
-     invoke-virtual {v0, v2}, Landroid/view/View;->setVisibility(I)V
- 
-+    iget-object v1, p0, Ltv/twitch/android/shared/player/overlay/PlayerOverlayViewDelegate;->createClipButton:Landroid/widget/ImageView;
-+
-+    iget-object v2, p0, Ltv/twitch/android/shared/player/overlay/PlayerOverlayViewDelegate;->createClipButtonComposeView:Landroidx/compose/ui/platform/ComposeView;
-+
-+    invoke-static {v1, v2}, Ltv/purple/monolith/features/ui/bridge/UIHook;->maybeHideCreateClipButton(Landroid/widget/ImageView;Landroidx/compose/ui/platform/ComposeView;)V
-+
-     return-void
- .end method
- 
-@@ -1328,6 +1346,10 @@
+@@ -1204,6 +1216,10 @@
  .method public final setShouldShowChromecast(Z)V
      .locals 1
  
@@ -44,18 +31,18 @@ diff --git a/smali_classes8/tv/twitch/android/shared/player/overlay/PlayerOverla
      iput-boolean p1, p0, Ltv/twitch/android/shared/player/overlay/PlayerOverlayViewDelegate;->shouldShowChromecast:Z
  
      iget-object v0, p0, Ltv/twitch/android/shared/player/overlay/PlayerOverlayViewDelegate;->castButton:Landroidx/mediarouter/app/MediaRouteButton;
-@@ -1424,6 +1446,10 @@
-     invoke-virtual {v0, v1}, Landroidx/mediarouter/app/MediaRouteButton;->setVisibility(I)V
- 
+@@ -1220,6 +1236,10 @@
      :goto_0
+     invoke-virtual {v0, p1}, Landroid/view/View;->setVisibility(I)V
+ 
 +    iget-object v0, p0, Ltv/twitch/android/shared/player/overlay/PlayerOverlayViewDelegate;->castButton:Landroidx/mediarouter/app/MediaRouteButton;
 +
 +    invoke-static {v0}, Ltv/purple/monolith/features/ui/bridge/UIHook;->maybeHideCastButton(Landroidx/mediarouter/app/MediaRouteButton;)V
-+    
++
      return-void
  .end method
  
-@@ -1500,3 +1526,44 @@
+@@ -1368,3 +1388,44 @@
  
      return-void
  .end method

@@ -36,9 +36,10 @@ object BindBridge {
                 callback.maybeChangeMessageFontSize(textView = viewHolder.systemMessage)
             }
 
-            is RaidMessageRecyclerItem.RaidMessageViewHolder -> {
-                callback.maybeChangeMessageFontSize(textView = viewHolder.text)
-            }
+            // FIXME: broken 24.9
+//            is RaidMessageRecyclerItem.RaidMessageViewHolder -> {
+//                callback.maybeChangeMessageFontSize(textView = viewHolder.bind)
+//            }
 
             is PrivateCalloutsMessageRecyclerItem.CalloutMessageViewHolder -> {
                 callback.maybeChangeMessageFontSize(textView = viewHolder.body)

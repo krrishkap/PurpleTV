@@ -5,12 +5,12 @@ diff --git a/smali/com/google/firebase/crashlytics/CrashlyticsRegistrar.smali b/
  
  # virtual methods
  .method public getComponents()Ljava/util/List;
--    .locals 4
+-    .locals 3
 +    .locals 1
      .annotation system Ldalvik/annotation/Signature;
          value = {
              "()",
-@@ -229,133 +229,7 @@
+@@ -229,125 +229,7 @@
          }
      .end annotation
  
@@ -106,9 +106,9 @@ diff --git a/smali/com/google/firebase/crashlytics/CrashlyticsRegistrar.smali b/
 -
 -    move-result-object v0
 -
--    new-instance v2, La7/d;
+-    new-instance v2, Lq5/d;
 -
--    invoke-direct {v2, p0}, La7/d;-><init>(Lcom/google/firebase/crashlytics/CrashlyticsRegistrar;)V
+-    invoke-direct {v2, p0}, Lq5/d;-><init>(Lcom/google/firebase/crashlytics/CrashlyticsRegistrar;)V
 -
 -    invoke-virtual {v0, v2}, Lcom/google/firebase/components/Component$Builder;->factory(Lcom/google/firebase/components/ComponentFactory;)Lcom/google/firebase/components/Component$Builder;
 -
@@ -128,19 +128,11 @@ diff --git a/smali/com/google/firebase/crashlytics/CrashlyticsRegistrar.smali b/
 -
 -    move-result-object v1
 -
--    const/4 v2, 0x2
+-    filled-new-array {v0, v1}, [Lcom/google/firebase/components/Component;
 -
--    new-array v2, v2, [Lcom/google/firebase/components/Component;
+-    move-result-object v0
 -
--    const/4 v3, 0x0
--
--    aput-object v0, v2, v3
--
--    const/4 v0, 0x1
--
--    aput-object v1, v2, v0
--
--    invoke-static {v2}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
+-    invoke-static {v0}, Ljava/util/Arrays;->asList([Ljava/lang/Object;)Ljava/util/List;
 +    invoke-static {}, Ljava/util/Collections;->emptyList()Ljava/util/List;
  
      move-result-object v0

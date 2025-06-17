@@ -24,76 +24,79 @@ diff --git a/smali_classes8/tv/twitch/android/shared/ui/elements/span/GlideChatI
  
  .method private scaleSquared(FFF)Landroid/graphics/Point;
 -    .locals 3
+-
+-    cmpl-float v0, p1, p3
 +    .registers 11
 +    .param p1, "f2"    # F
 +    .param p2, "f3"    # F
 +    .param p3, "f4"    # F
  
--    const/high16 v0, 0x3f800000    # 1.0f
 +    .prologue
-+    .line 53
-+    const/high16 v1, 0x3f800000    # 1.0f
- 
--    cmpl-float v1, p1, p3
 +    .line 54
+     const/high16 v1, 0x3f800000    # 1.0f
+ 
+-    if-lez v0, :cond_0
++    .line 55
 +    .local v1, "f5":F
 +    cmpl-float v4, p1, p3
  
--    if-lez v1, :cond_0
+-    div-float v0, p3, p1
 +    if-lez v4, :cond_29
  
--    div-float v1, p3, p1
-+    div-float v2, p3, p1
- 
 -    goto :goto_0
-+    .line 55
-+    .local v2, "f6":F
-+    :goto_8
-+    cmpl-float v4, p2, p3
- 
+-
 -    :cond_0
--    const/high16 v1, 0x3f800000    # 1.0f
-+    if-lez v4, :cond_e
+-    move v0, v1
++    div-float v2, p3, p1
  
 -    :goto_0
 -    cmpl-float v2, p2, p3
 +    .line 56
-+    div-float v1, p3, p2
++    .local v2, "f6":F
++    :goto_8
++    cmpl-float v4, p2, p3
  
 -    if-lez v2, :cond_1
-+    .line 58
++    if-lez v4, :cond_e
+ 
++    .line 57
+     div-float v1, p3, p2
+ 
+-    :cond_1
+-    invoke-static {v0, v1}, Ljava/lang/Math;->min(FF)F
++    .line 59
 +    :cond_e
 +    iget-object v0, p0, Ltv/twitch/android/shared/ui/elements/span/GlideChatImageTarget;->mUrlDrawable:Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;
  
--    div-float v0, p3, p2
-+    .line 59
+-    move-result p3
++    .line 60
 +    .local v0, "drawable":Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;
 +    move v3, v1
  
--    :cond_1
--    invoke-static {v1, v0}, Ljava/lang/Math;->min(FF)F
-+    .line 60
+-    mul-float/2addr p1, p3
++    .line 61
 +    .local v3, "min":F
 +    if-eqz v0, :cond_19
  
--    move-result p3
+-    float-to-int p1, p1
 +    invoke-virtual {v0}, Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;->isWide()Z
  
--    mul-float p1, p1, p3
+-    mul-float/2addr p2, p3
 +    move-result v4
  
--    float-to-int p1, p1
+-    float-to-int p2, p2
 +    if-nez v4, :cond_1d
  
--    mul-float p2, p2, p3
-+    .line 61
+-    new-instance p3, Landroid/graphics/Point;
++    .line 62
 +    :cond_19
 +    invoke-static {v2, v1}, Ljava/lang/Math;->min(FF)F
  
--    float-to-int p2, p2
+-    invoke-direct {p3, p1, p2}, Landroid/graphics/Point;-><init>(II)V
 +    move-result v3
-+
-+    .line 64
+ 
+-    return-object p3
++    .line 65
 +    :cond_1d
 +    new-instance v4, Landroid/graphics/Point;
 +
@@ -104,15 +107,12 @@ diff --git a/smali_classes8/tv/twitch/android/shared/ui/elements/span/GlideChatI
 +    mul-float v6, p2, v3
 +
 +    float-to-int v6, v6
- 
--    new-instance p3, Landroid/graphics/Point;
++
 +    invoke-direct {v4, v5, v6}, Landroid/graphics/Point;-><init>(II)V
- 
--    invoke-direct {p3, p1, p2}, Landroid/graphics/Point;-><init>(II)V
++
 +    return-object v4
- 
--    return-object p3
-+    .line 54
++
++    .line 55
 +    .end local v0    # "drawable":Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;
 +    .end local v2    # "f6":F
 +    .end local v3    # "min":F

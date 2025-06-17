@@ -6,6 +6,7 @@ import com.bugsnag.android.Configuration
 import tv.purple.monolith.core.LoggerImpl
 import tv.purple.monolith.core.util.PurpleBuildConfigUtil
 import tv.twitch.android.core.crashreporter.CrashReporter
+import tv.twitch.android.util.LogTag
 import java.util.concurrent.atomic.AtomicBoolean
 
 object BugsnagUtil {
@@ -107,5 +108,10 @@ object BugsnagUtil {
         }
 
         LoggerImpl.debug("level: $level, msg: $msg")
+    }
+
+    @JvmStatic
+    fun log(logLevel: CrashReporter.LogLevel, tag: LogTag, safeLogMessage: String) {
+        // TODO: impl
     }
 }

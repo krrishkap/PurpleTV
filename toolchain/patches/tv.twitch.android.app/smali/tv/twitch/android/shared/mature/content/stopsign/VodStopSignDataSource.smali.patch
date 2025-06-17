@@ -1,6 +1,6 @@
-diff --git a/smali_classes8/tv/twitch/android/shared/mature/content/stopsign/VodStopSignDataSource.smali b/smali_classes8/tv/twitch/android/shared/mature/content/stopsign/VodStopSignDataSource.smali
---- a/smali_classes8/tv/twitch/android/shared/mature/content/stopsign/VodStopSignDataSource.smali
-+++ b/smali_classes8/tv/twitch/android/shared/mature/content/stopsign/VodStopSignDataSource.smali
+diff --git a/smali_classes6/tv/twitch/android/shared/mature/content/stopsign/VodStopSignDataSource.smali b/smali_classes6/tv/twitch/android/shared/mature/content/stopsign/VodStopSignDataSource.smali
+--- a/smali_classes6/tv/twitch/android/shared/mature/content/stopsign/VodStopSignDataSource.smali
++++ b/smali_classes6/tv/twitch/android/shared/mature/content/stopsign/VodStopSignDataSource.smali
 @@ -460,6 +460,25 @@
          }
      .end annotation

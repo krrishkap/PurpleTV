@@ -1,7 +1,7 @@
 diff --git a/smali_classes8/tv/twitch/android/shared/player/overlay/RxPlayerOverlayHeaderViewDelegate.smali b/smali_classes8/tv/twitch/android/shared/player/overlay/RxPlayerOverlayHeaderViewDelegate.smali
 --- a/smali_classes8/tv/twitch/android/shared/player/overlay/RxPlayerOverlayHeaderViewDelegate.smali
 +++ b/smali_classes8/tv/twitch/android/shared/player/overlay/RxPlayerOverlayHeaderViewDelegate.smali
-@@ -269,6 +269,10 @@
+@@ -253,6 +253,10 @@
  
      invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setVisibility(I)V
  
@@ -12,24 +12,7 @@ diff --git a/smali_classes8/tv/twitch/android/shared/player/overlay/RxPlayerOver
      iget-object v1, v0, Ltv/twitch/android/shared/player/overlay/databinding/PlayerControlOverlayBinding;->info:Landroid/widget/ImageView;
  
      invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setVisibility(I)V
-@@ -481,6 +485,16 @@
-     :goto_3
-     invoke-virtual {v0, v4}, Landroid/view/View;->setVisibility(I)V
- 
-+    iget-object v0, p0, Ltv/twitch/android/shared/player/overlay/RxPlayerOverlayHeaderViewDelegate;->viewBinding:Ltv/twitch/android/shared/player/overlay/databinding/PlayerControlOverlayBinding;
-+
-+    iget-object v0, v0, Ltv/twitch/android/shared/player/overlay/databinding/PlayerControlOverlayBinding;->createClipButton:Landroid/widget/ImageView;
-+
-+    iget-object v1, p0, Ltv/twitch/android/shared/player/overlay/RxPlayerOverlayHeaderViewDelegate;->viewBinding:Ltv/twitch/android/shared/player/overlay/databinding/PlayerControlOverlayBinding;
-+
-+    iget-object v1, v1, Ltv/twitch/android/shared/player/overlay/databinding/PlayerControlOverlayBinding;->createClipTextButton:Landroidx/compose/ui/platform/ComposeView;
-+
-+    invoke-static {v0, v1}, Ltv/purple/monolith/features/ui/bridge/UIHook;->maybeHideCreateClipButton(Landroid/widget/ImageView;Landroidx/compose/ui/platform/ComposeView;)V
-+
-     return-void
- .end method
- 
-@@ -599,6 +613,10 @@
+@@ -479,6 +483,10 @@
  
      iget-object v0, p0, Ltv/twitch/android/shared/player/overlay/RxPlayerOverlayHeaderViewDelegate;->viewBinding:Ltv/twitch/android/shared/player/overlay/databinding/PlayerControlOverlayBinding;
  
@@ -40,20 +23,3 @@ diff --git a/smali_classes8/tv/twitch/android/shared/player/overlay/RxPlayerOver
      iget-object v1, v0, Ltv/twitch/android/shared/player/overlay/databinding/PlayerControlOverlayBinding;->backButton:Landroid/widget/ImageView;
  
      const/4 v2, 0x0
-@@ -772,6 +790,16 @@
- 
-     :cond_7
-     :goto_4
-+    iget-object v0, p0, Ltv/twitch/android/shared/player/overlay/RxPlayerOverlayHeaderViewDelegate;->viewBinding:Ltv/twitch/android/shared/player/overlay/databinding/PlayerControlOverlayBinding;
-+
-+    iget-object v0, v0, Ltv/twitch/android/shared/player/overlay/databinding/PlayerControlOverlayBinding;->createClipButton:Landroid/widget/ImageView;
-+
-+    iget-object v1, p0, Ltv/twitch/android/shared/player/overlay/RxPlayerOverlayHeaderViewDelegate;->viewBinding:Ltv/twitch/android/shared/player/overlay/databinding/PlayerControlOverlayBinding;
-+
-+    iget-object v1, v1, Ltv/twitch/android/shared/player/overlay/databinding/PlayerControlOverlayBinding;->shareButton:Landroid/widget/ImageView;
-+
-+    invoke-static {v0, v1}, Ltv/purple/monolith/features/ui/bridge/UIHook;->maybeHideOverlayHeaderButtons(Landroid/widget/ImageView;Landroid/widget/ImageView;)V
-+    
-     return-void
- .end method
- 

@@ -25,7 +25,6 @@ import tv.twitch.android.shared.chat.settings.preferences.ChatSettingsPreference
 import tv.twitch.android.shared.chat.settings.readablecolors.ReadableColorsCache
 import tv.twitch.android.shared.community.debug.CommunityDebugSharedPreferences
 import tv.twitch.android.shared.emotes.utils.AnimatedEmotesPresenterUtils
-import tv.twitch.android.shared.experiments.helpers.ClipEditorPortalExperimentImpl
 import tv.twitch.android.shared.preferences.chatfilters.ChatFiltersPreferenceFile
 import tv.twitch.android.shared.ui.elements.span.ISpanHelper
 import tv.twitch.android.shared.ui.elements.span.annotation.AnnotationSpanHelper
@@ -65,13 +64,6 @@ class TwitchActivityModule {
     fun provideChatFiltersPreferenceFile(gc: GeneratedComponent): ChatFiltersPreferenceFile {
         return gc.getPrivateField<Provider<ChatFiltersPreferenceFile>>("chatFiltersPreferenceFileProvider")
             .get()
-    }
-
-    @Provides
-    fun provideClipEditorPortalExperimentImpl(gc: GeneratedComponent): ClipEditorPortalExperimentImpl {
-        return callPrivateMethod(
-            obj = gc, methodName = "clipEditorPortalExperimentImpl"
-        )
     }
 
     @Provides
@@ -143,14 +135,12 @@ class TwitchActivityModule {
         cbp: ChatBadgeProvider,
         cfpf: ChatFiltersPreferenceFile,
         cspf: ChatSettingsPreferencesFile,
-        cepei: ClipEditorPortalExperimentImpl,
         cre: ChatRepliesExperiment
     ): ChatMessageV2Parser {
         return ChatMessageV2Parser(
             cbp,
             cfpf,
             cspf,
-            cepei,
             { false },
             cre
         )

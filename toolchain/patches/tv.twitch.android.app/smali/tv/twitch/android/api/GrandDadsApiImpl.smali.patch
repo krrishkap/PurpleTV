@@ -315,9 +315,9 @@ diff --git a/smali_classes5/tv/twitch/android/api/GrandDadsApiImpl.smali b/smali
 -
 -    move-result-wide v2
 -
--    long-to-int v3, v2
+-    long-to-int v2, v2
 -
--    new-instance v2, Lcom/apollographql/apollo3/api/Optional$Present;
+-    new-instance v3, Lcom/apollographql/apollo3/api/Optional$Present;
 -
 -    invoke-virtual {v1}, Ltv/twitch/android/shared/ads/models/BaseAdRequestInfo;->getPlayerAdTrackingSnapshot()Ltv/twitch/android/shared/ads/models/IPlayerAdTrackingSnapshot;
 -
@@ -331,7 +331,7 @@ diff --git a/smali_classes5/tv/twitch/android/api/GrandDadsApiImpl.smali b/smali
 -
 -    move-result-object v5
 -
--    invoke-direct {v2, v5}, Lcom/apollographql/apollo3/api/Optional$Present;-><init>(Ljava/lang/Object;)V
+-    invoke-direct {v3, v5}, Lcom/apollographql/apollo3/api/Optional$Present;-><init>(Ljava/lang/Object;)V
 -
 -    invoke-virtual {v1}, Ltv/twitch/android/shared/ads/models/BaseAdRequestInfo;->getChannel()Ltv/twitch/android/models/channel/ChannelModel;
 -
@@ -377,9 +377,9 @@ diff --git a/smali_classes5/tv/twitch/android/api/GrandDadsApiImpl.smali b/smali
 -
 -    move-object/from16 v16, v1
 -
--    move/from16 v20, v3
+-    move/from16 v20, v2
 -
--    move-object/from16 v21, v2
+-    move-object/from16 v21, v3
 -
 -    move-object/from16 v25, v4
 -

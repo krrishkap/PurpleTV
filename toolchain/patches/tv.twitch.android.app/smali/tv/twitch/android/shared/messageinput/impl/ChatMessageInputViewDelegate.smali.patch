@@ -1,9 +1,9 @@
-diff --git a/smali_classes8/tv/twitch/android/shared/messageinput/impl/ChatMessageInputViewDelegate.smali b/smali_classes8/tv/twitch/android/shared/messageinput/impl/ChatMessageInputViewDelegate.smali
---- a/smali_classes8/tv/twitch/android/shared/messageinput/impl/ChatMessageInputViewDelegate.smali
-+++ b/smali_classes8/tv/twitch/android/shared/messageinput/impl/ChatMessageInputViewDelegate.smali
-@@ -569,6 +569,10 @@
+diff --git a/smali_classes6/tv/twitch/android/shared/messageinput/impl/ChatMessageInputViewDelegate.smali b/smali_classes6/tv/twitch/android/shared/messageinput/impl/ChatMessageInputViewDelegate.smali
+--- a/smali_classes6/tv/twitch/android/shared/messageinput/impl/ChatMessageInputViewDelegate.smali
++++ b/smali_classes6/tv/twitch/android/shared/messageinput/impl/ChatMessageInputViewDelegate.smali
+@@ -563,6 +563,10 @@
      :goto_2
-     invoke-virtual {v1, v3}, Landroid/view/View;->setVisibility(I)V
+     invoke-virtual {v0, v2}, Landroid/view/View;->setVisibility(I)V
  
 +    iget-object v0, p0, Ltv/twitch/android/shared/messageinput/impl/ChatMessageInputViewDelegate;->openChatSettingsButton:Landroid/widget/ImageView;
 +
@@ -12,7 +12,7 @@ diff --git a/smali_classes8/tv/twitch/android/shared/messageinput/impl/ChatMessa
      return-void
  .end method
  
-@@ -677,3 +681,23 @@
+@@ -671,3 +675,23 @@
  
      return-void
  .end method

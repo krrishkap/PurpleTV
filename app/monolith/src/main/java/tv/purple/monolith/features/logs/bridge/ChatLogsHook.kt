@@ -15,7 +15,7 @@ object ChatLogsHook {
         bau ?: return null
 
         return LogsCommandInterceptor(
-            activity = bau.getPrivateField("activity"),
+            //activity = bau.getPrivateField("activity"),
             chatSource = vci.getPrivateField("chatMessagesDispatcher")
         )
     }

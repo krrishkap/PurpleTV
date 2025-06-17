@@ -9,16 +9,18 @@ import tv.twitch.android.models.channel.ChannelInfo
 import tv.twitch.android.shared.chat.command.ChatCommandAction
 import tv.twitch.android.shared.chat.command.ChatCommandInterceptor
 import tv.twitch.android.shared.chat.messages.ChatMessagesDispatcher
+import tv.twitch.android.shared.one.chat.pub.ChatModeMetadata
 
+// FIXME: broken 24.9
 class LogsCommandInterceptor(
-    private val activity: FragmentActivity,
+    // private val activity: FragmentActivity,
     private val chatSource: ChatMessagesDispatcher
 ) : ChatCommandInterceptor {
     private val chatLogs by lazy {
         ChatLogs.get()
     }
 
-    override fun executeChatCommand(action: ChatCommandAction?) {
+    override fun executeChatCommand(action: ChatCommandAction?, p1: ChatModeMetadata?) {
         when (action) {
 //            is ChatLocalLogsCommand -> {
 //                chatLogs.showLocalLogs(
@@ -29,11 +31,11 @@ class LogsCommandInterceptor(
 //            }
 
             is ChatTwitchLogsCommand -> {
-                chatLogs.showModLogs(
-                    activity = activity,
-                    channelId = action.channelId.toString(),
-                    userName = action.userName
-                )
+//                chatLogs.showModLogs(
+//                    activity = activity,
+//                    channelId = action.channelId.toString(),
+//                    userName = action.userName
+//                )
             }
 
             is ChatUsageLogsCommand -> {
