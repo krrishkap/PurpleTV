@@ -1,7 +1,7 @@
 diff --git a/smali_classes7/tv/twitch/android/shared/chat/messages/data/ChatMessageV2Parser.smali b/smali_classes7/tv/twitch/android/shared/chat/messages/data/ChatMessageV2Parser.smali
 --- a/smali_classes7/tv/twitch/android/shared/chat/messages/data/ChatMessageV2Parser.smali
 +++ b/smali_classes7/tv/twitch/android/shared/chat/messages/data/ChatMessageV2Parser.smali
-@@ -1807,6 +1807,12 @@
+@@ -1783,6 +1783,12 @@
  
      invoke-direct/range {v3 .. v19}, Ltv/twitch/android/shared/chat/pub/messages/data/ChatMessage$LiveChatMessage;-><init>(Ljava/lang/String;Ltv/twitch/android/shared/chat/pub/messages/ui/ChatMessageType;Ljava/util/Map;Ljava/util/List;Ljava/lang/Integer;Ltv/twitch/android/shared/chat/pub/messages/data/ChatMessageUser;Ljava/util/List;Ltv/twitch/android/shared/chat/pub/messages/data/MessageTokenV2$EmoteToken;Ljava/lang/Long;ZZZZLjava/lang/String;Ltv/twitch/android/models/chat/ReplyParentInfo;Ltv/twitch/android/shared/chat/pub/messages/SourceChannelConfig;)V
  
@@ -14,7 +14,7 @@ diff --git a/smali_classes7/tv/twitch/android/shared/chat/messages/data/ChatMess
      return-object v1
  .end method
  
-@@ -2085,6 +2091,12 @@
+@@ -2061,6 +2067,12 @@
  
      invoke-direct/range {v5 .. v23}, Ltv/twitch/android/shared/chat/pub/messages/data/ChatMessage$LiveChatMessage;-><init>(Ljava/lang/String;Ltv/twitch/android/shared/chat/pub/messages/ui/ChatMessageType;Ljava/util/Map;Ljava/util/List;Ljava/lang/Integer;Ltv/twitch/android/shared/chat/pub/messages/data/ChatMessageUser;Ljava/util/List;Ltv/twitch/android/shared/chat/pub/messages/data/MessageTokenV2$EmoteToken;Ljava/lang/Long;ZZZZLjava/lang/String;Ltv/twitch/android/models/chat/ReplyParentInfo;Ltv/twitch/android/shared/chat/pub/messages/SourceChannelConfig;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
  

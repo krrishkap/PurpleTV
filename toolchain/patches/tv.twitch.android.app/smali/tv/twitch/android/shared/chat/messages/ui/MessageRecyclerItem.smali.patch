@@ -9,7 +9,7 @@ diff --git a/smali_classes7/tv/twitch/android/shared/chat/messages/ui/MessageRec
  
  
  # annotations
-@@ -109,6 +110,10 @@
+@@ -102,6 +103,10 @@
  
  .field private final viewerUserId:Ljava/lang/Integer;
  
@@ -20,7 +20,7 @@ diff --git a/smali_classes7/tv/twitch/android/shared/chat/messages/ui/MessageRec
  
  # direct methods
  .method static constructor <clinit>()V
-@@ -1910,3 +1915,97 @@
+@@ -1742,3 +1747,97 @@
  
      return-void
  .end method
