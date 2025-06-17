@@ -1,7 +1,7 @@
 diff --git a/smali_classes6/tv/twitch/android/settings/SettingsActivity.smali b/smali_classes6/tv/twitch/android/settings/SettingsActivity.smali
 --- a/smali_classes6/tv/twitch/android/settings/SettingsActivity.smali
 +++ b/smali_classes6/tv/twitch/android/settings/SettingsActivity.smali
-@@ -1358,6 +1358,8 @@
+@@ -1352,6 +1352,8 @@
  
      invoke-direct {p0, p1}, Ltv/twitch/android/settings/SettingsActivity;->navigateToSettingFragment(Ltv/twitch/android/models/settings/SettingsDestination;)V
  

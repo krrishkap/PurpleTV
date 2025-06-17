@@ -1,7 +1,7 @@
 diff --git a/smali/tv/twitch/android/app/core/ThemeManager$Companion.smali b/smali/tv/twitch/android/app/core/ThemeManager$Companion.smali
 --- a/smali/tv/twitch/android/app/core/ThemeManager$Companion.smali
 +++ b/smali/tv/twitch/android/app/core/ThemeManager$Companion.smali
-@@ -316,7 +316,7 @@
+@@ -296,7 +296,7 @@
  
      const-string/jumbo v0, "user_theme"
  

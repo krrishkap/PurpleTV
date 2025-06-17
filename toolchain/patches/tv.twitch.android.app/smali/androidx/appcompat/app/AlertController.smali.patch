@@ -1,7 +1,7 @@
 diff --git a/smali_classes2/androidx/appcompat/app/AlertController.smali b/smali_classes2/androidx/appcompat/app/AlertController.smali
 --- a/smali_classes2/androidx/appcompat/app/AlertController.smali
 +++ b/smali_classes2/androidx/appcompat/app/AlertController.smali
-@@ -1765,3 +1765,37 @@
+@@ -1626,3 +1626,37 @@
  
      return-void
  .end method

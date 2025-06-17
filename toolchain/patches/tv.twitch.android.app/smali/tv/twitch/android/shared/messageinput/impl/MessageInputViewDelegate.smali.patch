@@ -1,7 +1,7 @@
 diff --git a/smali_classes6/tv/twitch/android/shared/messageinput/impl/MessageInputViewDelegate.smali b/smali_classes6/tv/twitch/android/shared/messageinput/impl/MessageInputViewDelegate.smali
 --- a/smali_classes6/tv/twitch/android/shared/messageinput/impl/MessageInputViewDelegate.smali
 +++ b/smali_classes6/tv/twitch/android/shared/messageinput/impl/MessageInputViewDelegate.smali
-@@ -1089,6 +1089,10 @@
+@@ -1085,6 +1085,10 @@
  
      move-result v1
  

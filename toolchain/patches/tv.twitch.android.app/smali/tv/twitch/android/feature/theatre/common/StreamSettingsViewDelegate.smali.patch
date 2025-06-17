@@ -31,7 +31,7 @@ diff --git a/smali_classes6/tv/twitch/android/feature/theatre/common/StreamSetti
      new-instance v1, Ltv/twitch/android/feature/theatre/common/PlaybackRateStreamSettingViewDelegate;
  
      invoke-virtual/range {p0 .. p0}, Ltv/twitch/android/core/mvp/viewdelegate/BaseViewDelegate;->getContext()Landroid/content/Context;
-@@ -3598,6 +3614,20 @@
+@@ -3550,6 +3566,20 @@
  
      invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
  

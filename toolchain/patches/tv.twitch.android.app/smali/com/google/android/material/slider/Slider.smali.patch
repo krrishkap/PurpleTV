@@ -1,7 +1,7 @@
 diff --git a/smali_classes4/com/google/android/material/slider/Slider.smali b/smali_classes4/com/google/android/material/slider/Slider.smali
 --- a/smali_classes4/com/google/android/material/slider/Slider.smali
 +++ b/smali_classes4/com/google/android/material/slider/Slider.smali
-@@ -810,3 +810,12 @@
+@@ -806,3 +806,12 @@
  
      return-void
  .end method

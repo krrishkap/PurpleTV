@@ -1,7 +1,7 @@
 diff --git a/smali/kotlin/sequences/SequencesKt___SequencesKt.smali b/smali/kotlin/sequences/SequencesKt___SequencesKt.smali
 --- a/smali/kotlin/sequences/SequencesKt___SequencesKt.smali
 +++ b/smali/kotlin/sequences/SequencesKt___SequencesKt.smali
-@@ -1240,3 +1240,70 @@
+@@ -1235,3 +1235,70 @@
      :cond_2
      return-object v1
  .end method

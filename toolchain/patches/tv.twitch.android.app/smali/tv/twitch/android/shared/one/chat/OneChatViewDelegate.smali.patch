@@ -1,7 +1,7 @@
 diff --git a/smali_classes6/tv/twitch/android/shared/one/chat/OneChatViewDelegate.smali b/smali_classes6/tv/twitch/android/shared/one/chat/OneChatViewDelegate.smali
 --- a/smali_classes6/tv/twitch/android/shared/one/chat/OneChatViewDelegate.smali
 +++ b/smali_classes6/tv/twitch/android/shared/one/chat/OneChatViewDelegate.smali
-@@ -3201,6 +3201,14 @@
+@@ -3199,6 +3199,14 @@
      invoke-virtual {p0}, Ltv/twitch/android/core/mvp/viewdelegate/BaseViewDelegate;->hide()V
  
      :goto_a

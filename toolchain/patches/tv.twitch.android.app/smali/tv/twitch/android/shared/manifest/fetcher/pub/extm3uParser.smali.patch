@@ -1,7 +1,7 @@
 diff --git a/smali_classes2/tv/twitch/android/shared/manifest/fetcher/pub/extm3uParser.smali b/smali_classes2/tv/twitch/android/shared/manifest/fetcher/pub/extm3uParser.smali
 --- a/smali_classes2/tv/twitch/android/shared/manifest/fetcher/pub/extm3uParser.smali
 +++ b/smali_classes2/tv/twitch/android/shared/manifest/fetcher/pub/extm3uParser.smali
-@@ -445,7 +445,7 @@
+@@ -443,7 +443,7 @@
  .end method
  
  .method public static parse(Ljava/lang/String;)Ltv/twitch/android/models/manifest/extm3u;
@@ -10,7 +10,7 @@ diff --git a/smali_classes2/tv/twitch/android/shared/manifest/fetcher/pub/extm3u
  
      new-instance v0, Ljava/util/ArrayList;
  
-@@ -495,6 +495,10 @@
+@@ -491,6 +491,10 @@
  
      const/16 v19, 0x0
  
@@ -21,7 +21,7 @@ diff --git a/smali_classes2/tv/twitch/android/shared/manifest/fetcher/pub/extm3u
      move-object v6, v10
  
      move-object v7, v6
-@@ -773,6 +777,32 @@
+@@ -771,6 +775,32 @@
      goto/16 :goto_5
  
      :cond_9
@@ -54,7 +54,7 @@ diff --git a/smali_classes2/tv/twitch/android/shared/manifest/fetcher/pub/extm3u
      const-string v5, "SERVER-TIME"
  
      invoke-virtual {v3, v5}, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-@@ -1239,5 +1269,13 @@
+@@ -1237,5 +1267,13 @@
  
      iput-object v9, v1, Ltv/twitch/android/models/manifest/extm3u;->VideoSessionId:Ljava/lang/String;
  

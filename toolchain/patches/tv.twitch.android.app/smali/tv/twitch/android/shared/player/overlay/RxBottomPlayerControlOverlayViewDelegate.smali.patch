@@ -24,7 +24,7 @@ diff --git a/smali_classes8/tv/twitch/android/shared/player/overlay/RxBottomPlay
      return-void
  .end method
  
-@@ -1413,3 +1422,38 @@
+@@ -1411,3 +1420,38 @@
  
      return-void
  .end method

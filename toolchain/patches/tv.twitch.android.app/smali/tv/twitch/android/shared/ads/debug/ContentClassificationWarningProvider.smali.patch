@@ -1,7 +1,7 @@
 diff --git a/smali_classes6/tv/twitch/android/shared/ads/debug/ContentClassificationWarningProvider.smali b/smali_classes6/tv/twitch/android/shared/ads/debug/ContentClassificationWarningProvider.smali
 --- a/smali_classes6/tv/twitch/android/shared/ads/debug/ContentClassificationWarningProvider.smali
 +++ b/smali_classes6/tv/twitch/android/shared/ads/debug/ContentClassificationWarningProvider.smali
-@@ -219,6 +219,17 @@
+@@ -220,6 +220,17 @@
  .method public final shouldForceShowWarning()Z
      .locals 2
  

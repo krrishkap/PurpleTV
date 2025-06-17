@@ -27,7 +27,7 @@ diff --git a/smali_classes7/tv/twitch/android/shared/chat/settings/entry/ChatSet
      sget p2, Ltv/twitch/android/shared/chat/settings/R$id;->channel_mode_title:I
  
      invoke-virtual {p0, p2}, Ltv/twitch/android/core/mvp/viewdelegate/BaseViewDelegate;->findView(I)Landroid/view/View;
-@@ -1385,6 +1397,12 @@
+@@ -1361,6 +1373,12 @@
  
      move-result-object v0
  
@@ -40,7 +40,7 @@ diff --git a/smali_classes7/tv/twitch/android/shared/chat/settings/entry/ChatSet
      invoke-static {v0}, Lio/reactivex/Flowable;->merge(Ljava/lang/Iterable;)Lio/reactivex/Flowable;
  
      move-result-object v0
-@@ -1437,9 +1455,13 @@
+@@ -1413,9 +1431,13 @@
  
      invoke-virtual {p1}, Ltv/twitch/android/shared/chat/settings/entry/ChatSettingsPresenter$State;->getPreferencesSettings()Ltv/twitch/android/shared/chat/settings/entry/ChatSettingsPresenter$State$PreferencesSettings;
  

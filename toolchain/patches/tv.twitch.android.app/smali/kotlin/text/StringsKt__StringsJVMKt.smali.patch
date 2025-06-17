@@ -1,7 +1,7 @@
 diff --git a/smali/kotlin/text/StringsKt__StringsJVMKt.smali b/smali/kotlin/text/StringsKt__StringsJVMKt.smali
 --- a/smali/kotlin/text/StringsKt__StringsJVMKt.smali
 +++ b/smali/kotlin/text/StringsKt__StringsJVMKt.smali
-@@ -888,3 +888,94 @@
+@@ -883,3 +883,94 @@
  
      return p0
  .end method

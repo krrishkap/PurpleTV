@@ -33,7 +33,7 @@ diff --git a/smali/tv/twitch/android/core/buildconfig/BuildConfigUtil.smali b/sm
      return v0
  .end method
  
-@@ -265,7 +245,9 @@
+@@ -238,7 +218,9 @@
  .method public final isAlpha()Z
      .locals 1
  
@@ -44,7 +44,7 @@ diff --git a/smali/tv/twitch/android/core/buildconfig/BuildConfigUtil.smali b/sm
  
      return v0
  .end method
-@@ -281,7 +263,9 @@
+@@ -254,7 +236,9 @@
  .method public final isBeta()Z
      .locals 1
  
@@ -55,7 +55,7 @@ diff --git a/smali/tv/twitch/android/core/buildconfig/BuildConfigUtil.smali b/sm
  
      return v0
  .end method
-@@ -289,7 +273,9 @@
+@@ -262,7 +246,9 @@
  .method public final isDebugConfigEnabled()Z
      .locals 1
  
@@ -66,7 +66,7 @@ diff --git a/smali/tv/twitch/android/core/buildconfig/BuildConfigUtil.smali b/sm
  
      return v0
  .end method
-@@ -321,21 +307,9 @@
+@@ -294,21 +280,9 @@
  .method public final shouldShowDebugOptions(Z)Z
      .locals 1
  

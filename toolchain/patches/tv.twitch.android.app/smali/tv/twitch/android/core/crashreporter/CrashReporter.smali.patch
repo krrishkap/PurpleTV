@@ -144,7 +144,7 @@ diff --git a/smali/tv/twitch/android/core/crashreporter/CrashReporter.smali b/sm
      return-void
  .end method
  
-@@ -372,66 +252,61 @@
+@@ -372,162 +252,76 @@
  .end method
  
  .method public final varargs log(Ltv/twitch/android/core/crashreporter/CrashReporter$LogLevel;Ltv/twitch/android/util/LogTag;I[Ltv/twitch/android/util/LogArg;)V
@@ -177,79 +177,179 @@ diff --git a/smali/tv/twitch/android/core/crashreporter/CrashReporter.smali b/sm
      invoke-static {p4, v1}, Ljava/util/Arrays;->copyOf([Ljava/lang/Object;I)[Ljava/lang/Object;
  
 -    move-result-object p4
-+    move-result-object v1
- 
+-
 -    check-cast p4, [Ltv/twitch/android/util/LogArg;
-+    check-cast v1, [Ltv/twitch/android/util/LogArg;
- 
+-
 -    invoke-static {v0, p3, p4}, Ltv/twitch/android/core/crashreporter/CrashReporterContextKt;->getSafeLogMessage(Landroid/content/Context;I[Ltv/twitch/android/util/LogArg;)Ljava/lang/String;
-+    invoke-static {v2, p3, v1}, Ltv/twitch/android/core/crashreporter/CrashReporterContextKt;->getSafeLogMessage(Landroid/content/Context;I[Ltv/twitch/android/util/LogArg;)Ljava/lang/String;
- 
+-
 -    move-result-object p3
 -
 -    invoke-direct {p0}, Ltv/twitch/android/core/crashreporter/CrashReporter;->getCrashlytics()Lcom/google/firebase/crashlytics/FirebaseCrashlytics;
-+    move-result-object v0
- 
+-
 -    move-result-object p4
+-
+-    iget-object v0, p2, Ltv/twitch/android/util/LogTag;->value:Ljava/lang/String;
+-
+-    new-instance v1, Ljava/lang/StringBuilder;
+-
+-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+-
+-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+-
+-    const-string v0, ": "
+-
+-    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
++    move-result-object v1
+ 
+-    invoke-virtual {v1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
++    check-cast v1, [Ltv/twitch/android/util/LogArg;
+ 
+-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
++    invoke-static {v2, p3, v1}, Ltv/twitch/android/core/crashreporter/CrashReporterContextKt;->getSafeLogMessage(Landroid/content/Context;I[Ltv/twitch/android/util/LogArg;)Ljava/lang/String;
+ 
+     move-result-object v0
+ 
+-    invoke-virtual {p4, v0}, Lcom/google/firebase/crashlytics/FirebaseCrashlytics;->log(Ljava/lang/String;)V
+-
+-    invoke-virtual {p1}, Ltv/twitch/android/core/crashreporter/CrashReporter$LogLevel;->getValue()I
+-
+-    move-result p1
+-
+-    iget-object p2, p2, Ltv/twitch/android/util/LogTag;->value:Ljava/lang/String;
+-
+-    invoke-static {p1, p2, p3}, Landroid/util/Log;->println(ILjava/lang/String;Ljava/lang/String;)I
+-
+-    return-void
+-.end method
+-
+-.method public final logException(Ljava/lang/Throwable;Ltv/twitch/android/core/crashreporter/CrashReporter$ExceptionType;)V
+-    .locals 5
+-
+-    const-string/jumbo v0, "type"
+-
+-    invoke-static {p2, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+-
+-    sget-object v0, Ltv/twitch/android/core/crashreporter/CrashReporter;->crashReporterListener:Ltv/twitch/android/core/crashreporter/CrashReporter$CrashReporterListener;
+-
+-    if-eqz v0, :cond_2
+-
+-    invoke-static {}, Ljava/util/UUID;->randomUUID()Ljava/util/UUID;
 +    .line 83
 +    .local v0, "safeLogMessage":Ljava/lang/String;
 +    invoke-virtual {p1}, Ltv/twitch/android/core/crashreporter/CrashReporter$LogLevel;->name()Ljava/lang/String;
  
--    iget-object v0, p2, Ltv/twitch/android/util/LogTag;->value:Ljava/lang/String;
-+    move-result-object v1
+     move-result-object v1
  
--    new-instance v1, Ljava/lang/StringBuilder;
+-    invoke-virtual {v1}, Ljava/util/UUID;->toString()Ljava/lang/String;
+-
+-    move-result-object v1
 +    new-instance v2, Ljava/lang/StringBuilder;
  
--    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+-    const-string/jumbo v2, "toString(...)"
 +    invoke-direct {v2}, Ljava/lang/StringBuilder;-><init>()V
  
--    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+-    invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 +    iget-object v3, p2, Ltv/twitch/android/util/LogTag;->value:Ljava/lang/String;
  
--    const-string v0, ": "
+-    invoke-interface {v0, p1, v1, p2}, Ltv/twitch/android/core/crashreporter/CrashReporter$CrashReporterListener;->reportNonFatalToTwitchAnalytics(Ljava/lang/Throwable;Ljava/lang/String;Ltv/twitch/android/core/crashreporter/CrashReporter$ExceptionType;)V
+-
+-    sget-object v0, Ltv/twitch/android/core/crashreporter/CrashReporter;->INSTANCE:Ltv/twitch/android/core/crashreporter/CrashReporter;
+-
+-    invoke-direct {v0}, Ltv/twitch/android/core/crashreporter/CrashReporter;->getCrashlytics()Lcom/google/firebase/crashlytics/FirebaseCrashlytics;
 +    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
  
--    invoke-virtual {v1, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
-+    move-result-object v2
+     move-result-object v2
  
--    invoke-virtual {v1, p3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+-    const-string v3, "non_fatal_uuid"
 +    const-string v3, ": "
  
--    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+-    invoke-virtual {v2, v3, v1}, Lcom/google/firebase/crashlytics/FirebaseCrashlytics;->setCustomKey(Ljava/lang/String;Ljava/lang/String;)V
+-
+-    if-eqz p1, :cond_0
+-
+-    invoke-direct {v0}, Ltv/twitch/android/core/crashreporter/CrashReporter;->getCrashlytics()Lcom/google/firebase/crashlytics/FirebaseCrashlytics;
 +    invoke-virtual {v2, v3}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
  
--    move-result-object v0
-+    move-result-object v2
+     move-result-object v2
  
--    invoke-virtual {p4, v0}, Lcom/google/firebase/crashlytics/FirebaseCrashlytics;->log(Ljava/lang/String;)V
+-    invoke-virtual {v2, p1}, Lcom/google/firebase/crashlytics/FirebaseCrashlytics;->recordException(Ljava/lang/Throwable;)V
+-
+-    :cond_0
+-    sget v2, Ltv/twitch/android/core/crash/reporter/R$string;->non_fatal_occurred:I
+-
+-    new-instance v3, Ltv/twitch/android/util/LogArg$Safe;
+-
+-    invoke-virtual {p2}, Ljava/lang/Enum;->name()Ljava/lang/String;
+-
+-    move-result-object p2
+-
+-    invoke-direct {v3, p2}, Ltv/twitch/android/util/LogArg$Safe;-><init>(Ljava/lang/String;)V
+-
+-    new-instance p2, Ltv/twitch/android/util/LogArg$Safe;
+-
+-    invoke-direct {p2, v1}, Ltv/twitch/android/util/LogArg$Safe;-><init>(Ljava/lang/String;)V
 +    invoke-virtual {v2, v0}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
  
--    invoke-virtual {p1}, Ltv/twitch/android/core/crashreporter/CrashReporter$LogLevel;->getValue()I
+-    new-instance v1, Ltv/twitch/android/util/LogArg$Safe;
+-
+-    if-eqz p1, :cond_1
+-
+-    invoke-virtual {p1}, Ljava/lang/Throwable;->getLocalizedMessage()Ljava/lang/String;
+-
+-    move-result-object p1
+-
+-    goto :goto_0
+-
+-    :cond_1
+-    const/4 p1, 0x0
+-
+-    :goto_0
+-    invoke-direct {v1, p1}, Ltv/twitch/android/util/LogArg$Safe;-><init>(Ljava/lang/String;)V
+-
+-    const/4 p1, 0x3
+-
+-    new-array p1, p1, [Ltv/twitch/android/util/LogArg;
 +    move-result-object v2
  
--    move-result p1
+-    const/4 v4, 0x0
 +    invoke-virtual {v2}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
  
--    iget-object p2, p2, Ltv/twitch/android/util/LogTag;->value:Ljava/lang/String;
+-    aput-object v3, p1, v4
 +    move-result-object v2
  
--    invoke-static {p1, p2, p3}, Landroid/util/Log;->println(ILjava/lang/String;Ljava/lang/String;)I
+-    const/4 v3, 0x1
 +    invoke-static {v1, v2}, Ltv/purple/monolith/features/tracking/bridge/BugsnagUtil;->logEvent(Ljava/lang/String;Ljava/lang/String;)V
  
+-    aput-object p2, p1, v3
 +    .line 84
++    return-void
++.end method
+ 
+-    const/4 p2, 0x2
++.method public final logException(Ljava/lang/Throwable;Ltv/twitch/android/core/crashreporter/CrashReporter$ExceptionType;)V
++    .registers 4
++    .param p1, "th"    # Ljava/lang/Throwable;
++    .param p2, "type"    # Ltv/twitch/android/core/crashreporter/CrashReporter$ExceptionType;
+ 
+-    aput-object v1, p1, p2
++    .prologue
++    .line 125
++    const-string v0, "CrashReporter"
+ 
+-    invoke-virtual {v0, v2, p1}, Ltv/twitch/android/core/crashreporter/CrashReporter;->log(I[Ltv/twitch/android/util/LogArg;)V
++    invoke-static {p1, v0, p2}, Ltv/purple/monolith/features/tracking/bridge/BugsnagUtil;->logException(Ljava/lang/Throwable;Ljava/lang/String;Ltv/twitch/android/core/crashreporter/CrashReporter$ExceptionType;)V
+ 
+-    :cond_2
++    .line 126
      return-void
  .end method
  
-@@ -584,34 +459,28 @@
+@@ -584,34 +378,28 @@
  .end method
  
  .method public final setBool(Ljava/lang/String;Z)V
 -    .locals 1
-+    .registers 3
-+    .param p1, "key"    # Ljava/lang/String;
-+    .param p2, "z"    # Z
- 
+-
 -    const-string v0, "key"
 -
 -    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
@@ -257,7 +357,10 @@ diff --git a/smali/tv/twitch/android/core/crashreporter/CrashReporter.smali b/sm
 -    invoke-direct {p0}, Ltv/twitch/android/core/crashreporter/CrashReporter;->getCrashlytics()Lcom/google/firebase/crashlytics/FirebaseCrashlytics;
 -
 -    move-result-object v0
--
++    .registers 3
++    .param p1, "key"    # Ljava/lang/String;
++    .param p2, "z"    # Z
+ 
 -    invoke-virtual {v0, p1, p2}, Lcom/google/firebase/crashlytics/FirebaseCrashlytics;->setCustomKey(Ljava/lang/String;Z)V
 +    .prologue
 +    .line 129
@@ -271,16 +374,16 @@ diff --git a/smali/tv/twitch/android/core/crashreporter/CrashReporter.smali b/sm
 -    .locals 1
 -
 -    const-string v0, "key"
-+    .registers 3
-+    .param p1, "key"    # Ljava/lang/String;
-+    .param p2, "i"    # I
- 
+-
 -    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 -
 -    invoke-direct {p0}, Ltv/twitch/android/core/crashreporter/CrashReporter;->getCrashlytics()Lcom/google/firebase/crashlytics/FirebaseCrashlytics;
 -
 -    move-result-object v0
--
++    .registers 3
++    .param p1, "key"    # Ljava/lang/String;
++    .param p2, "i"    # I
+ 
 -    invoke-virtual {v0, p1, p2}, Lcom/google/firebase/crashlytics/FirebaseCrashlytics;->setCustomKey(Ljava/lang/String;I)V
 +    .prologue
 +    .line 137
@@ -290,7 +393,7 @@ diff --git a/smali/tv/twitch/android/core/crashreporter/CrashReporter.smali b/sm
      return-void
  .end method
  
-@@ -658,22 +527,14 @@
+@@ -658,22 +446,14 @@
  .end method
  
  .method public final setString(Ljava/lang/String;Ljava/lang/String;)V
@@ -301,12 +404,12 @@ diff --git a/smali/tv/twitch/android/core/crashreporter/CrashReporter.smali b/sm
 -    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 -
 -    invoke-direct {p0}, Ltv/twitch/android/core/crashreporter/CrashReporter;->getCrashlytics()Lcom/google/firebase/crashlytics/FirebaseCrashlytics;
--
--    move-result-object v0
 +    .registers 3
 +    .param p1, "key"    # Ljava/lang/String;
 +    .param p2, "str"    # Ljava/lang/String;
  
+-    move-result-object v0
+-
 -    if-nez p2, :cond_0
 -
 -    const-string p2, ""

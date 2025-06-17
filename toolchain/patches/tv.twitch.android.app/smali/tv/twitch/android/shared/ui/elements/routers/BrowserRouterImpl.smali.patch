@@ -1,7 +1,7 @@
 diff --git a/smali_classes2/tv/twitch/android/shared/ui/elements/routers/BrowserRouterImpl.smali b/smali_classes2/tv/twitch/android/shared/ui/elements/routers/BrowserRouterImpl.smali
 --- a/smali_classes2/tv/twitch/android/shared/ui/elements/routers/BrowserRouterImpl.smali
 +++ b/smali_classes2/tv/twitch/android/shared/ui/elements/routers/BrowserRouterImpl.smali
-@@ -231,6 +231,27 @@
+@@ -226,6 +226,27 @@
          }
      .end annotation
  

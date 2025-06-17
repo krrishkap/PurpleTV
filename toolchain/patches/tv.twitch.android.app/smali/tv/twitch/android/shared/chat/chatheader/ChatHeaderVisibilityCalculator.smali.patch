@@ -1,7 +1,7 @@
 diff --git a/smali_classes7/tv/twitch/android/shared/chat/chatheader/ChatHeaderVisibilityCalculator.smali b/smali_classes7/tv/twitch/android/shared/chat/chatheader/ChatHeaderVisibilityCalculator.smali
 --- a/smali_classes7/tv/twitch/android/shared/chat/chatheader/ChatHeaderVisibilityCalculator.smali
 +++ b/smali_classes7/tv/twitch/android/shared/chat/chatheader/ChatHeaderVisibilityCalculator.smali
-@@ -359,8 +359,17 @@
+@@ -496,8 +496,17 @@
  .end method
  
  .method private final shouldHideChatHeaderBasedOnDefaultRules(Z)Z

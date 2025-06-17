@@ -1,7 +1,7 @@
 diff --git a/smali/kotlin/collections/ArraysKt___ArraysKt.smali b/smali/kotlin/collections/ArraysKt___ArraysKt.smali
 --- a/smali/kotlin/collections/ArraysKt___ArraysKt.smali
 +++ b/smali/kotlin/collections/ArraysKt___ArraysKt.smali
-@@ -2659,3 +2659,68 @@
+@@ -2649,3 +2649,68 @@
      :cond_0
      return-object v1
  .end method
