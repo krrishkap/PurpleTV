@@ -1,7 +1,7 @@
 diff --git a/smali_classes7/tv/twitch/android/shared/chat/messages/span/ChatMessageSpanFactoryV2.smali b/smali_classes7/tv/twitch/android/shared/chat/messages/span/ChatMessageSpanFactoryV2.smali
 --- a/smali_classes7/tv/twitch/android/shared/chat/messages/span/ChatMessageSpanFactoryV2.smali
 +++ b/smali_classes7/tv/twitch/android/shared/chat/messages/span/ChatMessageSpanFactoryV2.smali
-@@ -1083,10 +1083,25 @@
+@@ -1084,10 +1084,25 @@
  
      move-result-object v3
  
