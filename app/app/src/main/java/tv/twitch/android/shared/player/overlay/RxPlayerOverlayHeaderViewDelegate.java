@@ -28,7 +28,7 @@ public class RxPlayerOverlayHeaderViewDelegate {
     private final void resolveClipButton(PlayerOverlayHeaderViewModel.PlayerOverlayOptions playerOverlayOptions) {
         /* ... */
 
-        UIHook.maybeHideCreateClipButton(viewBinding.createClipButton, viewBinding.createClipTextButton); // TODO: __INJECT_CODE
+        UIHook.maybeHideCreateClipButton(viewBinding.createClipTextButton); // TODO: __INJECT_CODE
     }
 
     /* ... */

@@ -81,7 +81,7 @@ public class PlayerOverlayViewDelegate extends BaseViewDelegate implements IPlay
 
         /* ... */
 
-        UIHook.maybeHideCreateClipButton(createClipButton, createClipButtonComposeView); // TODO: __INJECT_CODE
+        UIHook.maybeHideCreateClipButton(createClipButtonComposeView); // TODO: __INJECT_CODE
 
         throw new VirtualImpl();
     }
@@ -132,7 +132,7 @@ public class PlayerOverlayViewDelegate extends BaseViewDelegate implements IPlay
     public final void setClipButtonState(boolean var1) {
         /* ... */
 
-        UIHook.maybeHideCreateClipButton(createClipButton, createClipButtonComposeView); // TODO: __INJECT_CODE
+        UIHook.maybeHideCreateClipButton(createClipButtonComposeView); // TODO: __INJECT_CODE
 
         throw new VirtualImpl();
     }

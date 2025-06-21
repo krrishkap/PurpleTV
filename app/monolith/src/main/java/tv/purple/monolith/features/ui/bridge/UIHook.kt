@@ -100,11 +100,9 @@ object UIHook {
 
     @JvmStatic
     fun maybeHideCreateClipButton(
-        createClipButton: ImageView?,
         createClipButtonComposeView: ComposeView?
     ) {
         if (Flag.HIDE_PLAYER_CREATE_CLIP_BUTTON.asBoolean()) {
-            createClipButton?.changeVisibility(false)
             createClipButtonComposeView?.changeVisibility(false)
         }
     }

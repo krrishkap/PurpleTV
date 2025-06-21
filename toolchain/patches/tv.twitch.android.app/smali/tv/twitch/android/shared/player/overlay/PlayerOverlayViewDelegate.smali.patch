@@ -1,7 +1,7 @@
 diff --git a/smali_classes8/tv/twitch/android/shared/player/overlay/PlayerOverlayViewDelegate.smali b/smali_classes8/tv/twitch/android/shared/player/overlay/PlayerOverlayViewDelegate.smali
 --- a/smali_classes8/tv/twitch/android/shared/player/overlay/PlayerOverlayViewDelegate.smali
 +++ b/smali_classes8/tv/twitch/android/shared/player/overlay/PlayerOverlayViewDelegate.smali
-@@ -409,6 +409,18 @@
+@@ -409,6 +409,16 @@
  
      invoke-virtual {v1, v2}, Ltv/twitch/android/shared/player/overlay/BottomPlayerControlOverlayViewDelegate;->setBottomPlayerControlListener(Ltv/twitch/android/shared/player/overlay/BottomPlayerControlOverlayViewDelegate$BottomPlayerControlListener;)V
  
@@ -11,16 +11,14 @@ diff --git a/smali_classes8/tv/twitch/android/shared/player/overlay/PlayerOverla
 +
 +    move-object/from16 v0, p0
 +
-+    iget-object v1, v0, Ltv/twitch/android/shared/player/overlay/PlayerOverlayViewDelegate;->createClipButton:Landroid/widget/ImageView;
++    iget-object v1, v0, Ltv/twitch/android/shared/player/overlay/PlayerOverlayViewDelegate;->createClipButtonComposeView:Landroidx/compose/ui/platform/ComposeView;
 +
-+    iget-object v2, v0, Ltv/twitch/android/shared/player/overlay/PlayerOverlayViewDelegate;->createClipButtonComposeView:Landroidx/compose/ui/platform/ComposeView;
-+
-+    invoke-static {v1, v2}, Ltv/purple/monolith/features/ui/bridge/UIHook;->maybeHideCreateClipButton(Landroid/widget/ImageView;Landroidx/compose/ui/platform/ComposeView;)V
++    invoke-static {v1}, Ltv/purple/monolith/features/ui/bridge/UIHook;->maybeHideCreateClipButton(Landroidx/compose/ui/platform/ComposeView;)V
 +
      return-void
  .end method
  
-@@ -1204,6 +1216,10 @@
+@@ -1204,6 +1214,10 @@
  .method public final setShouldShowChromecast(Z)V
      .locals 1
  
@@ -31,7 +29,7 @@ diff --git a/smali_classes8/tv/twitch/android/shared/player/overlay/PlayerOverla
      iput-boolean p1, p0, Ltv/twitch/android/shared/player/overlay/PlayerOverlayViewDelegate;->shouldShowChromecast:Z
  
      iget-object v0, p0, Ltv/twitch/android/shared/player/overlay/PlayerOverlayViewDelegate;->castButton:Landroidx/mediarouter/app/MediaRouteButton;
-@@ -1220,6 +1236,10 @@
+@@ -1220,6 +1234,10 @@
      :goto_0
      invoke-virtual {v0, p1}, Landroid/view/View;->setVisibility(I)V
  
@@ -42,7 +40,7 @@ diff --git a/smali_classes8/tv/twitch/android/shared/player/overlay/PlayerOverla
      return-void
  .end method
  
-@@ -1368,3 +1388,44 @@
+@@ -1368,3 +1386,44 @@
  
      return-void
  .end method
