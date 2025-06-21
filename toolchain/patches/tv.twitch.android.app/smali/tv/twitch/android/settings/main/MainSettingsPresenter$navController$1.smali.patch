@@ -9,7 +9,7 @@ diff --git a/smali_classes6/tv/twitch/android/settings/main/MainSettingsPresente
 +    invoke-static {}, Ltv/purple/monolith/features/settings/bridge/PurpleTVSettingsHook;->createSettingsFragment()Landroidx/fragment/app/Fragment;
  
 -    invoke-direct {p2}, Ltv/twitch/android/settings/system/SystemSettingsFragment;-><init>()V
-+    move-result-object v0
++    move-result-object p2
  
      goto :goto_0
  
@@ -17,9 +17,9 @@ diff --git a/smali_classes6/tv/twitch/android/settings/main/MainSettingsPresente
      invoke-direct {p2}, Ltv/twitch/android/settings/account/AccountSettingsFragment;-><init>()V
  
      :goto_0
-+    sget-object v1, Ltv/twitch/android/models/settings/SettingsDestination;->PurpleSettings:Ltv/twitch/android/models/settings/SettingsDestination;
++    sget-object v2, Ltv/twitch/android/models/settings/SettingsDestination;->PurpleSettings:Ltv/twitch/android/models/settings/SettingsDestination;
 +
-+    if-ne p1, v1, :cond_z
++    if-ne p1, v2, :cond_z
 +
 +    invoke-static {}, Ltv/purple/monolith/features/settings/bridge/PurpleTVSettingsHook;->createSettingsFragment()Landroidx/fragment/app/Fragment;
 +
