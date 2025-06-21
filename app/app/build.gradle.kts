@@ -20,10 +20,6 @@ android {
     kotlinOptions {
         jvmTarget = Config.jvmTarget
     }
-
-    sourceSets.named("main") {
-        java.filter.exclude("**/*")
-    }
 }
 
 tasks.register("genDex") {

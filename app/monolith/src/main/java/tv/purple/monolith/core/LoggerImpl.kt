@@ -3,6 +3,7 @@ package tv.purple.monolith.core
 import timber.log.Timber
 import tv.purple.monolith.core.models.flag.Flag
 import tv.purple.monolith.core.models.flag.FlagListener
+import tv.purple.monolith.core.util.DebugUtils
 import tv.purple.monolith.models.util.ILogger
 import tv.twitch.android.core.mvp.presenter.PresenterAction
 import tv.twitch.android.core.mvp.presenter.PresenterState
@@ -123,5 +124,18 @@ object LoggerImpl : ILogger, FlagListener {
             Flag.DEBUG_STATE_MACHINE -> loggingStateMachine = flag.asBoolean()
             else -> {}
         }
+    }
+
+    @JvmStatic
+    fun debugObject(obj: Any?) {
+        if (!devMode) {
+            return
+        }
+
+        obj ?: kotlin.run {
+            debug("debugObject(null)")
+            return
+        }
+        DebugUtils.debugObject(obj)
     }
 }

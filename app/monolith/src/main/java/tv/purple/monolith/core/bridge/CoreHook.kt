@@ -8,7 +8,9 @@ import tv.purple.monolith.core.LoggerImpl
 import tv.purple.monolith.core.models.flag.Flag
 import tv.purple.monolith.core.models.flag.variants.PlayerImpl
 import tv.twitch.android.models.channel.ChannelInfo
+import tv.twitch.android.models.player.ManifestProperties
 import tv.twitch.android.models.player.PlayerImplementation
+import tv.twitch.android.models.player.VideoRequestPlayerType
 import tv.twitch.android.shared.subscriptions.db.SubscriptionPurchaseEntity
 import tv.twitch.android.shared.subscriptions.purchasers.SubscriptionPurchaseResponse
 import java.lang.Math.max
@@ -99,6 +101,31 @@ class CoreHook {
             channelInfo?.id?.let { id ->
                 LifecycleCore.get().onConnectingToChannel(id)
             }
+        }
+
+        @JvmStatic
+        fun testHook(manifestProperties: ManifestProperties?): ManifestProperties? {
+            manifestProperties ?: return null
+
+
+            LoggerImpl.debug("TestHook applied")
+            return ManifestProperties(
+                manifestProperties.cdmValue,
+                manifestProperties.includeSourceQuality,
+                VideoRequestPlayerType.MOBILE_DISCOVERY_FEED,
+                manifestProperties.playerImplementation,
+                manifestProperties.debugProperties,
+                manifestProperties.raidId,
+                manifestProperties.playSessionId,
+                manifestProperties.deviceType,
+                manifestProperties.make,
+                manifestProperties.model,
+                manifestProperties.os,
+                manifestProperties.adsEncodedClientMetadata,
+                manifestProperties.transcodeMode,
+                manifestProperties.appVersion,
+                manifestProperties.includeMultiGroup
+            )
         }
     }
 }

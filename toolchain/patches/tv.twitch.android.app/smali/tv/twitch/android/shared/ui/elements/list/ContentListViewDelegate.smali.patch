@@ -1,34 +1,45 @@
 diff --git a/smali_classes8/tv/twitch/android/shared/ui/elements/list/ContentListViewDelegate.smali b/smali_classes8/tv/twitch/android/shared/ui/elements/list/ContentListViewDelegate.smali
 --- a/smali_classes8/tv/twitch/android/shared/ui/elements/list/ContentListViewDelegate.smali
 +++ b/smali_classes8/tv/twitch/android/shared/ui/elements/list/ContentListViewDelegate.smali
-@@ -1821,3 +1821,43 @@
+@@ -1821,3 +1821,54 @@
      :cond_1
      return-void
  .end method
 +
 +.method public final fastScrollToPosition(I)V
-+    .registers 4
++    .registers 5
 +    .param p1, "i"    # I
 +
-+    iget-object v0, p0, Ltv/twitch/android/shared/ui/elements/list/ContentListViewDelegate;->layoutManager:Landroidx/recyclerview/widget/GridLayoutManager;
++    .prologue
++    .line 16
++    iget-object v1, p0, Ltv/twitch/android/shared/ui/elements/list/ContentListViewDelegate;->layoutManager:Landroidx/recyclerview/widget/GridLayoutManager;
 +
-+    if-eqz v0, :cond_11
++    .line 17
++    .local v1, "manager":Landroidx/recyclerview/widget/GridLayoutManager;
++    if-nez v1, :cond_5
 +
++    .line 27
++    :cond_4
++    :goto_4
++    return-void
++
++    .line 20
++    :cond_5
 +    iget-object v0, p0, Ltv/twitch/android/shared/ui/elements/list/ContentListViewDelegate;->gridView:Landroidx/recyclerview/widget/RecyclerView;
 +
-+    if-eqz v0, :cond_b
++    .line 21
++    .local v0, "grid":Landroidx/recyclerview/widget/RecyclerView;
++    if-eqz v0, :cond_4
 +
++    .line 25
 +    invoke-virtual {v0}, Landroidx/recyclerview/widget/RecyclerView;->stopScroll()V
 +
-+    :cond_b
-+    iget-object v0, p0, Ltv/twitch/android/shared/ui/elements/list/ContentListViewDelegate;->layoutManager:Landroidx/recyclerview/widget/GridLayoutManager;
++    .line 26
++    const/4 v2, 0x0
 +
-+    const/4 v1, 0x0
++    invoke-virtual {v1, p1, v2}, Landroidx/recyclerview/widget/GridLayoutManager;->scrollToPositionWithOffset(II)V
 +
-+    invoke-virtual {v0, p1, v1}, Landroidx/recyclerview/widget/GridLayoutManager;->scrollToPositionWithOffset(II)V
-+
-+    :cond_11
-+    return-void
++    goto :goto_4
 +.end method
 +
 +.method public final getAdapter()Landroidx/recyclerview/widget/RecyclerView$Adapter;

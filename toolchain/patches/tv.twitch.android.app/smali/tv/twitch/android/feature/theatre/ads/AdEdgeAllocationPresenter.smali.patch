@@ -1,0 +1,14 @@
+diff --git a/smali_classes6/tv/twitch/android/feature/theatre/ads/AdEdgeAllocationPresenter.smali b/smali_classes6/tv/twitch/android/feature/theatre/ads/AdEdgeAllocationPresenter.smali
+--- a/smali_classes6/tv/twitch/android/feature/theatre/ads/AdEdgeAllocationPresenter.smali
++++ b/smali_classes6/tv/twitch/android/feature/theatre/ads/AdEdgeAllocationPresenter.smali
+@@ -231,10 +231,6 @@
+ 
+     invoke-direct {p0}, Ltv/twitch/android/feature/theatre/ads/AdEdgeAllocationPresenter;->observeAdSessionChanges()V
+ 
+-    invoke-direct {p0}, Ltv/twitch/android/feature/theatre/ads/AdEdgeAllocationPresenter;->requestAdsAfterEligibilityCheck()V
+-
+-    invoke-direct {p0}, Ltv/twitch/android/feature/theatre/ads/AdEdgeAllocationPresenter;->parseAdAndCheckEligibility()V
+-
+     return-void
+ .end method
+ 

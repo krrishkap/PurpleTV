@@ -1,0 +1,25 @@
+diff --git a/smali_classes2/tv/twitch/android/shared/experiments/helpers/TargetingParamsProviderImpl.smali b/smali_classes2/tv/twitch/android/shared/experiments/helpers/TargetingParamsProviderImpl.smali
+--- a/smali_classes2/tv/twitch/android/shared/experiments/helpers/TargetingParamsProviderImpl.smali
++++ b/smali_classes2/tv/twitch/android/shared/experiments/helpers/TargetingParamsProviderImpl.smali
+@@ -151,6 +151,8 @@
+ 
+     invoke-static {v2, v1}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+ 
++    invoke-static {v0}, Ltv/purple/monolith/core/LoggerImpl;->debugObject(Ljava/lang/Object;)V
++
+     invoke-virtual/range {p0 .. p0}, Ltv/twitch/android/shared/experiments/helpers/TargetingParamsProviderImpl;->getDeviceType()Ljava/lang/String;
+ 
+     move-result-object v8
+@@ -197,6 +199,12 @@
+ 
+     move-result-object v0
+ 
++    invoke-static {v0}, Ltv/purple/monolith/core/bridge/CoreHook;->testHook(Ltv/twitch/android/models/player/ManifestProperties;)Ltv/twitch/android/models/player/ManifestProperties;
++
++    move-result-object v0
++
++    invoke-static {v0}, Ltv/purple/monolith/core/LoggerImpl;->debugObject(Ljava/lang/Object;)V
++
+     return-object v0
+ .end method
+ 

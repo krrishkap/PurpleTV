@@ -1,0 +1,14 @@
+diff --git a/smali_classes2/tv/twitch/android/shared/experiments/helpers/ProfileSettingsReorgExperimentImpl.smali b/smali_classes2/tv/twitch/android/shared/experiments/helpers/ProfileSettingsReorgExperimentImpl.smali
+--- a/smali_classes2/tv/twitch/android/shared/experiments/helpers/ProfileSettingsReorgExperimentImpl.smali
++++ b/smali_classes2/tv/twitch/android/shared/experiments/helpers/ProfileSettingsReorgExperimentImpl.smali
+@@ -75,9 +75,7 @@
+ .method public isProfileSettingsReorgExperimentEnabled()Z
+     .locals 1
+ 
+-    invoke-direct {p0}, Ltv/twitch/android/shared/experiments/helpers/ProfileSettingsReorgExperimentImpl;->get_isProfileSettingsReorgExperimentEnabled()Z
+-
+-    move-result v0
++    const/4 v0, 0x0
+ 
+     return v0
+ .end method
