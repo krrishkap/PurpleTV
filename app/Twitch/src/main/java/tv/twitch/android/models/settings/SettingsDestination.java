@@ -46,6 +46,7 @@ public enum SettingsDestination {
     TwoFactorAuthenticationDisable(true),
     TwoFactorAuthenticationEnable(true),
     ViewerChatFilters(true),
+    // TODO: __INJECT_FIELDS
     PurpleThirdParty(false),
     PurpleThirdPartyEmotes(false),
     PurpleThirdPartyBadges(false),

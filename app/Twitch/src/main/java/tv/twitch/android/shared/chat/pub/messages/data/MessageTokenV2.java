@@ -3,41 +3,53 @@ package tv.twitch.android.shared.chat.pub.messages.data;
 import kotlin.NotImplementedError;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
+import tv.twitch.android.core.commerce.models.bits.Cheermote;
 
 public abstract class MessageTokenV2 {
-    public MessageTokenV2(DefaultConstructorMarker var1) {
-        throw new NotImplementedError();
-    }
+    public static final class BitsToken extends MessageTokenV2 {
+        private final Cheermote cheermote;
+        private final int numBits;
 
-    /* ... */
-
-    public static class EmoteToken extends MessageTokenV2 {
-        private final String id;
-        private final String text;
-
-        public EmoteToken(String id2, String text) {
-            super(null);
-            Intrinsics.checkNotNullParameter(id2, "id");
-            Intrinsics.checkNotNullParameter(text, "text");
-            this.id = id2;
-            this.text = text;
+        public BitsToken(Cheermote cheermote, int i) {
+            throw new NotImplementedError();
         }
 
-        public final String getId() {
-            return this.id;
+        public final Cheermote getCheermote() {
+            return this.cheermote;
+        }
+
+        public final int getNumBits() {
+            return this.numBits;
+        }
+    }
+
+    public static final class CensoredTextToken extends MessageTokenV2 {
+        private final String text;
+        private final CensoredMessageTrackingInfo trackingInfo;
+
+        public CensoredTextToken(String text, CensoredMessageTrackingInfo trackingInfo) {
+            throw new NotImplementedError();
         }
 
         public final String getText() {
             return this.text;
         }
+
+        public final CensoredMessageTrackingInfo getTrackingInfo() {
+            return this.trackingInfo;
+        }
     }
 
-    public static final class TextToken extends MessageTokenV2 {
+    public static class EmoteToken extends MessageTokenV2 { // TODO: __REMOVE_FINAL
+        private final String id;
         private final String text;
 
-        public TextToken(String var1) {
-            super(null);
-            this.text = var1;
+        public EmoteToken(String id, String text) {
+            throw new NotImplementedError();
+        }
+
+        public final String getId() {
+            return this.id;
         }
 
         public final String getText() {
@@ -50,11 +62,12 @@ public abstract class MessageTokenV2 {
         private final String text;
         private final String userName;
 
-        public MentionToken(String var1, String var2, boolean var3) {
-            super(null);
-            this.text = var1;
-            this.userName = var2;
-            this.isLocalUser = var3;
+        public MentionToken(String text, String userName, boolean z) {
+            throw new NotImplementedError();
+        }
+
+        public final String getText() {
+            return this.text;
         }
 
         public final String getUserName() {
@@ -62,17 +75,25 @@ public abstract class MessageTokenV2 {
         }
     }
 
+    public static final class TextToken extends MessageTokenV2 {
+        private final String text;
+
+        public TextToken(String text) {
+            throw new NotImplementedError();
+        }
+
+        public final String getText() {
+            return this.text;
+        }
+    }
+
     public static final class UrlToken extends MessageTokenV2 {
         private final boolean hidden;
         private final String url;
 
-        public UrlToken(String var1, boolean var2) {
-            super(null);
-            this.url = var1;
-            this.hidden = var2;
+        public UrlToken(String url, boolean z) {
+            throw new NotImplementedError();
         }
-
-        /* ... */
 
         public final boolean getHidden() {
             return this.hidden;
@@ -81,9 +102,12 @@ public abstract class MessageTokenV2 {
         public final String getUrl() {
             return this.url;
         }
-
-        /* ... */
     }
 
-    /* ... */
+    public MessageTokenV2(DefaultConstructorMarker defaultConstructorMarker) {
+        this();
+    }
+
+    private MessageTokenV2() {
+    }
 }

@@ -73,19 +73,6 @@ public class ChatConnectionController extends BasePresenter {
         throw new VirtualImpl();
     }
 
-    private final void onChannelEventReceived(ChatChannelEvent chatChannelEvent) {
-        if (chatChannelEvent instanceof ChatChannelEvent.ChannelUserMessagesCleared) {
-            maybeHandleChannelUserMessagesCleared((ChatChannelEvent.ChannelUserMessagesCleared) chatChannelEvent); // TODO: __INJECT_CODE
-        }
-    }
-
-
-    private void maybeHandleChannelUserMessagesCleared(ChatChannelEvent.ChannelUserMessagesCleared chatChannelEvent) { // TODO: __INJECT_METHOD
-        if (chatChannelEvent != null) {
-            chp.handleChannelUserMessagesCleared(noticeEventsSubject, chatChannelEvent);
-        }
-    }
-
     private final void setBroadcaster(ChannelInfo channelInfo, StreamType streamType) {
         CoreHook.onConnectingToChannel(channelInfo); // TODO: __INJECT_CODE
 

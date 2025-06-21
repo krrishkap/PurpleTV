@@ -1,11 +1,13 @@
 package tv.twitch.android.shared.theatre.data.pub.model;
 
-import kotlin.NotImplementedError;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 
 public class RxPlayerOverlayEvent {
-    public RxPlayerOverlayEvent(DefaultConstructorMarker var1) {
-        throw new NotImplementedError();
+    public RxPlayerOverlayEvent(DefaultConstructorMarker defaultConstructorMarker) {
+        this();
+    }
+
+    private RxPlayerOverlayEvent() {
     }
 
     /* ... */
@@ -14,7 +16,7 @@ public class RxPlayerOverlayEvent {
         public static final RefreshClicked INSTANCE = new RefreshClicked();
 
         private RefreshClicked() {
-            super((DefaultConstructorMarker) null);
+            super(null);
         }
     }
 

@@ -15,17 +15,19 @@ import tv.twitch.android.shared.ui.menus.core.MenuModel;
 public class ToggleMenuModel extends MenuModel.SingleItemModel { // TODO: __REMOVE_FINAL
     private String orangeKey = null; // TODO: __INJECT_FIELD
 
-    public ToggleMenuModel(String primaryText, CharSequence secondaryText, String auxiliaryText, Spannable auxiliaryTextSpan, boolean toggleState, boolean isEnabled, Drawable drawable, String eventName, boolean includeBackground, String pillText, Integer pillColor, Integer pillTextColor, SettingsPreferencesController.SettingsPreference settingsPreference, View.OnClickListener onClickListener, Integer topMarginDimenRes) {
+    public ToggleMenuModel(String str, CharSequence charSequence, String str2, Spannable spannable, boolean z, boolean z2, Drawable drawable, String str3, boolean z3, String str4, Integer num, Integer num2, SettingsPreferencesController.SettingsPreference settingsPreference, View.OnClickListener onClickListener, Integer num3) {
         super(null, null, null, null, null, null);
+
+        /* ... */
     }
 
     public final String getEventName() {
-        return null;
+        throw new NotImplementedError();
     }
 
     @Override
-    public ToggleMenuRecyclerItem toRecyclerAdapterItem(Context context, SettingActionListener settingActionListener, VisibilityProvider visibilityProvider) {
-        return null;
+    protected ToggleMenuRecyclerItem toRecyclerAdapterItem(Context context, SettingActionListener settingActionListener, VisibilityProvider visibilityProvider) {
+        throw new NotImplementedError();
     }
 
     public boolean getToggleState() { // TODO: __REMOVE_FINAL

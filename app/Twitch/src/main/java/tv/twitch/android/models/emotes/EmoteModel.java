@@ -1,9 +1,11 @@
 package tv.twitch.android.models.emotes;
 
-import java.util.List;
-
+import kotlin.NotImplementedError;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 
+/**
+ * Stub class for tv.twitch.android.models.emotes.EmoteModel
+ */
 public abstract class EmoteModel {
     public EmoteModel(DefaultConstructorMarker defaultConstructorMarker) {
         this();
@@ -20,55 +22,35 @@ public abstract class EmoteModel {
     private EmoteModel() {
     }
 
-    public static class Generic extends EmoteModel {
-        public Generic(String var1, String var2, EmoteModelAssetType var3, EmoteModelType var4) {
-            /* ... */
-        }
+    public static class Generic extends EmoteModel { // TODO: REMOVE_FINAL
+        /* ... */
 
         @Override
         public EmoteModelAssetType getAssetType() {
-            return null;
+            throw new NotImplementedError();
         }
 
         @Override
         public String getId() {
-            return null;
+            throw new NotImplementedError();
         }
 
         @Override
         public String getToken() {
-            return null;
+            throw new NotImplementedError();
         }
 
         @Override
         public EmoteModelType getType() {
-            return null;
+            throw new NotImplementedError();
+        }
+
+        /* ... */
+
+        public Generic(String id, String token, EmoteModelAssetType assetType, EmoteModelType type) {
+            throw new NotImplementedError();
         }
     }
 
-    public static class WithOwner extends EmoteModel {
-        public WithOwner(String var1, String var2, int var3, EmoteModelAssetType var4, List<? extends EmoteModel> var5, EmoteModelType var6) {
-            /* ... */
-        }
-
-        @Override
-        public EmoteModelAssetType getAssetType() {
-            return null;
-        }
-
-        @Override
-        public String getId() {
-            return null;
-        }
-
-        @Override
-        public String getToken() {
-            return null;
-        }
-
-        @Override
-        public EmoteModelType getType() {
-            return null;
-        }
-    }
+    /* ... */
 }

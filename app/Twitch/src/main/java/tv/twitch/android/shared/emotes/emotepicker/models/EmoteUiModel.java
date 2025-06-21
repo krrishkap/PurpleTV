@@ -7,8 +7,6 @@ public class EmoteUiModel { // TODO: __REMOVE_FINAL
     /* ... */
 
     public EmoteUiModel(String id, ClickedEmote clickedEmote, EmoteModelAssetType assetType, EmoteImageDescriptor emoteImageDescriptor, int i, Integer num) {
-        /* ... */
-
         throw new NotImplementedError();
     }
 

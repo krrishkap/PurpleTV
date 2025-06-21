@@ -59,7 +59,6 @@ import tv.twitch.android.models.chat.ChatModNoticeEvents
 import tv.twitch.android.models.chat.MessageBadgeViewModel
 import tv.twitch.android.models.emotes.EmoteModelAssetType
 import tv.twitch.android.models.emotes.EmoteSet
-import tv.twitch.android.shared.chat.ChatChannelEvent
 import tv.twitch.android.shared.chat.messages.data.ChatNoticeExtensionsKt
 import tv.twitch.android.shared.chat.messages.ui.ChatMessageViewHolder
 import tv.twitch.android.shared.chat.messages.ui.MessageRecyclerItem
@@ -780,53 +779,6 @@ class ChatHookProvider @Inject constructor(
                 mre.getPrivateField("fromHistory")
             )
         }.filter { it.messages.isNotEmpty() }
-    }
-
-    fun handleChannelUserMessagesCleared(
-        noticeEventsSubject: PublishSubject<ChatNoticeEvent>?,
-        chatChannelEvent: ChatChannelEvent.ChannelUserMessagesCleared
-    ) {
-        // FIXME: broken since 20.9.0
-//        if (!Flag.MOD_LOG_NOTICES.asBoolean()) {
-//            return
-//        }
-//
-//        val message = if (isTimeoutMessage(chatChannelEvent.components)) {
-//            val timeout =
-//                chatChannelEvent.components?.messageTags?.get("ban-duration")?.toIntOrNull()
-//            val username = chatChannelEvent.components?.content?.trim()
-//
-//            if (timeout != null && !username.isNullOrBlank()) {
-//                getLocalizedTimeoutMessage(context, username, timeout)
-//            } else {
-//                null
-//            }
-//        } else if (isBanMessage(chatChannelEvent.components)) {
-//            val username = chatChannelEvent.components?.content?.trim()
-//
-//            if (!username.isNullOrBlank()) {
-//                getLocalizedBanMessage(context, username)
-//            } else {
-//                null
-//            }
-//        } else {
-//            null
-//        }
-//
-//        if (message != null) {
-//            noticeEventsSubject?.onNext(
-//                ChannelNoticeEvent(
-//                    chatChannelEvent.channelId,
-//                    ChannelNotice.ModVariableChannelNotice(
-//                        UUID.randomUUID().toString(),
-//                        StringResource.Companion..message,
-//                        message
-//                    )
-//                )
-//            )
-//        } else {
-//            LoggerImpl.debug("ChatChannelEvent: $chatChannelEvent")
-//        }
     }
 
     fun hookLiveChatMessage(

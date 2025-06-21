@@ -14,8 +14,10 @@ public class DropDownMenuModel<T> extends MenuModel.SingleItemModel { // TODO: _
         void onDropDownItemSelected(DropDownMenuModel<T> dropDownMenuModel, int i);
     }
 
-    public DropDownMenuModel(ArrayAdapter<T> arrayAdapter, int i10, String str, CharSequence charSequence, String str2, View.OnClickListener onClickListener, DropDownMenuItemSelection<T> dropDownMenuItemSelection) {
+    public DropDownMenuModel(ArrayAdapter<T> arrayAdapter, int i, String str, CharSequence charSequence, String str2, View.OnClickListener onClickListener, DropDownMenuItemSelection<T> dropDownMenuItemSelection) {
         super(null, null, null, null, null, null);
+
+        /* ... */
     }
 
     public int getSelectedOption() { // TODO: __REMOVE_FINAL
@@ -23,7 +25,7 @@ public class DropDownMenuModel<T> extends MenuModel.SingleItemModel { // TODO: _
     }
 
     @Override
-    public DropDownMenuRecyclerItem<T> toRecyclerAdapterItem(Context context, SettingActionListener settingActionListener, VisibilityProvider visibilityProvider) {
-        return null;
+    protected DropDownMenuRecyclerItem<T> toRecyclerAdapterItem(Context context, SettingActionListener settingActionListener, VisibilityProvider visibilityProvider) {
+        throw new NotImplementedError();
     }
 }

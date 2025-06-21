@@ -15,8 +15,8 @@ import tv.purple.monolith.features.logs.view.ViewFactory
 import tv.twitch.android.core.mvp.presenter.BasePresenter
 import tv.twitch.android.core.mvp.rxutil.DisposeOn
 import tv.twitch.android.models.chat.MessageBadge
-import tv.twitch.android.shared.chat.ChatChannelEvent
 import tv.twitch.android.shared.chat.moderation.ModerationBottomSheetViewState
+import tv.twitch.android.shared.chat.pub.events.ChatChannelEvent
 import tv.twitch.android.shared.chat.pub.events.MessagesReceivedEvent
 import tv.twitch.android.shared.chat.pub.messages.data.ChatMessage
 import tv.twitch.android.shared.chat.pub.messages.ui.ChatHistoryMessage

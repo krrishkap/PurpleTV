@@ -13,11 +13,16 @@ public class ContentListViewDelegate {
     }
 
     public final void fastScrollToPosition(int i) { // TODO: __INJECT_CODE
-        if (layoutManager != null) {
-            if (gridView != null) {
-                gridView.stopScroll();
-            }
-            layoutManager.scrollToPositionWithOffset(i, 0);
+        GridLayoutManager manager = layoutManager;
+        if (manager == null) {
+            return;
         }
+        RecyclerView grid = gridView;
+        if (grid == null) {
+            return;
+        }
+
+        grid.stopScroll();
+        manager.scrollToPositionWithOffset(i, 0);
     }
 }
