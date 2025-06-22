@@ -34,8 +34,6 @@ public class ManifestApi {
 
         Single<Response<String>> orgStreamManifest = null;
 
-        orgStreamManifest = ProxyHook.tryHookStreamManifestResponse(streamName, orgStreamManifest); // TODO: __INJECT_CODE
-
         /* ... */
 
         throw new VirtualImpl();

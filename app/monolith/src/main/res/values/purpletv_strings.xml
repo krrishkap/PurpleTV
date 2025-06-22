@@ -212,24 +212,6 @@
     <string name="purpletv_settings_show_stats_button_desc">Enable the display of a button that provides detailed player statistics and information related to the stream playback</string>
     <string name="purpletv_settings_proxy">Proxy server</string>
     <string name="purpletv_settings_proxy_desc">Please note that using a proxy server may affect broadcast latency and the availability of advertisements while watching streams</string>
-    <string name="purpletv_proxy_v3_disabled">Disabled</string>
-    <string name="purpletv_proxy_v3_twitching" translatable="false">Twitching</string>
-    <string name="purpletv_proxy_v3_ttv_lol" translatable="false">TTV LOL</string>
-    <string name="purpletv_proxy_v3_purple" translatable="false">Purple Adblock</string>
-    <string name="purpletv_proxy_v3_gay" translatable="false">GAY</string>
-    <string name="purpletv_proxy_v3_gay_plus" translatable="false">GAY+</string>
-    <string name="purpletv_proxy_v3_luminous_eu" translatable="false">Luminous (EU)</string>
-    <string name="purpletv_proxy_v3_luminous_eu2" translatable="false">Luminous (EU2)</string>
-    <string name="purpletv_proxy_v3_luminous_as" translatable="false">Luminous (AS)</string>
-    <string name="purpletv_proxy_v3_pp_eu" translatable="false">PerfProd (EU)</string>
-    <string name="purpletv_proxy_v3_pp_eu2" translatable="false">PerfProd (EU2)</string>
-    <string name="purpletv_proxy_v3_pp_eu3" translatable="false">PerfProd (EU3)</string>
-    <string name="purpletv_proxy_v3_pp_eu4" translatable="false">PerfProd (EU4)</string>
-    <string name="purpletv_proxy_v3_pp_eu5" translatable="false">PerfProd (EU5)</string>
-    <string name="purpletv_proxy_v3_pp_na" translatable="false">PerfProd (NA)</string>
-    <string name="purpletv_proxy_v3_pp_as" translatable="false">PerfProd (AS)</string>
-    <string name="purpletv_proxy_v3_pp_sa" translatable="false">PerfProd (SA)</string>
-    <string name="purpletv_proxy_v3_custom">Custom</string>
     <string name="purpletv_generic_error">Error: %1$s</string>
     <string name="purpletv_generic_error_d">[%1$s] Error: %2$s</string>
     <string name="purpletv_proxy_error_ur">Unsuccessful response</string>

@@ -44,7 +44,7 @@ diff --git a/smali_classes6/tv/twitch/android/feature/theatre/debug/VideoDebugLi
 +
 +    invoke-direct {v0, v3, v1, v2}, Ltv/twitch/android/feature/theatre/debug/VideoDebugListPresenter$VideoStat;-><init>(Ljava/lang/String;ILjava/lang/String;)V
 +
-+    sput-object v0, Ltv/twitch/android/feature/theatre/debug/VideoDebugListPresenter$VideoStat;->PROTOCOL:Ltv/twitch/android/feature/theatre/debug/VideoDebugListPresenter$VideoStat;
++    sput-object v0, Ltv/twitch/android/feature/theatre/debug/VideoDebugListPresenter$VideoStat;->PROXY_SERVER:Ltv/twitch/android/feature/theatre/debug/VideoDebugListPresenter$VideoStat;
 +
      invoke-static {}, Ltv/twitch/android/feature/theatre/debug/VideoDebugListPresenter$VideoStat;->$values()[Ltv/twitch/android/feature/theatre/debug/VideoDebugListPresenter$VideoStat;
  

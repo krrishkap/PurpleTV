@@ -2,17 +2,17 @@ package tv.purple.monolith.features.proxy.bridge
 
 import io.reactivex.Single
 import okhttp3.OkHttpClient
-import retrofit2.Response
 import tv.purple.monolith.features.proxy.Proxy
 import tv.twitch.android.models.manifest.extm3u
+import tv.twitch.android.shared.manifest.fetcher.pub.ManifestResponse
 
 object ProxyHook {
     @JvmStatic
     fun tryHookStreamManifestResponse(
         streamName: String,
-        orgStreamManifest: Single<Response<String>>
-    ): Single<Response<String>> {
-        return Proxy.get().maybeStreamManifestResponse(streamName, orgStreamManifest)
+        orgStreamManifest: Single<ManifestResponse>
+    ): Single<ManifestResponse> {
+        return Proxy.get().maybeHookStreamManifestResponse(streamName, orgStreamManifest)
     }
 
     @JvmStatic

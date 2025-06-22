@@ -8,6 +8,7 @@ import tv.purple.monolith.core.models.flag.Flag
 import tv.purple.monolith.core.models.flag.core.Variant
 import tv.purple.monolith.core.models.flag.core.Variant.Companion.getPosition
 import tv.purple.monolith.core.models.flag.core.Variant.Companion.getVariants
+import tv.purple.monolith.core.models.flag.variants.ProxyImpl
 import tv.purple.monolith.features.settings.component.PurpleTVSettingsController
 import tv.twitch.android.core.adapters.TwitchArrayAdapter
 import tv.twitch.android.core.adapters.TwitchArrayAdapterModel
@@ -48,6 +49,8 @@ class DropDownMenuModelExt<T : Variant>(
                     TwitchArrayAdapterModel {
                         if (raw) {
                             variant.toString()
+                        } else if (variant is ProxyImpl) {
+                            variant.desc
                         } else {
                             "purpletv_${flag.preferenceKey}_$variant".fromResToString()
                         }

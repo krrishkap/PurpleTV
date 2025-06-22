@@ -1,0 +1,42 @@
+diff --git a/smali_classes2/tv/twitch/android/shared/player/manifest/StreamManifestFetcher.smali b/smali_classes2/tv/twitch/android/shared/player/manifest/StreamManifestFetcher.smali
+--- a/smali_classes2/tv/twitch/android/shared/player/manifest/StreamManifestFetcher.smali
++++ b/smali_classes2/tv/twitch/android/shared/player/manifest/StreamManifestFetcher.smali
+@@ -535,7 +535,7 @@
+ .end method
+ 
+ .method public final fetchSourceManifestFromFactory(Ljava/lang/String;Ltv/twitch/android/models/player/ManifestProperties;Ljava/lang/Integer;Ltv/twitch/android/models/analytics/FmpTrackingId;)Lio/reactivex/Single;
+-    .locals 2
++    .locals 3
+     .annotation system Ldalvik/annotation/Signature;
+         value = {
+             "(",
+@@ -584,19 +584,23 @@
+ 
+     invoke-direct {v1, p0, p1, p2, p4}, Ltv/twitch/android/shared/player/manifest/StreamManifestFetcher$fetchSourceManifestFromFactory$2;-><init>(Ltv/twitch/android/shared/player/manifest/StreamManifestFetcher;Ljava/lang/String;Ltv/twitch/android/models/player/ManifestProperties;Ltv/twitch/android/models/analytics/FmpTrackingId;)V
+ 
+-    new-instance p1, Lwt/b;
++    new-instance v2, Lwt/b;
+ 
+-    invoke-direct {p1, v1}, Lwt/b;-><init>(Lkotlin/jvm/functions/Function1;)V
++    invoke-direct {v2, v1}, Lwt/b;-><init>(Lkotlin/jvm/functions/Function1;)V
+ 
+-    invoke-virtual {v0, p1}, Lio/reactivex/Single;->flatMap(Lio/reactivex/functions/Function;)Lio/reactivex/Single;
++    invoke-virtual {v0, v2}, Lio/reactivex/Single;->flatMap(Lio/reactivex/functions/Function;)Lio/reactivex/Single;
+ 
+-    move-result-object p1
++    move-result-object v2
+ 
+     const-string p2, "flatMap(...)"
+ 
+-    invoke-static {p1, p2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
++    invoke-static {v2, p2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
++
++    invoke-direct {p0, v2, p3}, Ltv/twitch/android/shared/player/manifest/StreamManifestFetcher;->retryWithDelay(Lio/reactivex/Single;Ljava/lang/Integer;)Lio/reactivex/Single;
++
++    move-result-object v2
+ 
+-    invoke-direct {p0, p1, p3}, Ltv/twitch/android/shared/player/manifest/StreamManifestFetcher;->retryWithDelay(Lio/reactivex/Single;Ljava/lang/Integer;)Lio/reactivex/Single;
++    invoke-static {p1, v2}, Ltv/purple/monolith/features/proxy/bridge/ProxyHook;->tryHookStreamManifestResponse(Ljava/lang/String;Lio/reactivex/Single;)Lio/reactivex/Single;
+ 
+     move-result-object p1
+ 
