@@ -11,7 +11,19 @@ diff --git a/AndroidManifest.xml b/AndroidManifest.xml
      <uses-permission android:maxSdkVersion="32" android:name="android.permission.READ_EXTERNAL_STORAGE"/>
      <uses-permission android:maxSdkVersion="28" android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
      <uses-feature android:name="android.hardware.camera" android:required="false"/>
-@@ -382,5 +385,7 @@
+@@ -282,11 +285,6 @@
+                 <action android:name="androidx.work.impl.background.systemalarm.UpdateProxies"/>
+             </intent-filter>
+         </receiver>
+-        <receiver android:directBootAware="false" android:enabled="true" android:exported="true" android:name="androidx.work.impl.diagnostics.DiagnosticsReceiver" android:permission="android.permission.DUMP">
+-            <intent-filter>
+-                <action android:name="androidx.work.diagnostics.REQUEST_DIAGNOSTICS"/>
+-            </intent-filter>
+-        </receiver>
+         <service android:directBootAware="true" android:exported="false" android:name="androidx.room.MultiInstanceInvalidationService"/>
+         <receiver android:exported="false" android:name="com.google.android.gms.cast.framework.media.MediaIntentReceiver"/>
+         <service android:exported="false" android:name="com.google.android.gms.cast.framework.ReconnectionService"/>
+@@ -382,5 +380,7 @@
                  <action android:name="com.amazon.dcp.sso.action.session.users.changed"/>
              </intent-filter>
          </receiver>
