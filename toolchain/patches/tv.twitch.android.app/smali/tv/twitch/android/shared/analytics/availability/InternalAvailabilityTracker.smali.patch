@@ -1,0 +1,185 @@
+diff --git a/smali_classes2/tv/twitch/android/shared/analytics/availability/InternalAvailabilityTracker.smali b/smali_classes2/tv/twitch/android/shared/analytics/availability/InternalAvailabilityTracker.smali
+--- a/smali_classes2/tv/twitch/android/shared/analytics/availability/InternalAvailabilityTracker.smali
++++ b/smali_classes2/tv/twitch/android/shared/analytics/availability/InternalAvailabilityTracker.smali
+@@ -76,180 +76,9 @@
+ .end method
+ 
+ .method private final trackAvailability(Ltv/twitch/android/shared/analytics/availability/AvailabilityComponent;Ltv/twitch/android/shared/analytics/availability/Availability;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Double;)V
+-    .locals 10
++    .locals 0
+ 
+-    iget-boolean v0, p0, Ltv/twitch/android/shared/analytics/availability/InternalAvailabilityTracker;->isEnabled:Z
+-
+-    if-nez v0, :cond_0
+-
+-    iget-object v0, p0, Ltv/twitch/android/shared/analytics/availability/InternalAvailabilityTracker;->buildConfigUtil:Ltv/twitch/android/core/buildconfig/BuildConfigUtil;
+-
+-    invoke-virtual {v0}, Ltv/twitch/android/core/buildconfig/BuildConfigUtil;->isDebugConfigEnabled()Z
+-
+-    move-result v0
+-
+-    if-eqz v0, :cond_8
+-
+-    :cond_0
+-    instance-of v0, p2, Ltv/twitch/android/shared/analytics/availability/Availability$Unavailable;
+-
+-    const/4 v1, 0x0
+-
+-    if-eqz v0, :cond_1
+-
+-    move-object v2, p2
+-
+-    check-cast v2, Ltv/twitch/android/shared/analytics/availability/Availability$Unavailable;
+-
+-    goto :goto_0
+-
+-    :cond_1
+-    move-object v2, v1
+-
+-    :goto_0
+-    if-eqz v2, :cond_2
+-
+-    invoke-virtual {v2}, Ltv/twitch/android/shared/analytics/availability/Availability$Unavailable;->getReason()Ljava/lang/String;
+-
+-    move-result-object v2
+-
+-    goto :goto_1
+-
+-    :cond_2
+-    move-object v2, v1
+-
+-    :goto_1
+-    sget-object v3, Ltv/twitch/android/shared/analytics/availability/Availability$Available;->INSTANCE:Ltv/twitch/android/shared/analytics/availability/Availability$Available;
+-
+-    invoke-static {p2, v3}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z
+-
+-    move-result p2
+-
+-    if-eqz p2, :cond_3
+-
+-    const/4 p2, 0x1
+-
+-    goto :goto_2
+-
+-    :cond_3
+-    if-eqz v0, :cond_9
+-
+-    const/4 p2, 0x0
+-
+-    :goto_2
+-    invoke-virtual {p1}, Ltv/twitch/android/shared/analytics/availability/AvailabilityComponent;->getComponentName()Ljava/lang/String;
+-
+-    move-result-object v0
+-
+-    const-string v3, "name"
+-
+-    invoke-static {v3, v0}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
+-
+-    move-result-object v4
+-
+-    invoke-virtual {p1}, Ltv/twitch/android/shared/analytics/availability/AvailabilityComponent;->getFeature()Ltv/twitch/android/shared/analytics/availability/AvailabilityFeature;
+-
+-    move-result-object v0
+-
+-    if-eqz v0, :cond_4
+-
+-    invoke-virtual {v0}, Ltv/twitch/android/shared/analytics/availability/AvailabilityFeature;->getFeatureName()Ljava/lang/String;
+-
+-    move-result-object v1
+-
+-    :cond_4
+-    const-string v0, "feature"
+-
+-    invoke-static {v0, v1}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
+-
+-    move-result-object v5
+-
+-    invoke-virtual {p1}, Ltv/twitch/android/shared/analytics/availability/AvailabilityComponent;->getCategory()Ltv/twitch/android/shared/analytics/availability/AvailabilityCategory;
+-
+-    move-result-object p1
+-
+-    invoke-virtual {p1}, Ltv/twitch/android/shared/analytics/availability/AvailabilityCategory;->getLabel()Ljava/lang/String;
+-
+-    move-result-object p1
+-
+-    const-string v0, "category"
+-
+-    invoke-static {v0, p1}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
+-
+-    move-result-object v6
+-
+-    const-string p1, "location"
+-
+-    invoke-virtual {p0}, Ltv/twitch/android/shared/analytics/availability/InternalAvailabilityTracker;->getScreenName()Ljava/lang/String;
+-
+-    move-result-object v0
+-
+-    invoke-static {p1, v0}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
+-
+-    move-result-object v7
+-
+-    const-string p1, "reason"
+-
+-    invoke-static {p1, v2}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
+-
+-    move-result-object v8
+-
+-    invoke-static {p2}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+-
+-    move-result-object p1
+-
+-    const-string p2, "is_available"
+-
+-    invoke-static {p2, p1}, Lkotlin/TuplesKt;->to(Ljava/lang/Object;Ljava/lang/Object;)Lkotlin/Pair;
+-
+-    move-result-object v9
+-
+-    filled-new-array/range {v4 .. v9}, [Lkotlin/Pair;
+-
+-    move-result-object p1
+-
+-    invoke-static {p1}, Lkotlin/collections/MapsKt;->mutableMapOf([Lkotlin/Pair;)Ljava/util/Map;
+-
+-    move-result-object p1
+-
+-    if-eqz p3, :cond_5
+-
+-    const-string p2, "browser_family"
+-
+-    invoke-interface {p1, p2, p3}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+-
+-    :cond_5
+-    if-eqz p4, :cond_6
+-
+-    const-string p2, "browser_version"
+-
+-    invoke-interface {p1, p2, p4}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+-
+-    :cond_6
+-    if-eqz p5, :cond_7
+-
+-    const-string p2, "portal_local_asset_bundle_version"
+-
+-    invoke-interface {p1, p2, p5}, Ljava/util/Map;->put(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+-
+-    :cond_7
+-    invoke-virtual {p0}, Ltv/twitch/android/shared/analytics/availability/InternalAvailabilityTracker;->getAnalyticsTracker()Ltv/twitch/android/core/analytics/AnalyticsTracker;
+-
+-    move-result-object p2
+-
+-    const-string p3, "client_availability"
+-
+-    invoke-interface {p2, p3, p1}, Ltv/twitch/android/core/analytics/AnalyticsTracker;->trackEvent(Ljava/lang/String;Ljava/util/Map;)V
+-
+-    :cond_8
+     return-void
+-
+-    :cond_9
+-    new-instance p1, Lkotlin/NoWhenBranchMatchedException;
+-
+-    invoke-direct {p1}, Lkotlin/NoWhenBranchMatchedException;-><init>()V
+-
+-    throw p1
+ .end method
+ 
+ 

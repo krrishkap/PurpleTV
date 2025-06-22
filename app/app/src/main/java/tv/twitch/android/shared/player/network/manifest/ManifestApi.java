@@ -8,7 +8,6 @@ import retrofit2.http.Path;
 import retrofit2.http.Query;
 import tv.purple.monolith.core.bridge.CoreHook;
 import tv.purple.monolith.features.proxy.bridge.ProxyHook;
-import tv.purple.monolith.features.vodhunter.bridge.VodHunterHook;
 import tv.purple.monolith.models.exception.VirtualImpl;
 import tv.twitch.android.models.AccessTokenResponse;
 import tv.twitch.android.models.analytics.FmpTrackingId;
@@ -24,10 +23,6 @@ public class ManifestApi {
         @Headers({"Accept: application/vnd.apple.mpegurl, application/json"})
         @GET("vod/{vodName}.m3u8")
         Single<Response<String>> getVodManifest(@Path("vodName") String str, @Query("nauth") String str2, @Query("nauthsig") String str3, @Query("player_backend") String str4, @Query("cache_buster") long j, @Query("allow_source") boolean z, @Query("allow_audio_only") boolean z2, @Query("cdm") String str5, @Query("acmb") String str6);
-    }
-
-    public Single<ManifestResponse> getVodManifest(String vodName, AccessTokenResponse accessTokenResponse, String accessToken, String sig, ManifestProperties manifestProperties) { // TODO: __REPLACE_METHOD
-        return toManifestResponse(VodHunterHook.maybeHookVodManifestResponse(this.manifestService.getVodManifest(vodName, accessToken, sig, manifestProperties.getPlayerImplementation().name(), System.currentTimeMillis(), manifestProperties.getIncludeSourceQuality(), true, manifestProperties.getCdmValue(), manifestProperties.getAdsEncodedClientMetadata()), vodName), accessTokenResponse);
     }
 
     private final Single<ManifestResponse> toManifestResponse(Single<Response<String>> var1, AccessTokenResponse var2) {

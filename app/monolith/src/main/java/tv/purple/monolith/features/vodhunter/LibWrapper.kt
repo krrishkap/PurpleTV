@@ -2,15 +2,17 @@
 
 package tv.purple.monolith.features.vodhunter
 
-import com.getkeepsafe.relinker.ReLinker
-import tv.twitch.android.app.core.ApplicationContext
+import tv.purple.monolith.features.tracking.bridge.BugsnagUtil
+import tv.twitch.android.core.crashreporter.CrashReporter
 
 object LibWrapper {
-    private const val LIB_VERSION = "0.1"
-
     external fun getVodHunterPayload(stream: String): String
 
     init {
-        ReLinker.loadLibrary(ApplicationContext.getInstance().getContext(), "monolith", LIB_VERSION)
+        try {
+            System.loadLibrary("monolith")
+        } catch (e: UnsatisfiedLinkError) {
+            BugsnagUtil.logException(e, "VodHunter", CrashReporter.ExceptionType.NON_FATAL)
+        }
     }
 }

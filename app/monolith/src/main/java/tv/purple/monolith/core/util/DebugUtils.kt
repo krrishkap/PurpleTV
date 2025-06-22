@@ -7,7 +7,7 @@ import java.lang.reflect.Modifier
 
 object DebugUtils {
     data class DebugConfig(
-        val maxDepth: Int = 3,
+        val maxDepth: Int = 5,
         val maxCollectionSize: Int = 100,
         val showPrivateFields: Boolean = true,
         val respectCustomToString: Boolean = true
@@ -19,17 +19,7 @@ object DebugUtils {
     @JvmStatic
     @JvmOverloads
     fun debugObject(obj: Any?, config: DebugConfig = DebugConfig()) {
-        debugObjectInternal(obj, 3, mutableSetOf(), config)
-    }
-
-    @JvmStatic
-    fun debugObjectSimple(obj: Any?) {
-        debugObject(obj, DebugConfig(maxDepth = 1, maxCollectionSize = 10))
-    }
-
-    @JvmStatic
-    fun debugObjectDeep(obj: Any?) {
-        debugObject(obj, DebugConfig(maxDepth = 5, maxCollectionSize = 50))
+        debugObjectInternal(obj, 5, mutableSetOf(), config)
     }
 
     private fun debugObjectInternal(
