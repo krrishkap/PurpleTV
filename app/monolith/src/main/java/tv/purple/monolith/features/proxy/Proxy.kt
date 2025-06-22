@@ -41,14 +41,14 @@ class Proxy @Inject constructor(
             ProxyImpl.CUSTOM -> trySwapPlaylist(
                 twitchResponse = manifest,
                 proxyResponse = repository.getCustomProxyResponse(channelName),
-                proxyName = ProxyImpl.CUSTOM.desc
+                proxyName = variant.desc
             )
 
             else -> variant.domain?.let { domain ->
                 trySwapPlaylist(
                     twitchResponse = manifest,
                     proxyResponse = repository.getPublicProxyPlaylist(channelName, domain),
-                    proxyName = ProxyImpl.CUSTOM.desc
+                    proxyName = variant.desc
                 )
             } ?: manifest
         }
