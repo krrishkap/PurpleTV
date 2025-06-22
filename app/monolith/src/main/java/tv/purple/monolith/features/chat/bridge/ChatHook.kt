@@ -182,9 +182,13 @@ object ChatHook {
     }
 
     @JvmStatic
-    fun hookEmotePickerPresenterLongEmoteClick(clickEvent: EmoteClickedEvent): Boolean {
+    fun hookEmotePickerPresenterLongEmoteClick(
+        clickEvent: EmoteClickedEvent,
+        thos: IEmotePickerPresenter
+    ): Boolean {
         return chatHookProvider.hookEmotePickerPresenterLongEmoteClick(
-            clickEvent = clickEvent
+            clickEvent = clickEvent,
+            emotePickerPresenter = thos
         )
     }
 

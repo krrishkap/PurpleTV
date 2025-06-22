@@ -13,7 +13,6 @@ import io.reactivex.Scheduler
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import io.reactivex.subjects.BehaviorSubject
-import io.reactivex.subjects.PublishSubject
 import tv.purple.monolith.bridge.ex.IMessageRecyclerItem
 import tv.purple.monolith.component.badges.BadgeProvider
 import tv.purple.monolith.component.blacklist.Blacklist
@@ -41,6 +40,7 @@ import tv.purple.monolith.core.util.ViewUtil.spToPx
 import tv.purple.monolith.features.chat.bridge.BindBridge
 import tv.purple.monolith.features.chat.bridge.ChatFactory
 import tv.purple.monolith.features.chat.bridge.ChatMessageInterfaceWrapper
+import tv.purple.monolith.features.chat.bridge.IEmotePickerPresenter
 import tv.purple.monolith.features.chat.bridge.OnBindCallback
 import tv.purple.monolith.features.chat.bridge.PurpleTVEmoteModel
 import tv.purple.monolith.features.chat.bridge.PurpleTVEmotePickerEmoteModel
@@ -53,7 +53,6 @@ import tv.purple.monolith.models.data.emotes.Emote
 import tv.purple.monolith.models.wrapper.EmotePackageSet
 import tv.twitch.android.core.adapters.RecyclerAdapterItem
 import tv.twitch.android.core.mvp.viewdelegate.EventDispatcher
-import tv.twitch.android.core.strings.StringResource
 import tv.twitch.android.core.user.TwitchAccountManager
 import tv.twitch.android.models.chat.ChatModNoticeEvents
 import tv.twitch.android.models.chat.MessageBadgeViewModel
@@ -62,8 +61,6 @@ import tv.twitch.android.models.emotes.EmoteSet
 import tv.twitch.android.shared.chat.messages.data.ChatNoticeExtensionsKt
 import tv.twitch.android.shared.chat.messages.ui.ChatMessageViewHolder
 import tv.twitch.android.shared.chat.messages.ui.MessageRecyclerItem
-import tv.twitch.android.shared.chat.pub.events.ChatNoticeEvent
-import tv.twitch.android.shared.chat.pub.events.ChatNoticeEvent.ChannelNoticeEvent
 import tv.twitch.android.shared.chat.pub.events.MessagesReceivedEvent
 import tv.twitch.android.shared.chat.pub.messages.data.ChatMessage
 import tv.twitch.android.shared.chat.pub.messages.data.MessageTokenV2
@@ -71,7 +68,6 @@ import tv.twitch.android.shared.chat.pub.messages.data.MessageTokenV2.EmoteToken
 import tv.twitch.android.shared.chat.pub.messages.data.MessageTokenV2.MentionToken
 import tv.twitch.android.shared.chat.pub.messages.ui.ChatMessageClickedEvents
 import tv.twitch.android.shared.chat.pub.messages.ui.ChatMessageInterface
-import tv.twitch.android.shared.chat.pub.model.ChannelNotice
 import tv.twitch.android.shared.chat.pub.pinnedchat.CreatorPinnedChatTime
 import tv.twitch.android.shared.chat.pub.pinnedchat.CreatorPinnedChatUiModel
 import tv.twitch.android.shared.chat.pub.pinnedchat.PinnedChatMessageState
@@ -89,7 +85,6 @@ import tv.twitch.chat.library.IrcEventComponents
 import tv.twitch.chat.library.model.ChatMessageInfo
 import tv.twitch.chat.library.model.IrcCommand
 import java.util.StringTokenizer
-import java.util.UUID
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -719,7 +714,10 @@ class ChatHookProvider @Inject constructor(
         return setter
     }
 
-    fun hookEmotePickerPresenterLongEmoteClick(clickEvent: EmoteClickedEvent): Boolean {
+    fun hookEmotePickerPresenterLongEmoteClick(
+        clickEvent: EmoteClickedEvent,
+        emotePickerPresenter: IEmotePickerPresenter
+    ): Boolean {
         if (clickEvent !is EmoteClickedEvent.LongClick) {
             return false
         }
@@ -757,6 +755,10 @@ class ChatHookProvider @Inject constructor(
             )
             logger.debug { "favEmote: $favEmote" }
             favEmotesRepository.addEmote(favEmote)
+            if (emotePickerPresenter is IEmotePickerPresenter) {
+                LoggerImpl.debug("Try update emotes")
+                emotePickerPresenter.notifyFavEmotesChanged();
+            }
             Toast.makeText(context, "Added: ${model.token}", Toast.LENGTH_SHORT).show()
         }
 

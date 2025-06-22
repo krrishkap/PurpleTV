@@ -1,7 +1,17 @@
 diff --git a/smali_classes7/tv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter.smali b/smali_classes7/tv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter.smali
 --- a/smali_classes7/tv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter.smali
 +++ b/smali_classes7/tv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter.smali
-@@ -601,7 +601,7 @@
+@@ -3,6 +3,9 @@
+ .source "EmotePickerPresenter.kt"
+ 
+ 
++.implements Ltv/purple/monolith/features/chat/bridge/IEmotePickerPresenter;
++
++
+ # annotations
+ .annotation system Ldalvik/annotation/MemberClasses;
+     value = {
+@@ -601,7 +604,7 @@
  .end method
  
  .method private final createAllEmoteSetsFlowable(Ljava/lang/Integer;Ltv/twitch/android/shared/emotes/emotepicker/EmotePickerSource;)Lio/reactivex/Flowable;
@@ -10,7 +20,7 @@ diff --git a/smali_classes7/tv/twitch/android/shared/emotes/emotepicker/EmotePic
      .annotation system Ldalvik/annotation/Signature;
          value = {
              "(",
-@@ -647,11 +647,15 @@
+@@ -647,11 +650,15 @@
  
      invoke-direct {v3, p0, p1, p2}, Ltv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter$createAllEmoteSetsFlowable$1;-><init>(Ltv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter;Ljava/lang/Integer;Ltv/twitch/android/shared/emotes/emotepicker/EmotePickerSource;)V
  
@@ -21,11 +31,41 @@ diff --git a/smali_classes7/tv/twitch/android/shared/emotes/emotepicker/EmotePic
  
 -    invoke-direct {p1, v3}, Lpp/f;-><init>(Lkotlin/jvm/functions/Function3;)V
 +    invoke-static {v0, v1, v2, v4}, Lio/reactivex/Flowable;->combineLatest(Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lio/reactivex/functions/Function3;)Lio/reactivex/Flowable;
-+
-+    move-result-object v4
  
 -    invoke-static {v0, v1, v2, p1}, Lio/reactivex/Flowable;->combineLatest(Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lio/reactivex/functions/Function3;)Lio/reactivex/Flowable;
++    move-result-object v4
++
 +    invoke-static {v4, p1}, Ltv/purple/monolith/features/chat/bridge/ChatHook;->hookEmoteSetsFlowable(Lio/reactivex/Flowable;Ljava/lang/Integer;)Lio/reactivex/Flowable;
  
      move-result-object p1
  
+@@ -2909,6 +2916,10 @@
+         }
+     .end annotation
+ 
++    invoke-static {p1}, Ltv/purple/monolith/features/chat/bridge/ChatHook;->sortEmotePickerUiSets(Ljava/util/List;)Ljava/util/List;
++
++    move-result-object p1
++
+     iget-object v0, p0, Ltv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter;->stateMachine:Ltv/twitch/android/core/mvp/presenter/StateMachine;
+ 
+     new-instance v1, Ltv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter$UpdateEvent$NewEmoteSets;
+@@ -3253,3 +3264,18 @@
+ 
+     return-void
+ .end method
++
++.method public notifyFavEmotesChanged()V
++    .registers 3
++
++    .prologue
++    .line 22
++    iget-object v0, p0, Ltv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter;->stateMachine:Ltv/twitch/android/core/mvp/presenter/StateMachine;
++
++    sget-object v1, Ltv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter$UpdateEvent$AnimatedEmotesSettingsChanged;->INSTANCE:Ltv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter$UpdateEvent$AnimatedEmotesSettingsChanged;
++
++    invoke-virtual {v0, v1}, Ltv/twitch/android/core/mvp/presenter/StateMachine;->pushEvent(Ltv/twitch/android/core/mvp/presenter/StateUpdateEvent;)V
++
++    .line 23
++    return-void
++.end method

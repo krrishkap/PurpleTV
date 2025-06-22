@@ -3,6 +3,7 @@ package tv.twitch.android.core.mvp.presenter;
 import java.util.List;
 
 import tv.purple.monolith.core.LoggerImpl;
+import tv.purple.monolith.models.exception.VirtualImpl;
 
 public class StateMachine<State extends PresenterState, Event extends StateUpdateEvent, Action extends PresenterAction> {
     /* ... */
@@ -14,6 +15,10 @@ public class StateMachine<State extends PresenterState, Event extends StateUpdat
         }
 
         LoggerImpl.debugStateUpdate(str, event, state, state2, actions);
+    }
+
+    public final void pushEvent(Event event) {
+        throw new VirtualImpl();
     }
 
     /* ... */
