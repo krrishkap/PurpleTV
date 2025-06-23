@@ -82,14 +82,6 @@ tasks.configureEach {
                 )
             })
         }
-
-        // Comment this section for gen app dex'es
-        "compileReleaseJavaWithJavac" -> this.doLast {
-            val path = "${layout.buildDirectory.get()}/intermediates/javac/release/classes"
-            println("--------> $path")
-            delete(file(path))
-            mkdir(path)
-        }
     }
 }
 
