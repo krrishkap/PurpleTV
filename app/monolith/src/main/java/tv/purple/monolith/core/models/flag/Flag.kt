@@ -293,9 +293,9 @@ enum class Flag(
         value = BooleanValue(false)
     ),
     DEV_MODE(
-        prefKey = "dev_mode_on",
+        prefKey = "dev_mode",
         titleResName = "purpletv_settings_dev_mode",
-        value = BooleanValue(true)
+        value = BooleanValue(false)
     ),
     BRIGHTNESS_GESTURE(
         prefKey = "brightness_gesture_v2",
