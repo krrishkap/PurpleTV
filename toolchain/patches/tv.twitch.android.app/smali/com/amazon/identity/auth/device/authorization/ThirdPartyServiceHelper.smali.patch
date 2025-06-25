@@ -1,0 +1,42 @@
+diff --git a/smali_classes3/com/amazon/identity/auth/device/authorization/ThirdPartyServiceHelper.smali b/smali_classes3/com/amazon/identity/auth/device/authorization/ThirdPartyServiceHelper.smali
+--- a/smali_classes3/com/amazon/identity/auth/device/authorization/ThirdPartyServiceHelper.smali
++++ b/smali_classes3/com/amazon/identity/auth/device/authorization/ThirdPartyServiceHelper.smali
+@@ -1291,36 +1291,14 @@
+ .end method
+ 
+ .method public getRemoteAndroidService(Landroid/content/Context;Z)Lcom/amazon/identity/auth/device/authorization/AmazonAuthorizationServiceInterface;
+-    .locals 3
++    .locals 0
+     .annotation system Ldalvik/annotation/Throws;
+         value = {
+             Lcom/amazon/identity/auth/device/AuthError;
+         }
+     .end annotation
+ 
+-    sget-object v0, Lcom/amazon/identity/auth/device/authorization/ThirdPartyServiceHelper;->LOG_TAG:Ljava/lang/String;
+-
+-    new-instance v1, Ljava/lang/StringBuilder;
+-
+-    invoke-direct {v1}, Ljava/lang/StringBuilder;-><init>()V
+-
+-    const-string v2, "Attempting to retrieve remote Android service. Ignore cached service="
+-
+-    invoke-virtual {v1, v2}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+-
+-    invoke-virtual {v1, p2}, Ljava/lang/StringBuilder;->append(Z)Ljava/lang/StringBuilder;
+-
+-    invoke-virtual {v1}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+-
+-    move-result-object v1
+-
+-    invoke-static {v0, v1}, Lcom/amazon/identity/auth/map/device/utils/MAPLog;->i(Ljava/lang/String;Ljava/lang/String;)I
+-
+-    invoke-virtual {p0, p1, p2}, Lcom/amazon/identity/auth/device/authorization/ThirdPartyServiceHelper;->getAuthorizationServiceInstance(Landroid/content/Context;Z)Landroid/os/IInterface;
+-
+-    move-result-object p1
+-
+-    check-cast p1, Lcom/amazon/identity/auth/device/authorization/AmazonAuthorizationServiceInterface;
++    const/4 p1, 0x0
+ 
+     return-object p1
+ .end method

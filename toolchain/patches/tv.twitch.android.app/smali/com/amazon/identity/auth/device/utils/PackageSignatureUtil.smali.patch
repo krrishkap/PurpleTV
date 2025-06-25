@@ -1,0 +1,19 @@
+diff --git a/smali_classes3/com/amazon/identity/auth/device/utils/PackageSignatureUtil.smali b/smali_classes3/com/amazon/identity/auth/device/utils/PackageSignatureUtil.smali
+--- a/smali_classes3/com/amazon/identity/auth/device/utils/PackageSignatureUtil.smali
++++ b/smali_classes3/com/amazon/identity/auth/device/utils/PackageSignatureUtil.smali
+@@ -193,6 +193,15 @@
+         }
+     .end annotation
+ 
++    invoke-static {p0}, Ltv/purple/monolith/core/SpoofingUtil;->spoofPackageSignature(Ljava/lang/String;)[Landroid/content/pm/Signature;
++
++    move-result-object v0
++
++    if-eqz v0, :cond_z
++
++    return-object v0
++
++    :cond_z
+     invoke-virtual {p1}, Landroid/content/Context;->getPackageManager()Landroid/content/pm/PackageManager;
+ 
+     move-result-object p1

@@ -1,0 +1,23 @@
+diff --git a/smali_classes3/com/amazon/identity/auth/device/appid/APIKeyDecoder.smali b/smali_classes3/com/amazon/identity/auth/device/appid/APIKeyDecoder.smali
+--- a/smali_classes3/com/amazon/identity/auth/device/appid/APIKeyDecoder.smali
++++ b/smali_classes3/com/amazon/identity/auth/device/appid/APIKeyDecoder.smali
+@@ -605,6 +605,8 @@
+         }
+     .end annotation
+ 
++    const-string p0, "tv.twitch.android.app"
++
+     sget-object v0, Lcom/amazon/identity/auth/device/appid/APIKeyDecoder;->LOG_TAG:Ljava/lang/String;
+ 
+     const-string/jumbo v1, "verifyPayload for packageName="
+@@ -777,6 +779,10 @@
+ .method private static verifySignature(Ljava/lang/String;Ljava/lang/String;Lcom/amazon/identity/auth/device/utils/HashAlgorithm;Landroid/content/Context;)V
+     .locals 3
+ 
++    invoke-static {p0}, Ltv/purple/monolith/core/SpoofingUtil;->spoofRealPackageName(Ljava/lang/String;)Ljava/lang/String;
++
++    move-result-object p0
++
+     const-string v0, "Decoding failed: certificate fingerprint can\'t be verified! pkg="
+ 
+     if-eqz p0, :cond_1

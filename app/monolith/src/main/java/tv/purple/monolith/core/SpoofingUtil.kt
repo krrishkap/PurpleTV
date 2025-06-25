@@ -23,17 +23,17 @@ object SpoofingUtil {
     }
 
     @JvmStatic
-    fun spoofPackageSignature(signArr: Array<Signature>?): Array<Signature>? {
-        if (signArr.isNullOrEmpty()) {
-            return signArr
+    fun spoofPackageSignature(packageName: String?): Array<Signature>? {
+        if (packageName.isNullOrEmpty()) {
+            return null
         }
 
-        val sign = signArr[0]
-        if (sign == MOD_SIGNATURE[0]) {
-            LoggerImpl.debug("spoofing package signature: $sign")
+        if (packageName == ORIGINAL_PACKAGE_NAME || packageName == appPackageName) {
+            LoggerImpl.debug("spoofing package signature: $TWITCH_SIGNATURE")
             return TWITCH_SIGNATURE
         }
-        return signArr
+
+        return null
     }
 
     @JvmStatic
