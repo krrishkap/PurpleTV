@@ -1,0 +1,13 @@
+diff --git a/smali/tv/twitch/android/app/core/Experience$currentExperience$2.smali b/smali/tv/twitch/android/app/core/Experience$currentExperience$2.smali
+--- a/smali/tv/twitch/android/app/core/Experience$currentExperience$2.smali
++++ b/smali/tv/twitch/android/app/core/Experience$currentExperience$2.smali
+@@ -121,5 +121,9 @@
+     sget-object v0, Ltv/twitch/android/app/core/Experience$SupportedExperiences;->Phone:Ltv/twitch/android/app/core/Experience$SupportedExperiences;
+ 
+     :goto_0
++    invoke-static {v0}, Ltv/purple/monolith/features/ui/UI;->hookIsTablet(Ltv/twitch/android/app/core/Experience$SupportedExperiences;)Ltv/twitch/android/app/core/Experience$SupportedExperiences;
++
++    move-result-object v0
++
+     return-object v0
+ .end method

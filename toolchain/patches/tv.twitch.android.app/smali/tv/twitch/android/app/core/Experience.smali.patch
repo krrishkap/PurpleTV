@@ -1,0 +1,25 @@
+diff --git a/smali/tv/twitch/android/app/core/Experience.smali b/smali/tv/twitch/android/app/core/Experience.smali
+--- a/smali/tv/twitch/android/app/core/Experience.smali
++++ b/smali/tv/twitch/android/app/core/Experience.smali
+@@ -199,6 +199,10 @@
+ 
+     check-cast v0, Ltv/twitch/android/app/core/Experience$SupportedExperiences;
+ 
++    invoke-static {v0}, Ltv/purple/monolith/features/ui/UI;->hookIsTablet(Ltv/twitch/android/app/core/Experience$SupportedExperiences;)Ltv/twitch/android/app/core/Experience$SupportedExperiences;
++
++    move-result-object v0
++
+     return-object v0
+ .end method
+ 
+@@ -408,6 +412,10 @@
+ 
+     :cond_2
+     :goto_0
++    invoke-static {v1}, Ltv/purple/monolith/features/ui/UI;->hookIsTablet(Z)Z
++
++    move-result v1
++
+     return v1
+ .end method
+ 

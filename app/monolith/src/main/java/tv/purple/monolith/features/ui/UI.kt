@@ -15,6 +15,7 @@ import tv.purple.monolith.core.util.ViewUtil.getView
 import tv.purple.monolith.features.ui.bridge.HideKeyboardActionButtonClicked
 import tv.purple.monolith.models.IPurpleTVAppContainer
 import tv.twitch.android.app.core.ApplicationContext
+import tv.twitch.android.app.core.Experience
 import tv.twitch.android.core.mvp.viewdelegate.EventDispatcher
 import tv.twitch.android.shared.chat.ChatViewDelegate
 import tv.twitch.android.shared.chat.chatheader.ChatHeaderPresenter
@@ -150,12 +151,21 @@ class UI @Inject constructor(
         }
 
         @JvmStatic
-        fun hookIsTablet(isTablet: Boolean): Boolean {
+        fun hookIsTablet(res: Experience.SupportedExperiences): Experience.SupportedExperiences {
+            if (Flag.FORCE_TABLET_MODE.asBoolean()) {
+                return Experience.SupportedExperiences.Tablet
+            }
+
+            return res
+        }
+
+        @JvmStatic
+        fun hookIsTablet(res: Boolean): Boolean {
             if (Flag.FORCE_TABLET_MODE.asBoolean()) {
                 return true
             }
 
-            return isTablet
+            return res
         }
     }
 }
