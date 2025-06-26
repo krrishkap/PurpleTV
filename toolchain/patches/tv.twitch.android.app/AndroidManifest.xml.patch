@@ -23,11 +23,12 @@ diff --git a/AndroidManifest.xml b/AndroidManifest.xml
          <service android:directBootAware="true" android:exported="false" android:name="androidx.room.MultiInstanceInvalidationService"/>
          <receiver android:exported="false" android:name="com.google.android.gms.cast.framework.media.MediaIntentReceiver"/>
          <service android:exported="false" android:name="com.google.android.gms.cast.framework.ReconnectionService"/>
-@@ -382,5 +380,7 @@
+@@ -385,6 +383,8 @@
                  <action android:name="com.amazon.dcp.sso.action.session.users.changed"/>
              </intent-filter>
          </receiver>
 +        <meta-data android:name="firebase_crashlytics_collection_enabled" android:value="false" />
 +        <service android:name="tv.purple.monolith.features.timer.service.TimerService" android:foregroundServiceType="mediaPlayback"/>
+         <property android:name="android.window.PROPERTY_COMPAT_ALLOW_RESTRICTED_RESIZABILITY" android:value="true"/>
      </application>
  </manifest>
