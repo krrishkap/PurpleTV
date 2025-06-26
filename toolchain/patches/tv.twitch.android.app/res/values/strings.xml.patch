@@ -10,7 +10,7 @@ diff --git a/res/values/strings.xml b/res/values/strings.xml
      <string name="app_settings_auto_popout">Automatically Pop-out Player</string>
      <string name="app_settings_background_audio">Continue playing audio in the background</string>
      <string name="app_settings_background_audio_headphones">Headphones / Speaker</string>
-@@ -5090,7 +5090,7 @@ Twitch will not use this number for marketing."</string>
+@@ -5108,7 +5108,7 @@ Twitch will not use this number for marketing."</string>
      <string name="verify_thanks">Thanks! Your email has been verified.</string>
      <string name="verify_two_factor_authentication_code_label_text">Verification Code</string>
      <string name="verify_two_factor_authentication_primary_info_text">We’ve sent you a 7-digit security code to <annotation bold="phone-number">%1$s</annotation>. Please enter your code.</string>

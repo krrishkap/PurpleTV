@@ -1,6 +1,6 @@
-diff --git a/smali_classes6/tv/twitch/android/shared/one/chat/popup/ChatModePopupPresenter.smali b/smali_classes6/tv/twitch/android/shared/one/chat/popup/ChatModePopupPresenter.smali
---- a/smali_classes6/tv/twitch/android/shared/one/chat/popup/ChatModePopupPresenter.smali
-+++ b/smali_classes6/tv/twitch/android/shared/one/chat/popup/ChatModePopupPresenter.smali
+diff --git a/smali_classes8/tv/twitch/android/shared/one/chat/popup/ChatModePopupPresenter.smali b/smali_classes8/tv/twitch/android/shared/one/chat/popup/ChatModePopupPresenter.smali
+--- a/smali_classes8/tv/twitch/android/shared/one/chat/popup/ChatModePopupPresenter.smali
++++ b/smali_classes8/tv/twitch/android/shared/one/chat/popup/ChatModePopupPresenter.smali
 @@ -346,6 +346,15 @@
  .method private final maybeObserveChatModeChanges()V
      .locals 10

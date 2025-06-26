@@ -200,7 +200,7 @@ class FixDexBuilding(BaseTask):
 
     @staticmethod
     def get_classes_to_move():
-        return ["org/joda/time", "coil", "androidx/cardview"]
+        return ["org/joda/time", "coil", "androidx/cardview", "tv/twitch/gql/type/adapter", "tv/twitch/android/shared/dj"]
 
     def run(self, env: Env):
         if not self.get_classes_to_move():

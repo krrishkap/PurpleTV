@@ -1,6 +1,6 @@
-diff --git a/smali_classes5/tv/twitch/android/feature/sponsored/streams/SponsoredStreamsLiveDataSource.smali b/smali_classes5/tv/twitch/android/feature/sponsored/streams/SponsoredStreamsLiveDataSource.smali
---- a/smali_classes5/tv/twitch/android/feature/sponsored/streams/SponsoredStreamsLiveDataSource.smali
-+++ b/smali_classes5/tv/twitch/android/feature/sponsored/streams/SponsoredStreamsLiveDataSource.smali
+diff --git a/smali_classes6/tv/twitch/android/feature/sponsored/streams/SponsoredStreamsLiveDataSource.smali b/smali_classes6/tv/twitch/android/feature/sponsored/streams/SponsoredStreamsLiveDataSource.smali
+--- a/smali_classes6/tv/twitch/android/feature/sponsored/streams/SponsoredStreamsLiveDataSource.smali
++++ b/smali_classes6/tv/twitch/android/feature/sponsored/streams/SponsoredStreamsLiveDataSource.smali
 @@ -408,33 +408,24 @@
  
  # virtual methods

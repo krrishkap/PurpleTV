@@ -14,11 +14,11 @@ diff --git a/smali_classes8/tv/twitch/android/shared/player/manifest/VodManifest
  
      invoke-direct {v1, p0, p1, p2}, Ltv/twitch/android/shared/player/manifest/VodManifestFetcher$fetchSourceManifestFromFactory$1;-><init>(Ltv/twitch/android/shared/player/manifest/VodManifestFetcher;Ljava/lang/String;Ltv/twitch/android/models/player/ManifestProperties;)V
  
--    new-instance p1, Lwt/j;
-+    new-instance v2, Lwt/j;
+-    new-instance p1, Lvt/j;
++    new-instance v2, Lvt/j;
  
--    invoke-direct {p1, v1}, Lwt/j;-><init>(Lkotlin/jvm/functions/Function1;)V
-+    invoke-direct {v2, v1}, Lwt/j;-><init>(Lkotlin/jvm/functions/Function1;)V
+-    invoke-direct {p1, v1}, Lvt/j;-><init>(Lkotlin/jvm/functions/Function1;)V
++    invoke-direct {v2, v1}, Lvt/j;-><init>(Lkotlin/jvm/functions/Function1;)V
  
 -    invoke-virtual {v0, p1}, Lio/reactivex/Single;->flatMap(Lio/reactivex/functions/Function;)Lio/reactivex/Single;
 +    invoke-virtual {v0, v2}, Lio/reactivex/Single;->flatMap(Lio/reactivex/functions/Function;)Lio/reactivex/Single;

@@ -1,6 +1,6 @@
-diff --git a/smali_classes6/tv/twitch/android/shared/messageinput/impl/autocomplete/EmoteAutoCompleteMapProvider.smali b/smali_classes6/tv/twitch/android/shared/messageinput/impl/autocomplete/EmoteAutoCompleteMapProvider.smali
---- a/smali_classes6/tv/twitch/android/shared/messageinput/impl/autocomplete/EmoteAutoCompleteMapProvider.smali
-+++ b/smali_classes6/tv/twitch/android/shared/messageinput/impl/autocomplete/EmoteAutoCompleteMapProvider.smali
+diff --git a/smali_classes8/tv/twitch/android/shared/messageinput/impl/autocomplete/EmoteAutoCompleteMapProvider.smali b/smali_classes8/tv/twitch/android/shared/messageinput/impl/autocomplete/EmoteAutoCompleteMapProvider.smali
+--- a/smali_classes8/tv/twitch/android/shared/messageinput/impl/autocomplete/EmoteAutoCompleteMapProvider.smali
++++ b/smali_classes8/tv/twitch/android/shared/messageinput/impl/autocomplete/EmoteAutoCompleteMapProvider.smali
 @@ -76,6 +76,10 @@
  
      move-result-object p1

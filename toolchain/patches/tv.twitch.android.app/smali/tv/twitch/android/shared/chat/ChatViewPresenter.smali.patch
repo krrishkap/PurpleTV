@@ -22,7 +22,7 @@ diff --git a/smali_classes7/tv/twitch/android/shared/chat/ChatViewPresenter.smal
      instance-of v3, v2, Ltv/twitch/android/shared/chat/command/ChatCommandAction$WhisperUnverified;
  
      const/4 v4, 0x1
-@@ -5704,6 +5718,8 @@
+@@ -5694,6 +5708,8 @@
  
      invoke-virtual {v0}, Ltv/twitch/android/core/mvp/viewdelegate/BaseViewDelegate;->onConfigurationChanged()V
  
