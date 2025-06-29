@@ -7,6 +7,8 @@ import tv.purple.monolith.core.LifecycleCore
 import tv.purple.monolith.core.LoggerImpl
 import tv.purple.monolith.core.models.flag.Flag
 import tv.purple.monolith.core.models.flag.variants.PlayerImpl
+import tv.purple.monolith.core.util.ViewUtil.isLandscapeOrientation
+import tv.twitch.android.app.core.ApplicationContext
 import tv.twitch.android.models.channel.ChannelInfo
 import tv.twitch.android.models.player.ManifestProperties
 import tv.twitch.android.models.player.PlayerImplementation
@@ -126,6 +128,12 @@ class CoreHook {
                 manifestProperties.appVersion,
                 manifestProperties.includeMultiGroup
             )
+        }
+
+        @JvmStatic
+        fun isPlayerDraggableDisabled(): Boolean {
+            return ApplicationContext.getInstance().getContext()
+                .isLandscapeOrientation() && (Flag.VOLUME_GESTURE.asBoolean() || Flag.BRIGHTNESS_GESTURE.asBoolean())
         }
     }
 }

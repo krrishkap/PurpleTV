@@ -1,0 +1,16 @@
+diff --git a/smali_classes6/tv/twitch/android/feature/theatre/TheatreModeViewDelegate$1.smali b/smali_classes6/tv/twitch/android/feature/theatre/TheatreModeViewDelegate$1.smali
+--- a/smali_classes6/tv/twitch/android/feature/theatre/TheatreModeViewDelegate$1.smali
++++ b/smali_classes6/tv/twitch/android/feature/theatre/TheatreModeViewDelegate$1.smali
+@@ -64,6 +64,12 @@
+ 
+     if-eqz v0, :cond_1
+ 
++    invoke-static {}, Ltv/purple/monolith/core/bridge/CoreHook;->isPlayerDraggableDisabled()Z
++
++    move-result v2
++
++    if-nez v2, :cond_1
++
+     iget-object v2, p0, Ltv/twitch/android/feature/theatre/TheatreModeViewDelegate$1;->this$0:Ltv/twitch/android/feature/theatre/TheatreModeViewDelegate;
+ 
+     iget-object v3, p0, Ltv/twitch/android/feature/theatre/TheatreModeViewDelegate$1;->$root:Landroid/view/View;
