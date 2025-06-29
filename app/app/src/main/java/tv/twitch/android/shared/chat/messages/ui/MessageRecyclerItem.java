@@ -169,20 +169,6 @@ public class MessageRecyclerItem implements RecyclerAdapterItem, DeletableChatAd
 
             /* ... */
 
-            MessageRecyclerItem message = (MessageRecyclerItem) item;
-            Spanned spanned = message.updatedMessage;
-            if (spanned == null) {
-                Function1 function1 = message.messageSpanCreator;
-                Context context = this.itemView.getContext();
-                spanned = (Spanned) function1.invoke(context);
-                spanned = ChatHook.maybeAddTimestamp(spanned, message); // TODO: __INJECT_CODE
-            }
-
-            /* ... */
-
-            // revealCensoredMessageSpans = companion.createDeletedSpanFromChatMessageSpan(str, spanned, context3, messageRecyclerItem.messageClickEventDispatcher, messageRecyclerItem.hasModAccess);
-            Spanned msg = ChatHook.hookCreateDeletedSpanFromChatMessageSpan("", null, null, null, false); // TODO: __PATCH_CODE
-
             // pronounSetter = TwitchRecyclerViewHolder.bindPronoun(this, item); // TODO: __INJECT_CODE
         }
 

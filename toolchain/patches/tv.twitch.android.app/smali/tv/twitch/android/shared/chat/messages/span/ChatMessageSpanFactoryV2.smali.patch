@@ -27,3 +27,16 @@ diff --git a/smali_classes7/tv/twitch/android/shared/chat/messages/span/ChatMess
      const/16 v11, 0x21
  
      if-nez p6, :cond_3
+@@ -2039,6 +2054,12 @@
+ 
+     if-eqz p14, :cond_0
+ 
++    invoke-static {}, Ltv/purple/monolith/features/chat/bridge/ChatHook;->getTimestampsDisabled()Z
++
++    move-result v1
++
++    if-nez v1, :cond_0
++
+     invoke-virtual/range {p14 .. p14}, Ljava/lang/Long;->longValue()J
+ 
+     move-result-wide v1

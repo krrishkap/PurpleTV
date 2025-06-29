@@ -1,0 +1,32 @@
+diff --git a/smali_classes7/tv/twitch/android/shared/chat/messages/ui/DefaultMessageViewHolder.smali b/smali_classes7/tv/twitch/android/shared/chat/messages/ui/DefaultMessageViewHolder.smali
+--- a/smali_classes7/tv/twitch/android/shared/chat/messages/ui/DefaultMessageViewHolder.smali
++++ b/smali_classes7/tv/twitch/android/shared/chat/messages/ui/DefaultMessageViewHolder.smali
+@@ -320,8 +320,6 @@
+ 
+     if-eqz v2, :cond_4
+ 
+-    sget-object v2, Ltv/twitch/android/shared/chat/messages/util/ChatUtil;->Companion:Ltv/twitch/android/shared/chat/messages/util/ChatUtil$Companion;
+-
+     invoke-virtual {p1}, Ltv/twitch/android/shared/chat/messages/ui/MessageRecyclerItem;->getMessageId()Ljava/lang/String;
+ 
+     move-result-object v3
+@@ -348,7 +346,7 @@
+ 
+     move-object v4, v0
+ 
+-    invoke-virtual/range {v2 .. v7}, Ltv/twitch/android/shared/chat/messages/util/ChatUtil$Companion;->createDeletedSpanFromChatMessageSpan(Ljava/lang/String;Landroid/text/Spanned;Landroid/content/Context;Ltv/twitch/android/core/mvp/viewdelegate/EventDispatcher;Z)Landroid/text/Spanned;
++    invoke-static {v3, v4, v5, v6, v7}, Ltv/purple/monolith/features/chat/bridge/ChatHook;->hookCreateDeletedSpanFromChatMessageSpan(Ljava/lang/String;Landroid/text/Spanned;Landroid/content/Context;Ltv/twitch/android/core/mvp/viewdelegate/EventDispatcher;Z)Landroid/text/Spanned;
+ 
+     move-result-object v2
+ 
+@@ -438,6 +436,10 @@
+ 
+     sget-object v3, Landroid/widget/TextView$BufferType;->SPANNABLE:Landroid/widget/TextView$BufferType;
+ 
++    invoke-static {v0, p1}, Ltv/purple/monolith/features/chat/bridge/ChatHook;->maybeAddTimestamp(Landroid/text/Spanned;Ltv/twitch/android/shared/chat/messages/ui/MessageRecyclerItem;)Landroid/text/Spanned;
++
++    move-result-object v0
++
+     invoke-virtual {v2, v0, v3}, Landroid/widget/TextView;->setText(Ljava/lang/CharSequence;Landroid/widget/TextView$BufferType;)V
+ 
+     invoke-virtual {p1}, Ltv/twitch/android/shared/chat/messages/ui/MessageRecyclerItem;->getMessageHeaderCreator$shared_chat_messages_release()Lkotlin/jvm/functions/Function1;
