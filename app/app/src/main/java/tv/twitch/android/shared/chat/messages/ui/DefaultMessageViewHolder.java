@@ -2,12 +2,18 @@ package tv.twitch.android.shared.chat.messages.ui;
 
 import android.content.Context;
 import android.text.Spanned;
+import android.view.View;
 
 import kotlin.jvm.functions.Function1;
 import tv.purple.monolith.features.chat.bridge.ChatHook;
 import tv.purple.monolith.models.exception.VirtualImpl;
+import tv.twitch.android.core.adapters.RecyclerAdapterItem;
 
 public class DefaultMessageViewHolder {
+    private final View messageContainer = null;
+
+    /* ... */
+
     private final void renderMessageTextContent(MessageRecyclerItem messageRecyclerItem, boolean z) {
         /* ... */
 
@@ -32,5 +38,11 @@ public class DefaultMessageViewHolder {
         /* ... */
 
         throw new VirtualImpl();
+    }
+
+    public void onBindDataItem(RecyclerAdapterItem item) {
+        /* ... */
+
+        ChatHook.maybeHighlightChatMessage(item, messageContainer); // TODO: __INJECT_CODE
     }
 }

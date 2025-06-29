@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import io.reactivex.Flowable
 import tv.purple.monolith.bridge.PurpleTVAppContainer
 import tv.purple.monolith.bridge.ex.IMessageRecyclerItem
+import tv.purple.monolith.core.LoggerImpl
 import tv.purple.monolith.core.PrefManager
 import tv.purple.monolith.core.models.flag.Flag
 import tv.purple.monolith.core.models.flag.variants.DeletedMessages
@@ -368,5 +369,28 @@ object ChatHook {
     @JvmStatic
     fun getPurpleTVEmoteUrl(url: String?, emoteToken: MessageTokenV2.EmoteToken): String? {
         return EmoteCardModelWrapper.fromString(str = emoteToken.id)?.emoteUrl ?: url
+    }
+
+    @JvmStatic
+    fun maybeHighlightChatMessage(item: RecyclerAdapterItem?, messageContainer: View?) {
+        item ?: return
+        messageContainer ?: return
+
+        if (item !is IMessageRecyclerItem) {
+            return
+        }
+
+        LoggerImpl.debugObject(item);
+        LoggerImpl.debugObject(messageContainer);
+
+        item.getHighlightColor()?.let { color ->
+            messageContainer.setBackgroundColor(color)
+        } ?: run {
+            item.getAlternatingBackground()?.let { color ->
+                messageContainer.setBackgroundColor(color)
+            } ?: run {
+                messageContainer.background = null
+            }
+        }
     }
 }

@@ -45,14 +45,14 @@ object BindBridge {
                 callback.maybeChangeMessageFontSize(textView = viewHolder.body)
             }
         }
-        when (item) {
-            is IMessageRecyclerItem -> {
-                callback.bindHighlightMessage(
-                    viewHolder = viewHolder,
-                    highlightColor = item.getHighlightColor(),
-                    abColor = item.getAlternatingBackground()
-                )
-            }
-        }
+//        when (item) {
+//            is IMessageRecyclerItem -> {
+//                callback.bindHighlightMessage(
+//                    viewHolder = viewHolder,
+//                    highlightColor = item.getHighlightColor(),
+//                    abColor = item.getAlternatingBackground()
+//                )
+//            }
+//        }
     }
 }
