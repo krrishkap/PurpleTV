@@ -14,7 +14,6 @@ import tv.purple.monolith.features.proxy.Proxy
 import tv.purple.monolith.features.settings.PurpleTVSettings
 import tv.purple.monolith.features.tracking.Tracker
 import tv.purple.monolith.features.ui.UI
-import tv.purple.monolith.features.updater.Updater
 import tv.purple.monolith.features.vodhunter.VodHunter
 import tv.twitch.android.core.user.TwitchAccountManager
 import javax.inject.Singleton
@@ -43,9 +42,6 @@ interface MotherComponent {
 
     @Singleton
     fun provideUI(): UI
-
-    @Singleton
-    fun provideUpdater(): Updater
 
     @Singleton
     fun provideTracker(): Tracker

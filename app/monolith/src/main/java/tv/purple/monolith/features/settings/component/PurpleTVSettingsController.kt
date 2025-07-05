@@ -21,7 +21,6 @@ import tv.purple.monolith.features.settings.bridge.settings.PurpleTVDevSettingsF
 import tv.purple.monolith.features.settings.bridge.settings.PurpleTVGestureSettingsFragment
 import tv.purple.monolith.features.settings.bridge.settings.PurpleTVInfoSettingsFragment
 import tv.purple.monolith.features.settings.bridge.settings.PurpleTVPlayerSettingsFragment
-import tv.purple.monolith.features.settings.bridge.settings.PurpleTVUpdaterSettingsFragment
 import tv.purple.monolith.features.settings.bridge.settings.PurpleTVViewSettingsFragment
 import tv.purple.monolith.features.settings.bridge.settings.submenu.PurpleTVThirdPartyBadgesSettingsFragment
 import tv.purple.monolith.features.settings.bridge.settings.submenu.PurpleTVThirdPartyEmotesSettingsFragment
@@ -137,7 +136,6 @@ class PurpleTVSettingsController @Inject constructor(
             SettingsDestination.PurplePlayer -> PurpleTVPlayerSettingsFragment()
             SettingsDestination.PurpleView -> PurpleTVViewSettingsFragment()
             SettingsDestination.PurpleDev -> PurpleTVDevSettingsFragment()
-            SettingsDestination.PurpleOTA -> PurpleTVUpdaterSettingsFragment()
             SettingsDestination.PurpleInfo -> PurpleTVInfoSettingsFragment()
             SettingsDestination.PurpleGestures -> PurpleTVGestureSettingsFragment()
             SettingsDestination.PurpleHighlighter -> highlighter.createHighlighterFragment()

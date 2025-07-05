@@ -19,7 +19,6 @@ import tv.purple.monolith.features.settings.PurpleTVSettings
 import tv.purple.monolith.features.tracking.Tracker
 import tv.purple.monolith.features.tracking.bridge.BugsnagUtil
 import tv.purple.monolith.features.ui.UI
-import tv.purple.monolith.features.updater.Updater
 import tv.purple.monolith.features.vodhunter.VodHunter
 import tv.purple.monolith.models.IPurpleTVAppContainer
 import tv.twitch.android.app.core.ApplicationContext
@@ -79,10 +78,6 @@ class PurpleTVAppContainer(
 
     override fun provideUI(): UI {
         return motherComponent.provideUI()
-    }
-
-    override fun provideUpdater(): Updater {
-        return motherComponent.provideUpdater()
     }
 
     override fun provideTracker(): Tracker {

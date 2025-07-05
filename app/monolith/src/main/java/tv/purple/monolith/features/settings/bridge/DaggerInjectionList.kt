@@ -12,8 +12,6 @@ import tv.purple.monolith.features.settings.bridge.settings.PurpleTVPlayerSettin
 import tv.purple.monolith.features.settings.bridge.settings.PurpleTVPlayerSettingsPresenter
 import tv.purple.monolith.features.settings.bridge.settings.PurpleTVSettingsFragment
 import tv.purple.monolith.features.settings.bridge.settings.PurpleTVSettingsPresenter
-import tv.purple.monolith.features.settings.bridge.settings.PurpleTVUpdaterSettingsFragment
-import tv.purple.monolith.features.settings.bridge.settings.PurpleTVUpdaterSettingsPresenter
 import tv.purple.monolith.features.settings.bridge.settings.PurpleTVViewSettingsFragment
 import tv.purple.monolith.features.settings.bridge.settings.PurpleTVViewSettingsPresenter
 import tv.purple.monolith.features.settings.bridge.settings.submenu.PurpleTVThirdPartyBadgesSettingsFragment
@@ -59,10 +57,6 @@ enum class DaggerInjectionList(
     Dev(
         fragment = PurpleTVDevSettingsFragment::class.java,
         presenter = PurpleTVDevSettingsPresenter::class.java
-    ),
-    Ota(
-        fragment = PurpleTVUpdaterSettingsFragment::class.java,
-        presenter = PurpleTVUpdaterSettingsPresenter::class.java
     ),
     Info(
         fragment = PurpleTVInfoSettingsFragment::class.java,
