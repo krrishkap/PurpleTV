@@ -168,7 +168,6 @@ enum class PurpleTVSubMenu(
             Flag.HIDE_DISCOVER_TAB,
             Flag.HIDE_DISCOVER_FEED,
             Flag.HIDE_GAME_SECTION,
-            Flag.HIDE_RECOMMENDATION_SECTION,
             Flag.HIDE_RESUME_WATCHING_SECTION,
             Flag.HIDE_OFFLINE_CHANNEL_SECTION,
             Flag.HIDE_FEATURED_CLIPS_SECTION,

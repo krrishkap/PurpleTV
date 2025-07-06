@@ -190,11 +190,6 @@ enum class Flag(
         titleResName = "purpletv_settings_okhttp_logging",
         value = BooleanValue(false)
     ),
-    HIDE_RECOMMENDATION_SECTION(
-        prefKey = "hide_recommendation_section",
-        titleResName = "purpletv_settings_hide_recommendation_section",
-        value = BooleanValue(false)
-    ),
     HIDE_RESUME_WATCHING_SECTION(
         prefKey = "hide_resume_watching_section",
         titleResName = "purpletv_settings_hide_resume_watching_section",
