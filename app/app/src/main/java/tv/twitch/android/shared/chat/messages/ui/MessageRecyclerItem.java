@@ -11,12 +11,12 @@ import kotlin.jvm.functions.Function1;
 import tv.purple.monolith.bridge.ex.IMessageRecyclerItem;
 import tv.purple.monolith.component.pronouns.PronounSetter;
 import tv.purple.monolith.features.chat.ChatHookProvider;
-import tv.purple.monolith.features.chat.bridge.ChatHook;
 import tv.purple.monolith.models.exception.VirtualImpl;
 import tv.twitch.android.core.adapters.RecyclerAdapterItem;
 import tv.twitch.android.core.adapters.ViewHolderGenerator;
 import tv.twitch.android.core.mvp.viewdelegate.EventDispatcher;
 import tv.twitch.android.core.strings.StringResource;
+import tv.twitch.android.models.chat.ReplyParentInfo;
 import tv.twitch.android.shared.chat.pub.messages.ui.CensorContentChatAdapterItem;
 import tv.twitch.android.shared.chat.pub.messages.ui.ChatItemClickEvent;
 import tv.twitch.android.shared.chat.pub.messages.ui.ChatMessageClickedEvents;
@@ -51,6 +51,7 @@ public class MessageRecyclerItem implements RecyclerAdapterItem, DeletableChatAd
     private final Integer viewerUserId;
     private Integer highlightColor; // TODO: __INJECT_FIELD
     private Integer abColor; // TODO: __INJECT_FIELD
+    private ReplyParentInfo replyParentInfo;
 
     /* ... */
 
@@ -189,7 +190,8 @@ public class MessageRecyclerItem implements RecyclerAdapterItem, DeletableChatAd
 
     /* ... */
 
-    public static abstract class MessageItemLayoutConfig {}
+    public static abstract class MessageItemLayoutConfig {
+    }
 
     /* ... */
 }

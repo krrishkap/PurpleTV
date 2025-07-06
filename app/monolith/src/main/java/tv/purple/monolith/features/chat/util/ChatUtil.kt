@@ -161,6 +161,12 @@ object ChatUtil {
             return false
         }
 
+        liveChatMessage.replyInfo?.parentUserLogin?.let { parentUserLogin ->
+            if (parentUserLogin.equals(username, ignoreCase = true)) {
+                return true
+            }
+        }
+
         return liveChatMessage.messageTokens.any { token ->
             if (token is MessageTokenV2.MentionToken) {
                 token.userName?.let { username.equals(it, ignoreCase = true) } ?: false
