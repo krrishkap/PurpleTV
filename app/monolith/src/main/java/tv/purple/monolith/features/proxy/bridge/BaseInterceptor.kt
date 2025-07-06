@@ -24,7 +24,11 @@ open class BaseInterceptor(
             return chain.proceed(chain.request())
         }
 
-        logger.debug("Patch URL: " + chain.request().url)
+        var url = chain.request().url
+        logger.debug("Original URL: $url")
+        url = getUrl(url)
+        logger.debug("New URL: $url")
+
         var request = chain.request().newBuilder()
         val headers = getHeaders()
         if (headers.isNotEmpty()) {
@@ -38,7 +42,6 @@ open class BaseInterceptor(
         }
         val params = getParams()
         if (params.isNotEmpty()) {
-            var url = chain.request().url
             for (entry in params.entries) {
                 url = replaceOrAddParam(
                     url = url,
@@ -68,6 +71,10 @@ open class BaseInterceptor(
 
     open fun getHeaders(): Map<String, String> {
         return headers
+    }
+
+    open fun getUrl(orgUrl: HttpUrl): HttpUrl {
+        return orgUrl
     }
 
     companion object {

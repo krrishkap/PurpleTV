@@ -20,6 +20,7 @@ enum class ProxyImpl(
     PP_NA("pp_na", "PerfProd (NA)", "https://lb-na.cdn-perfprod.com"),
     PP_SA("pp_sa", "PerfProd (SA)", "https://lb-sa.cdn-perfprod.com"),
     PP_AS("pp_as", "PerfProd (AS)", "https://lb-as.cdn-perfprod.com"),
+    ReYohohoTwitchProxy("rr", "ReYohoho Twitch Proxy", "https://proxy4.rhhhhhhh.live"),
     CUSTOM("custom", "Custom");
 
     override fun getDefault(): Variant {

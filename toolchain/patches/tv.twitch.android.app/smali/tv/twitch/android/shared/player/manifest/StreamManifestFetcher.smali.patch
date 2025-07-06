@@ -1,7 +1,18 @@
 diff --git a/smali_classes2/tv/twitch/android/shared/player/manifest/StreamManifestFetcher.smali b/smali_classes2/tv/twitch/android/shared/player/manifest/StreamManifestFetcher.smali
 --- a/smali_classes2/tv/twitch/android/shared/player/manifest/StreamManifestFetcher.smali
 +++ b/smali_classes2/tv/twitch/android/shared/player/manifest/StreamManifestFetcher.smali
-@@ -535,7 +535,7 @@
+@@ -524,6 +524,10 @@
+ 
+     if-eqz p1, :cond_1
+ 
++    invoke-static {p1}, Ltv/purple/monolith/features/proxy/bridge/ProxyHook;->tryHookManifestURI(Landroid/net/Uri;)Landroid/net/Uri;
++
++    move-result-object p1
++
+     return-object p1
+ 
+     :cond_1
+@@ -535,7 +539,7 @@
  .end method
  
  .method public final fetchSourceManifestFromFactory(Ljava/lang/String;Ltv/twitch/android/models/player/ManifestProperties;Ljava/lang/Integer;Ltv/twitch/android/models/analytics/FmpTrackingId;)Lio/reactivex/Single;
@@ -10,7 +21,7 @@ diff --git a/smali_classes2/tv/twitch/android/shared/player/manifest/StreamManif
      .annotation system Ldalvik/annotation/Signature;
          value = {
              "(",
-@@ -584,23 +584,27 @@
+@@ -584,23 +588,27 @@
  
      invoke-direct {v1, p0, p1, p2, p4}, Ltv/twitch/android/shared/player/manifest/StreamManifestFetcher$fetchSourceManifestFromFactory$2;-><init>(Ltv/twitch/android/shared/player/manifest/StreamManifestFetcher;Ljava/lang/String;Ltv/twitch/android/models/player/ManifestProperties;Ltv/twitch/android/models/analytics/FmpTrackingId;)V
  

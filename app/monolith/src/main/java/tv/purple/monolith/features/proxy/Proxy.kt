@@ -10,12 +10,14 @@ import tv.purple.monolith.component.api.repository.ProxyRepository
 import tv.purple.monolith.core.CoreUtil
 import tv.purple.monolith.core.LoggerWithTag
 import tv.purple.monolith.core.ResManager.fromResToString
+import tv.purple.monolith.core.compat.ClassCompat.getPrivateField
 import tv.purple.monolith.core.models.flag.Flag
 import tv.purple.monolith.core.models.flag.variants.ProxyImpl
 import tv.purple.monolith.features.proxy.view.CustomProxyUrlFragment
 import tv.twitch.android.models.AccessTokenResponse
 import tv.twitch.android.models.TokenForbiddenReason
 import tv.twitch.android.models.manifest.ManifestModel
+import tv.twitch.android.models.manifest.extm3u
 import tv.twitch.android.shared.manifest.fetcher.pub.ManifestResponse
 import tv.twitch.android.shared.manifest.fetcher.pub.extm3uParser
 import java.util.Collections
@@ -43,6 +45,7 @@ class Proxy @Inject constructor(
                 proxyResponse = repository.getCustomProxyResponse(channelName),
                 proxyName = variant.desc
             )
+            ProxyImpl.ReYohohoTwitchProxy -> injectProxyName(manifest, ProxyImpl.ReYohohoTwitchProxy.desc)
 
             else -> variant.domain?.let { domain ->
                 trySwapPlaylist(
@@ -51,6 +54,19 @@ class Proxy @Inject constructor(
                     proxyName = variant.desc
                 )
             } ?: manifest
+        }
+    }
+
+    private fun injectProxyName(
+        twitchResponse: Single<ManifestResponse>,
+        proxyName: String
+    ): Single<ManifestResponse> {
+        return twitchResponse.map { response ->
+            if (response is ManifestResponse.Success.ManifestSuccess) {
+                response.model.getPrivateField<extm3u>("mManifest").ProxyServer = proxyName
+            }
+
+            response
         }
     }
     
