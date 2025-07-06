@@ -38,7 +38,6 @@ class RoomFactory @Inject constructor(
     private val badgeConfigs = listOf(
         BadgeConfig(Flag.FFZ_BADGES, { ffz.getFfzBadges() }, BadgePackageSet.FFZ),
         BadgeConfig(Flag.FFZ_BADGES, { ffz.getFfzAPBadges() }, BadgePackageSet.FFZ_AP),
-        BadgeConfig(Flag.STV_BADGES, { stv.getStvBadges() }, BadgePackageSet.STV),
         BadgeConfig(Flag.CHA_BADGES, { cha.getChatterinoBadges() }, BadgePackageSet.CHATTERINO),
         BadgeConfig(Flag.HOMIES_BADGES, { hom.getBadges() }, BadgePackageSet.HOMIES),
         BadgeConfig(Flag.PTV_BADGES, { nop.getPtvBadges() }, BadgePackageSet.PTV),

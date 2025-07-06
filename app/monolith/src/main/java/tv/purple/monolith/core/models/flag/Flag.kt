@@ -235,11 +235,11 @@ enum class Flag(
         titleResName = "purpletv_settings_ffz_badges",
         value = BooleanValue(true)
     ),
-    STV_BADGES(
-        prefKey = "stv_badges_disabled_v2",
-        titleResName = "purpletv_settings_stv_badges",
-        value = BooleanValue(true)
-    ),
+//    STV_BADGES(
+//        prefKey = "stv_badges_disabled_v2",
+//        titleResName = "purpletv_settings_stv_badges",
+//        value = BooleanValue(true)
+//    ),
     CHA_BADGES(
         prefKey = "cha_badges",
         titleResName = "purpletv_settings_cha_badges",

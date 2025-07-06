@@ -596,7 +596,6 @@ class ChatHookProvider @Inject constructor(
 
             Flag.HOMIES_BADGES,
             Flag.FFZ_BADGES,
-            Flag.STV_BADGES,
             Flag.CHA_BADGES,
             Flag.PTV_BADGES -> badgeProvider.rebuild()
 
