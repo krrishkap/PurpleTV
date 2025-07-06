@@ -18,6 +18,7 @@ class ExperimentHelperHookImpl(
                 Experiment.AVAILABILITY_TRACKING,
                 Experiment.NETWORK_REQUEST_TRACKING,
                 Experiment.THEATRE_MUTE_BUTTON,
+                Experiment.ADS_IFV,
                 Experiment.VISAGE_TRACKING -> false
 
                 Experiment.MESSAGE_EFFECT_RENDERING,
