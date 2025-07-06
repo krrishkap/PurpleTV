@@ -10,7 +10,7 @@ import tv.purple.monolith.core.ResManager.fromResToString
 import tv.purple.monolith.features.settings.bridge.factory.TwitchItemsFactory
 import tv.purple.monolith.features.settings.bridge.model.PurpleTVSubMenu
 import tv.purple.monolith.features.settings.component.PurpleTVSettingsController
-import tv.purple.monolith.features.tracking.Tracker
+import tv.purple.monolith.features.tracking.NopAnalyticsTracker
 import tv.twitch.android.shared.settings.SettingsTracker
 import tv.twitch.android.shared.ui.menus.core.MenuAdapterBinder
 
@@ -33,7 +33,7 @@ class PurpleTVInfoSettingsPresenter(
     override fun updateSettingModels() {
         super.updateSettingModels()
         disposables.add(
-            Tracker.get().getPinnyInfo()
+            NopAnalyticsTracker.get().getPinnyInfo()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe({

@@ -28,7 +28,7 @@ object BugsnagUtil {
     }
 
     @JvmStatic
-    fun logException(th: Throwable?, context: String, type: CrashReporter.ExceptionType) {
+    fun logException(th: Throwable?, context: String, type: CrashReporter.ExceptionType = CrashReporter.ExceptionType.NON_FATAL) {
         if (!isInitialized.get()) {
             return
         }

@@ -12,7 +12,7 @@ import tv.purple.monolith.features.chat.ChatHookProvider
 import tv.purple.monolith.features.logs.ChatLogs
 import tv.purple.monolith.features.proxy.Proxy
 import tv.purple.monolith.features.settings.PurpleTVSettings
-import tv.purple.monolith.features.tracking.Tracker
+import tv.purple.monolith.features.tracking.NopAnalyticsTracker
 import tv.purple.monolith.features.ui.UI
 import tv.purple.monolith.features.vodhunter.VodHunter
 import tv.twitch.android.core.user.TwitchAccountManager
@@ -44,7 +44,7 @@ interface MotherComponent {
     fun provideUI(): UI
 
     @Singleton
-    fun provideTracker(): Tracker
+    fun provideTracker(): NopAnalyticsTracker
 
     @Singleton
     fun provideChatLogs(): ChatLogs

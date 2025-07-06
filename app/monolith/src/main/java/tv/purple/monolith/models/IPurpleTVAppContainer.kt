@@ -8,7 +8,7 @@ import tv.purple.monolith.features.chat.ChatHookProvider
 import tv.purple.monolith.features.logs.ChatLogs
 import tv.purple.monolith.features.proxy.Proxy
 import tv.purple.monolith.features.settings.PurpleTVSettings
-import tv.purple.monolith.features.tracking.Tracker
+import tv.purple.monolith.features.tracking.NopAnalyticsTracker
 import tv.purple.monolith.features.ui.UI
 import tv.purple.monolith.features.vodhunter.VodHunter
 import tv.twitch.android.core.user.TwitchAccountManager
@@ -24,7 +24,7 @@ interface IPurpleTVAppContainer {
     fun provideChatHookProvider(): ChatHookProvider
     fun provideOrangeSettings(): PurpleTVSettings
     fun provideUI(): UI
-    fun provideTracker(): Tracker
+    fun provideTracker(): NopAnalyticsTracker
     fun provideChatLogs(): ChatLogs
     fun provideProxy(): Proxy
     fun provideSingletonC(): GeneratedComponent

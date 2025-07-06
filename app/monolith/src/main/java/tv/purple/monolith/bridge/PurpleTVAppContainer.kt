@@ -16,7 +16,7 @@ import tv.purple.monolith.features.chat.ChatHookProvider
 import tv.purple.monolith.features.logs.ChatLogs
 import tv.purple.monolith.features.proxy.Proxy
 import tv.purple.monolith.features.settings.PurpleTVSettings
-import tv.purple.monolith.features.tracking.Tracker
+import tv.purple.monolith.features.tracking.NopAnalyticsTracker
 import tv.purple.monolith.features.tracking.bridge.BugsnagUtil
 import tv.purple.monolith.features.ui.UI
 import tv.purple.monolith.features.vodhunter.VodHunter
@@ -80,7 +80,7 @@ class PurpleTVAppContainer(
         return motherComponent.provideUI()
     }
 
-    override fun provideTracker(): Tracker {
+    override fun provideTracker(): NopAnalyticsTracker {
         return motherComponent.provideTracker()
     }
 

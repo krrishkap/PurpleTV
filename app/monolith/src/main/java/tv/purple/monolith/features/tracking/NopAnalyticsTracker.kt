@@ -7,6 +7,7 @@ import tv.purple.monolith.component.api.repository.NopRepository
 import tv.purple.monolith.core.LoggerWithTag
 import tv.purple.monolith.core.models.lifecycle.LifecycleAware
 import tv.purple.monolith.core.util.PurpleBuildConfigUtil
+import tv.purple.monolith.features.tracking.bridge.BugsnagUtil
 import tv.purple.monolith.models.retrofit.nop.PinnyInfo
 import tv.twitch.android.core.analytics.UniqueDeviceIdentifier
 import tv.twitch.android.core.user.TwitchAccountManager
@@ -14,7 +15,7 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class Tracker @Inject constructor(
+class NopAnalyticsTracker @Inject constructor(
     private val repository: NopRepository,
     private val uniqueDeviceIdentifier: UniqueDeviceIdentifier
 ) : LifecycleAware {
@@ -27,7 +28,7 @@ class Tracker @Inject constructor(
 
     companion object {
         @JvmStatic
-        fun get(): Tracker {
+        fun get(): NopAnalyticsTracker {
             return getInstance().provideTracker()
         }
     }
@@ -40,7 +41,9 @@ class Tracker @Inject constructor(
                 deviceId = deviceId
             ).subscribe({
                 logger.info("OK")
-            }, Throwable::printStackTrace)
+            }, { error ->
+                BugsnagUtil.logException(error, "NopAnalyticsTracker")
+            })
         )
     }
 
