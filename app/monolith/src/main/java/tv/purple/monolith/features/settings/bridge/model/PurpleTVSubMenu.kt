@@ -145,7 +145,7 @@ enum class PurpleTVSubMenu(
             Flag.HIDE_FSB,
             Flag.HIDE_PLAYER_CREATE_CLIP_BUTTON,
             Flag.HIDE_PLAYER_LIVE_SHARE_BUTTON,
-            Flag.HIDE_CAST_BUTTON,
+            Flag.DISABLE_CAST_BUTTON,
             Flag.FORWARD_SEEK,
             Flag.REWIND_SEEK,
         ).map { Item.FlagItem(it) }

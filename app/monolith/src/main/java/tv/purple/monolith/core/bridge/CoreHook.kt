@@ -135,5 +135,10 @@ class CoreHook {
             return ApplicationContext.getInstance().getContext()
                 .isLandscapeOrientation() && (Flag.VOLUME_GESTURE.asBoolean() || Flag.BRIGHTNESS_GESTURE.asBoolean())
         }
+
+        @JvmStatic
+        fun disableChromecast(): Boolean {
+            return Flag.DISABLE_CAST_BUTTON.asBoolean()
+        }
     }
 }

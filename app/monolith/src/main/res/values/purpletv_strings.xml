@@ -281,8 +281,8 @@
     <string name="purpletv_settings_force_don_auth">Disable DON Auth</string>
     <string name="purpletv_settings_force_don_auth_desc" />
     <string name="purpletv_settings_menu_cerberus">License Manager</string>
-    <string name="purpletv_settings_hide_cast_button">Hide \"Cast\" button</string>
-    <string name="purpletv_settings_hide_cast_button_desc" />
+    <string name="purpletv_settings_disable_cast">Disable chromecast</string>
+    <string name="purpletv_settings_disable_cast_desc" />
     <string name="purpletv_emote_picker_emotes_button_content_description">Go to third party emotes</string>
     <string name="purpletv_chapters_talkback">Chapters</string>
     <string name="purpletv_timer_talkback">Timer</string>

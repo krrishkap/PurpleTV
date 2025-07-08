@@ -160,9 +160,9 @@ enum class Flag(
         titleResName = "purpletv_settings_hide_leaderboards",
         value = BooleanValue(false)
     ),
-    HIDE_CAST_BUTTON(
-        prefKey = "hide_cast_button",
-        titleResName = "purpletv_settings_hide_cast_button",
+    DISABLE_CAST_BUTTON(
+        prefKey = "disable_cast",
+        titleResName = "purpletv_settings_disable_cast",
         value = BooleanValue(false)
     ),
     ONE_CHAT_LURKER(
@@ -409,7 +409,11 @@ enum class Flag(
         "purpletv_settings_hide_create_button",
         BooleanValue()
     ),
-    HIDE_FSB("hide_fsb", "purpletv_settings_hide_fsb", BooleanValue()),
+    HIDE_FSB(
+        "hide_fsb",
+        "purpletv_settings_hide_fsb",
+        BooleanValue(false)
+    ),
     FORCE_EXOPLAYER_FOR_VODS(
         "force_exoplayer_for_vods",
         "purpletv_settings_force_exoplayer_for_vods",

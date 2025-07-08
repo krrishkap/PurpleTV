@@ -1,0 +1,21 @@
+diff --git a/smali_classes8/tv/twitch/android/shared/player/overlay/CreateClipButtonViewModel.smali b/smali_classes8/tv/twitch/android/shared/player/overlay/CreateClipButtonViewModel.smali
+--- a/smali_classes8/tv/twitch/android/shared/player/overlay/CreateClipButtonViewModel.smali
++++ b/smali_classes8/tv/twitch/android/shared/player/overlay/CreateClipButtonViewModel.smali
+@@ -851,6 +851,17 @@
+ .method private final resolveIsClipOptionVisible(Ltv/twitch/android/shared/clip/editor/network/data/ClipCreationPermissionEligibilityResponse;Z)Z
+     .locals 2
+ 
++    invoke-static {}, Ltv/purple/monolith/features/ui/bridge/UIHook;->hideCreateClipButton()Z
++
++    move-result v0
++
++    if-eqz v0, :cond_z
++
++    const/4 v0, 0x0
++
++    return v0
++
++    :cond_z
+     sget-object v0, Ltv/twitch/android/shared/clip/editor/network/data/ClipCreationPermissionEligibilityResponse$Allowed;->INSTANCE:Ltv/twitch/android/shared/clip/editor/network/data/ClipCreationPermissionEligibilityResponse$Allowed;
+ 
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->areEqual(Ljava/lang/Object;Ljava/lang/Object;)Z

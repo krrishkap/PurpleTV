@@ -1,0 +1,61 @@
+diff --git a/smali_classes6/tv/twitch/android/feature/theatre/metadata/MetadataButtonsStateProvider$dataObserver$2.smali b/smali_classes6/tv/twitch/android/feature/theatre/metadata/MetadataButtonsStateProvider$dataObserver$2.smali
+--- a/smali_classes6/tv/twitch/android/feature/theatre/metadata/MetadataButtonsStateProvider$dataObserver$2.smali
++++ b/smali_classes6/tv/twitch/android/feature/theatre/metadata/MetadataButtonsStateProvider$dataObserver$2.smali
+@@ -127,6 +127,14 @@
+ 
+     if-eqz v6, :cond_0
+ 
++    sget-object v6, Ltv/purple/monolith/core/models/flag/Flag;->HIDE_FSB:Ltv/purple/monolith/core/models/flag/Flag;
++
++    invoke-virtual {v6}, Ltv/purple/monolith/core/models/flag/Flag;->asBoolean()Z
++
++    move-result v6
++
++    if-nez v6, :cond_0
++
+     goto :goto_0
+ 
+     :cond_0
+@@ -141,6 +149,14 @@
+ 
+     if-eqz v8, :cond_1
+ 
++    sget-object v8, Ltv/purple/monolith/core/models/flag/Flag;->HIDE_FSB:Ltv/purple/monolith/core/models/flag/Flag;
++
++    invoke-virtual {v8}, Ltv/purple/monolith/core/models/flag/Flag;->asBoolean()Z
++
++    move-result v8
++
++    if-nez v8, :cond_1
++
+     goto :goto_1
+ 
+     :cond_1
+@@ -155,6 +171,14 @@
+ 
+     if-eqz v9, :cond_2
+ 
++    sget-object v9, Ltv/purple/monolith/core/models/flag/Flag;->HIDE_FSB:Ltv/purple/monolith/core/models/flag/Flag;
++
++    invoke-virtual {v9}, Ltv/purple/monolith/core/models/flag/Flag;->asBoolean()Z
++
++    move-result v9
++
++    if-nez v9, :cond_2
++
+     goto :goto_2
+ 
+     :cond_2
+@@ -235,6 +259,12 @@
+ 
+     if-eqz v4, :cond_6
+ 
++    invoke-static {}, Ltv/purple/monolith/features/ui/bridge/UIHook;->getShowFollowButtonExtended()Z
++
++    move-result v4
++
++    if-eqz v4, :cond_6
++
+     move-object v7, v9
+ 
+     :cond_6

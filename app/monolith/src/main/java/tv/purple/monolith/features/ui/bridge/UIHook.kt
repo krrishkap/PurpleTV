@@ -14,7 +14,6 @@ import tv.twitch.android.feature.followed.model.FollowingContentItemCollection
 import tv.twitch.android.shared.chat.ChatViewDelegate
 import tv.twitch.android.shared.chat.emotecard.FollowButtonUiModel
 import tv.twitch.android.shared.messageinput.impl.ChatMessageInputViewDelegate
-import tv.twitch.android.shared.player.overlay.PlayerOverlayViewDelegate
 
 object UIHook {
     @JvmStatic
@@ -34,7 +33,7 @@ object UIHook {
 
     @JvmStatic
     fun maybeHideCastButton(var1: Boolean): Boolean {
-        if (Flag.HIDE_CAST_BUTTON.asBoolean()) {
+        if (Flag.DISABLE_CAST_BUTTON.asBoolean()) {
             return false;
         }
 
@@ -43,7 +42,7 @@ object UIHook {
 
     @JvmStatic
     fun maybeHideCastButton(castButton: MediaRouteButton) {
-        if (Flag.HIDE_CAST_BUTTON.asBoolean()) {
+        if (Flag.DISABLE_CAST_BUTTON.asBoolean()) {
             castButton.changeVisibility(false)
         }
     }
@@ -143,5 +142,15 @@ object UIHook {
                 show()
             }
         }
+    }
+
+    @JvmStatic
+    fun hideCreateClipButton(): Boolean {
+        return Flag.HIDE_PLAYER_CREATE_CLIP_BUTTON.asBoolean()
+    }
+
+    @JvmStatic
+    fun hideShareOption(): Boolean {
+        return Flag.HIDE_PLAYER_LIVE_SHARE_BUTTON.asBoolean()
     }
 }

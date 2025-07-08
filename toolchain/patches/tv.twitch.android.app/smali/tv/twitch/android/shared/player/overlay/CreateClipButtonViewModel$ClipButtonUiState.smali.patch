@@ -1,0 +1,21 @@
+diff --git a/smali_classes8/tv/twitch/android/shared/player/overlay/CreateClipButtonViewModel$ClipButtonUiState.smali b/smali_classes8/tv/twitch/android/shared/player/overlay/CreateClipButtonViewModel$ClipButtonUiState.smali
+--- a/smali_classes8/tv/twitch/android/shared/player/overlay/CreateClipButtonViewModel$ClipButtonUiState.smali
++++ b/smali_classes8/tv/twitch/android/shared/player/overlay/CreateClipButtonViewModel$ClipButtonUiState.smali
+@@ -251,6 +251,17 @@
+ .method public final isClipButtonVisible()Z
+     .locals 1
+ 
++    invoke-static {}, Ltv/purple/monolith/features/ui/bridge/UIHook;->hideCreateClipButton()Z
++
++    move-result v0
++
++    if-eqz v0, :cond_z
++
++    const/4 v0, 0x0
++
++    return v0
++
++    :cond_z
+     iget-boolean v0, p0, Ltv/twitch/android/shared/player/overlay/CreateClipButtonViewModel$ClipButtonUiState;->isClipButtonVisible:Z
+ 
+     return v0
