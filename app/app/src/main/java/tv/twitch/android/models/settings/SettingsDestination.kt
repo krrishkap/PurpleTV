@@ -14,6 +14,7 @@ enum class SettingsDestination(private val requiresLogin: Boolean) {
     Credits(false),
     DeleteAccount(true),
     DisableAccount(true),
+    Drops(true),
     EditBio(true),
     EditProfile(true),
     EditRoom(true),

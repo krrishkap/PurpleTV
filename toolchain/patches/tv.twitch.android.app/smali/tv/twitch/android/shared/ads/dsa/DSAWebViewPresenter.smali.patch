@@ -1,0 +1,12 @@
+diff --git a/smali_classes6/tv/twitch/android/shared/ads/dsa/DSAWebViewPresenter.smali b/smali_classes6/tv/twitch/android/shared/ads/dsa/DSAWebViewPresenter.smali
+--- a/smali_classes6/tv/twitch/android/shared/ads/dsa/DSAWebViewPresenter.smali
++++ b/smali_classes6/tv/twitch/android/shared/ads/dsa/DSAWebViewPresenter.smali
+@@ -224,8 +224,6 @@
+ 
+     invoke-static/range {p1 .. p6}, Ltv/twitch/android/core/mvp/rxutil/ISubscriptionHelper$DefaultImpls;->directSubscribe$default(Ltv/twitch/android/core/mvp/rxutil/ISubscriptionHelper;Lio/reactivex/Flowable;Ltv/twitch/android/core/mvp/rxutil/DisposeOn;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)V
+ 
+-    invoke-direct/range {p0 .. p0}, Ltv/twitch/android/shared/ads/dsa/DSAWebViewPresenter;->fetchDsaWebViewUrl()V
+-
+     invoke-direct/range {p0 .. p0}, Ltv/twitch/android/shared/ads/dsa/DSAWebViewPresenter;->listenForKeyboardChanges()V
+ 
+     return-void

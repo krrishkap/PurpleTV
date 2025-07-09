@@ -1,0 +1,57 @@
+diff --git a/smali_classes2/tv/twitch/android/provider/experiments/helpers/InFeedAdsExperiment.smali b/smali_classes2/tv/twitch/android/provider/experiments/helpers/InFeedAdsExperiment.smali
+--- a/smali_classes2/tv/twitch/android/provider/experiments/helpers/InFeedAdsExperiment.smali
++++ b/smali_classes2/tv/twitch/android/provider/experiments/helpers/InFeedAdsExperiment.smali
+@@ -133,17 +133,9 @@
+ 
+ # virtual methods
+ .method public final areInFeedVideoAdsEnabled()Z
+-    .locals 3
+-
+-    iget-object v0, p0, Ltv/twitch/android/provider/experiments/helpers/InFeedAdsExperiment;->experimentHelper:Ltv/twitch/android/provider/experiments/ExperimentHelper;
+-
+-    sget-object v1, Ltv/twitch/android/provider/experiments/Experiment;->ADS_IFV:Ltv/twitch/android/provider/experiments/Experiment;
+-
+-    const-string v2, "in_feed_video_ads_21.8-1"
+-
+-    invoke-interface {v0, v1, v2}, Ltv/twitch/android/provider/experiments/ExperimentHelper;->isInGroupForMultiVariantExperiment(Ltv/twitch/android/provider/experiments/Experiment;Ljava/lang/String;)Z
++    .locals 1
+ 
+-    move-result v0
++    const/4 v0, 0x0
+ 
+     return v0
+ .end method
+@@ -317,29 +309,17 @@
+ .end method
+ 
+ .method public final isFirstFeedEnabled()Z
+-    .locals 2
+-
+-    iget-object v0, p0, Ltv/twitch/android/provider/experiments/helpers/InFeedAdsExperiment;->experimentHelper:Ltv/twitch/android/provider/experiments/ExperimentHelper;
+-
+-    sget-object v1, Ltv/twitch/android/provider/experiments/Experiment;->MDF_SECOND_FEED_ADS:Ltv/twitch/android/provider/experiments/Experiment;
+-
+-    invoke-interface {v0, v1}, Ltv/twitch/android/provider/experiments/ExperimentHelper;->isInOnGroupForBinaryExperiment(Ltv/twitch/android/provider/experiments/Experiment;)Z
++    .locals 1
+ 
+-    move-result v0
++    const/4 v0, 0x0
+ 
+     return v0
+ .end method
+ 
+ .method public final isMidFeedEnabled()Z
+-    .locals 2
+-
+-    iget-object v0, p0, Ltv/twitch/android/provider/experiments/helpers/InFeedAdsExperiment;->experimentHelper:Ltv/twitch/android/provider/experiments/ExperimentHelper;
+-
+-    sget-object v1, Ltv/twitch/android/provider/experiments/Experiment;->MDF_MFA:Ltv/twitch/android/provider/experiments/Experiment;
+-
+-    invoke-interface {v0, v1}, Ltv/twitch/android/provider/experiments/ExperimentHelper;->isInOnGroupForBinaryExperiment(Ltv/twitch/android/provider/experiments/Experiment;)Z
++    .locals 1
+ 
+-    move-result v0
++    const/4 v0, 0x0
+ 
+     return v0
+ .end method

@@ -9,7 +9,7 @@ diff --git a/smali_classes8/tv/twitch/android/shared/ui/menus/togglemenu/ToggleM
  
 @@ -24,6 +24,8 @@
  
- .field private final toggleState:Z
+ .field private toggleState:Z
  
 +.field private orangeKey:Ljava/lang/String;
 +
@@ -25,7 +25,7 @@ diff --git a/smali_classes8/tv/twitch/android/shared/ui/menus/togglemenu/ToggleM
      .locals 1
  
      iget-boolean v0, p0, Ltv/twitch/android/shared/ui/menus/togglemenu/ToggleMenuModel;->toggleState:Z
-@@ -371,3 +373,25 @@
+@@ -379,3 +381,25 @@
  
      return-object p1
  .end method
@@ -51,3 +51,4 @@ diff --git a/smali_classes8/tv/twitch/android/shared/ui/menus/togglemenu/ToggleM
 +    .line 37
 +    return-void
 +.end method
+\ No newline at end of file

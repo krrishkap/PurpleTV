@@ -1,19 +1,7 @@
 diff --git a/smali_classes6/tv/twitch/android/settings/main/MainSettingsRouter.smali b/smali_classes6/tv/twitch/android/settings/main/MainSettingsRouter.smali
 --- a/smali_classes6/tv/twitch/android/settings/main/MainSettingsRouter.smali
 +++ b/smali_classes6/tv/twitch/android/settings/main/MainSettingsRouter.smali
-@@ -313,9 +313,9 @@
-     goto :goto_0
- 
-     :pswitch_3
--    new-instance v0, Ltv/twitch/android/settings/system/SystemSettingsFragment;
-+    invoke-static {}, Ltv/purple/monolith/features/settings/bridge/PurpleTVSettingsHook;->createSettingsFragment()Landroidx/fragment/app/Fragment;
- 
--    invoke-direct {v0}, Ltv/twitch/android/settings/system/SystemSettingsFragment;-><init>()V
-+    move-result-object v0
- 
-     goto :goto_0
- 
-@@ -360,6 +360,15 @@
+@@ -351,6 +351,15 @@
      invoke-direct {v0}, Ltv/twitch/android/settings/account/AccountSettingsFragment;-><init>()V
  
      :goto_0

@@ -1,0 +1,21 @@
+diff --git a/smali_classes2/tv/twitch/android/provider/experiments/helpers/AdsDisableSkipDmaExperiment.smali b/smali_classes2/tv/twitch/android/provider/experiments/helpers/AdsDisableSkipDmaExperiment.smali
+--- a/smali_classes2/tv/twitch/android/provider/experiments/helpers/AdsDisableSkipDmaExperiment.smali
++++ b/smali_classes2/tv/twitch/android/provider/experiments/helpers/AdsDisableSkipDmaExperiment.smali
+@@ -53,15 +53,9 @@
+ 
+ # virtual methods
+ .method public final isUserAllowedToSkipDma()Z
+-    .locals 2
+-
+-    iget-object v0, p0, Ltv/twitch/android/provider/experiments/helpers/AdsDisableSkipDmaExperiment;->experimentHelper:Ltv/twitch/android/provider/experiments/ExperimentHelper;
+-
+-    sget-object v1, Ltv/twitch/android/provider/experiments/Experiment;->ADS_DISABLE_SKIP_DMA:Ltv/twitch/android/provider/experiments/Experiment;
+-
+-    invoke-interface {v0, v1}, Ltv/twitch/android/provider/experiments/ExperimentHelper;->isInDefaultControlGroup(Ltv/twitch/android/provider/experiments/Experiment;)Z
++    .locals 1
+ 
+-    move-result v0
++    const/4 v0, 0x1
+ 
+     return v0
+ .end method

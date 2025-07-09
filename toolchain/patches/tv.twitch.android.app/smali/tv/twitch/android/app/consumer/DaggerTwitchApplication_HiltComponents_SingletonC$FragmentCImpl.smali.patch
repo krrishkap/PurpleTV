@@ -1,7 +1,7 @@
 diff --git a/smali/tv/twitch/android/app/consumer/DaggerTwitchApplication_HiltComponents_SingletonC$FragmentCImpl.smali b/smali/tv/twitch/android/app/consumer/DaggerTwitchApplication_HiltComponents_SingletonC$FragmentCImpl.smali
 --- a/smali/tv/twitch/android/app/consumer/DaggerTwitchApplication_HiltComponents_SingletonC$FragmentCImpl.smali
 +++ b/smali/tv/twitch/android/app/consumer/DaggerTwitchApplication_HiltComponents_SingletonC$FragmentCImpl.smali
-@@ -63262,6 +63262,12 @@
+@@ -63532,6 +63532,12 @@
  
      invoke-direct/range {v1 .. v19}, Ltv/twitch/android/shared/player/overlay/RxBottomPlayerControlOverlayPresenter;-><init>(Landroidx/fragment/app/FragmentActivity;Ltv/twitch/android/app/core/Experience;Ltv/twitch/android/shared/analytics/theatre/PlayerOverlayTracker;Ltv/twitch/android/shared/preferences/TheatreLayoutPreferences;Ltv/twitch/android/util/CoreDateUtil;Ltv/twitch/android/models/player/VideoType;Ltv/twitch/android/core/data/source/DataProvider;Ltv/twitch/android/core/data/source/DataProvider;Ltv/twitch/android/core/data/source/DataProvider;Ltv/twitch/android/core/data/source/DataUpdater;Ltv/twitch/android/core/data/source/DataProvider;Ltv/twitch/android/shared/stream/pubsub/StreamUpdatePubSubClient;Ltv/twitch/android/core/data/source/DataUpdater;Ltv/twitch/android/provider/experiments/helpers/OneChatExperiment;Ltv/twitch/android/provider/experiments/helpers/GuestStarExperiment;Ltv/twitch/android/provider/experiments/helpers/TheatreMuteButtonExperiment;Ltv/twitch/android/shared/player/MuteAudioCommandController;Ltv/twitch/android/shared/chromecast/ChromecastHelper;)V
  

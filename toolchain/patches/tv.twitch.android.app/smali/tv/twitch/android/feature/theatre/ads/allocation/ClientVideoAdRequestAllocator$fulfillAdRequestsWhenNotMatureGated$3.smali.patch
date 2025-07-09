@@ -1,0 +1,12 @@
+diff --git a/smali_classes6/tv/twitch/android/feature/theatre/ads/allocation/ClientVideoAdRequestAllocator$fulfillAdRequestsWhenNotMatureGated$3.smali b/smali_classes6/tv/twitch/android/feature/theatre/ads/allocation/ClientVideoAdRequestAllocator$fulfillAdRequestsWhenNotMatureGated$3.smali
+--- a/smali_classes6/tv/twitch/android/feature/theatre/ads/allocation/ClientVideoAdRequestAllocator$fulfillAdRequestsWhenNotMatureGated$3.smali
++++ b/smali_classes6/tv/twitch/android/feature/theatre/ads/allocation/ClientVideoAdRequestAllocator$fulfillAdRequestsWhenNotMatureGated$3.smali
+@@ -92,7 +92,7 @@
+ 
+     const/4 v2, 0x0
+ 
+-    if-eqz v1, :cond_0
++    if-eq v1, v1,:cond_0
+ 
+     iget-object p1, p0, Ltv/twitch/android/feature/theatre/ads/allocation/ClientVideoAdRequestAllocator$fulfillAdRequestsWhenNotMatureGated$3;->this$0:Ltv/twitch/android/feature/theatre/ads/allocation/ClientVideoAdRequestAllocator;
+ 

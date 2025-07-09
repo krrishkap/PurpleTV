@@ -1,6 +1,6 @@
-diff --git a/smali_classes7/tv/twitch/android/shared/leaderboards/webview/LeaderboardsWebViewPresenter.smali b/smali_classes7/tv/twitch/android/shared/leaderboards/webview/LeaderboardsWebViewPresenter.smali
---- a/smali_classes7/tv/twitch/android/shared/leaderboards/webview/LeaderboardsWebViewPresenter.smali
-+++ b/smali_classes7/tv/twitch/android/shared/leaderboards/webview/LeaderboardsWebViewPresenter.smali
+diff --git a/smali_classes8/tv/twitch/android/shared/leaderboards/webview/LeaderboardsWebViewPresenter.smali b/smali_classes8/tv/twitch/android/shared/leaderboards/webview/LeaderboardsWebViewPresenter.smali
+--- a/smali_classes8/tv/twitch/android/shared/leaderboards/webview/LeaderboardsWebViewPresenter.smali
++++ b/smali_classes8/tv/twitch/android/shared/leaderboards/webview/LeaderboardsWebViewPresenter.smali
 @@ -1216,6 +1216,17 @@
  .method private final shouldFetchLeaderboards(Ltv/twitch/android/models/chat/ChatBroadcaster;)Z
      .locals 2

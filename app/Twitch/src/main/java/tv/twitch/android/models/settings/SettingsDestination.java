@@ -14,6 +14,7 @@ public enum SettingsDestination {
     Credits(false),
     DeleteAccount(true),
     DisableAccount(true),
+    Drops(true),
     EditBio(true),
     EditProfile(true),
     EditRoom(true),
