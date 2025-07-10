@@ -169,41 +169,83 @@ class ChatHookProvider @Inject constructor(
         val emoteCache = HashMap<String, Emote?>()
 
         tokens.forEach { token ->
-            if (token is MessageTokenV2.TextToken) {
-                val st = StringTokenizer(token.text, " \n\r\t")
-                var isStartFromSpace = token.text.startsWith(" ")
-                while (st.hasMoreTokens()) {
-                    if (isStartFromSpace) {
-                        stack.add(MessageTokenV2.TextToken(" "))
-                        isStartFromSpace = false
-                    }
-                    val word = st.nextToken()
-                    val emote = emoteCache.getOrPut(word) {
-                        emoteProvider.getEmote(code = word, channelId = channelId)
-                    }
+            when (token) {
+                is MessageTokenV2.TextToken -> {
+                    val st = StringTokenizer(token.text, " \n\r\t")
+                    var isStartFromSpace = token.text.startsWith(" ")
+                    while (st.hasMoreTokens()) {
+                        if (isStartFromSpace) {
+                            stack.add(MessageTokenV2.TextToken(" "))
+                            isStartFromSpace = false
+                        }
+                        val word = st.nextToken()
+                        val emote = emoteCache.getOrPut(word) {
+                            emoteProvider.getEmote(code = word, channelId = channelId)
+                        }
 
-                    if (emote != null) {
-                        val spaceToken = MessageTokenV2.TextToken(" ")
-                        stack.add(
-                            PurpleTVEmoteToken(
-                                emote,
-                                currentEmoteSize
+                        if (emote != null) {
+                            val spaceToken = MessageTokenV2.TextToken(" ")
+                            stack.add(
+                                PurpleTVEmoteToken.fromEmote(emote, currentEmoteSize)
                             )
-                        )
-                        stack.addAll(listOf(spaceToken))
-                    } else {
-                        stack.add(MessageTokenV2.TextToken("$word "))
+                            stack.addAll(listOf(spaceToken))
+                        } else {
+                            stack.add(MessageTokenV2.TextToken("$word "))
+                        }
                     }
                 }
-            } else if (token is MentionToken || token is EmoteToken) {
-                stack.add(token)
-                stack.add(MessageTokenV2.TextToken(" "))
-            } else {
-                stack.add(token)
+
+                is MentionToken, is EmoteToken -> {
+                    stack.add(token)
+                    stack.add(MessageTokenV2.TextToken(" "))
+                }
+
+                else -> {
+                    stack.add(token)
+                }
             }
         }
 
         return stack
+    }
+
+    private fun combineZwEmoteTokens(tokens: Collection<MessageTokenV2>): MutableList<MessageTokenV2> {
+        val newTokens = mutableListOf<MessageTokenV2>()
+
+        var stack: PurpleTVEmoteToken? = null
+        for (token in tokens) {
+            when (token) {
+                is MessageTokenV2.TextToken -> {
+                    if (!token.text.isNullOrBlank()) {
+                        stack = null
+                    }
+                    newTokens.add(token)
+                }
+
+                is PurpleTVEmoteToken -> {
+                    if (!token.isZW) {
+                        stack = PurpleTVEmoteToken(token.id, token.text)
+                        newTokens.add(stack)
+                    } else {
+                        stack?.subEmotes?.add(token) ?: newTokens.add(token)
+                    }
+                }
+
+                is EmoteToken -> {
+                    stack = PurpleTVEmoteToken(token.id, token.text, isTwitchEmote = true)
+                    newTokens.add(stack)
+                }
+
+                else -> {
+                    stack = null
+                    newTokens.add(token)
+                }
+            }
+        }
+
+        LoggerImpl.debugObject(newTokens)
+
+        return newTokens
     }
 
     @Suppress("PLATFORM_CLASS_MAPPED_TO_KOTLIN")
@@ -791,10 +833,12 @@ class ChatHookProvider @Inject constructor(
             userId = msg.sender.userId,
             channelId = channelId
         )
-        val tokens = injectEmotes(
-            tokens = msg.messageTokens,
-            userId = msg.sender.userId,
-            channelId = channelId
+        val tokens = combineZwEmoteTokens(
+            injectEmotes(
+                tokens = msg.messageTokens,
+                userId = msg.sender.userId,
+                channelId = channelId
+            )
         )
 
         return ChatMessage.LiveChatMessage(

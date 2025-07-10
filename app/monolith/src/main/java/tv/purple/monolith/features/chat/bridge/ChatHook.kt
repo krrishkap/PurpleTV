@@ -24,6 +24,7 @@ import tv.purple.monolith.features.chat.util.ChatUtil.createDeletedStrikethrough
 import tv.purple.monolith.features.chat.util.ChatUtil.createTimestampSpanFromChatMessageSpan
 import tv.purple.monolith.features.chat.view.ViewFactory
 import tv.purple.monolith.models.wrapper.EmoteCardModelWrapper
+import tv.purple.monolith.models.wrapper.EmotePackageSet
 import tv.twitch.android.core.adapters.RecyclerAdapterItem
 import tv.twitch.android.core.mvp.presenter.StateUpdater
 import tv.twitch.android.core.mvp.viewdelegate.EventDispatcher
@@ -45,6 +46,7 @@ import tv.twitch.android.shared.emotes.emotepicker.models.EmoteClickedEvent
 import tv.twitch.android.shared.emotes.emotepicker.models.EmotePickerSection
 import tv.twitch.android.shared.emotes.emotepicker.models.EmoteUiSet
 import tv.twitch.android.shared.subscriptions.SubscriptionStatusForTier.NotSubscribedAtTier
+import tv.twitch.android.shared.ui.elements.span.`MediaSpan$Type`
 import tv.twitch.android.shared.ui.elements.span.UrlDrawable
 import java.util.Date
 
@@ -253,13 +255,26 @@ object ChatHook {
 
     @Suppress("UsePropertyAccessSyntax")
     @JvmStatic
-    fun maybeSetWideToUrlDrawable(
+    fun preloadPTVEmoteToken(
         urlDrawable: UrlDrawable?,
         emoteToken: MessageTokenV2.EmoteToken?
     ) {
+        urlDrawable ?: return
+
         if (emoteToken is PurpleTVEmoteToken) {
-            urlDrawable?.setWide(true)
-            urlDrawable?.setAnimated(PrefManager.isAnimatedEmotesEnabled)
+            urlDrawable.setWide(true)
+            urlDrawable.setAnimated(PrefManager.isAnimatedEmotesEnabled)
+            if (emoteToken.subEmotes.isNotEmpty()) {
+                injectZWEmotes(urlDrawable, emoteToken)
+            }
+        }
+    }
+
+    private fun injectZWEmotes(urlDrawable: UrlDrawable, emoteToken: PurpleTVEmoteToken) {
+        for (zwToken in emoteToken.subEmotes) {
+            val url = EmoteCardModelWrapper.fromString(str = zwToken.id)!!.emoteUrl
+            val drawable = UrlDrawable(url, `MediaSpan$Type`.Emote)
+            urlDrawable.stack?.add(drawable)
         }
     }
 
@@ -368,7 +383,15 @@ object ChatHook {
 
     @JvmStatic
     fun getPurpleTVEmoteUrl(url: String?, emoteToken: MessageTokenV2.EmoteToken): String? {
-        return EmoteCardModelWrapper.fromString(str = emoteToken.id)?.emoteUrl ?: url
+        val model = EmoteCardModelWrapper.fromString(str = emoteToken.id)
+        if (model != null) {
+            if (model.set == EmotePackageSet.TwitchGlobal || model.set == EmotePackageSet.TwitchChannel) {
+                return url
+            }
+
+            return model.emoteUrl
+        }
+        return url
     }
 
     @JvmStatic

@@ -22,7 +22,7 @@ diff --git a/smali_classes7/tv/twitch/android/shared/chat/messages/span/ChatMess
  
 +    move-object/from16 v11, p4
 +
-+    invoke-static {v1, v11}, Ltv/purple/monolith/features/chat/bridge/ChatHook;->maybeSetWideToUrlDrawable(Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;Ltv/twitch/android/shared/chat/pub/messages/data/MessageTokenV2$EmoteToken;)V
++    invoke-static {v1, v11}, Ltv/purple/monolith/features/chat/bridge/ChatHook;->preloadPTVEmoteToken(Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;Ltv/twitch/android/shared/chat/pub/messages/data/MessageTokenV2$EmoteToken;)V
 +
      const/16 v11, 0x21
  

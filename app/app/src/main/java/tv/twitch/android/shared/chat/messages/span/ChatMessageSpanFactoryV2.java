@@ -46,7 +46,7 @@ public class ChatMessageSpanFactoryV2 {
         if (emoteToken instanceof PurpleTVEmoteToken) { // TODO: __INJECT_CODE
             url = ChatHook.getPurpleTVEmoteUrl(url, emoteToken);
         }
-        ChatHook.maybeSetWideToUrlDrawable(urlDrawable, emoteToken); // TODO: __INJECT_CODE
+        ChatHook.preloadPTVEmoteToken(urlDrawable, emoteToken); // TODO: __INJECT_CODE
 
         /* ... */
 
