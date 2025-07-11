@@ -1,24 +1,32 @@
 diff --git a/smali_classes8/tv/twitch/android/shared/player/overlay/RxPlayerOverlayHeaderViewDelegate.smali b/smali_classes8/tv/twitch/android/shared/player/overlay/RxPlayerOverlayHeaderViewDelegate.smali
 --- a/smali_classes8/tv/twitch/android/shared/player/overlay/RxPlayerOverlayHeaderViewDelegate.smali
 +++ b/smali_classes8/tv/twitch/android/shared/player/overlay/RxPlayerOverlayHeaderViewDelegate.smali
-@@ -253,6 +253,10 @@
+@@ -253,6 +253,13 @@
  
      invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setVisibility(I)V
  
 +    iget-object v1, v0, Ltv/twitch/android/shared/player/overlay/databinding/PlayerControlOverlayBinding;->timerButton:Landroid/widget/ImageView;
++
++    if-eqz v1, :cond_z
 +
 +    invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setVisibility(I)V
 +
++    :cond_z
      iget-object v1, v0, Ltv/twitch/android/shared/player/overlay/databinding/PlayerControlOverlayBinding;->info:Landroid/widget/ImageView;
  
      invoke-virtual {v1, v2}, Landroid/widget/ImageView;->setVisibility(I)V
-@@ -479,6 +483,10 @@
+@@ -479,6 +486,15 @@
  
      iget-object v0, p0, Ltv/twitch/android/shared/player/overlay/RxPlayerOverlayHeaderViewDelegate;->viewBinding:Ltv/twitch/android/shared/player/overlay/databinding/PlayerControlOverlayBinding;
  
-+    iget-object v1, v0, Ltv/twitch/android/shared/player/overlay/databinding/PlayerControlOverlayBinding;->timerButton:Landroid/widget/ImageView;
++    if-eqz v0, :cond_z
 +
-+    invoke-static {v1}, Ltv/purple/monolith/features/timer/bridge/TimerHook;->maybeShowTimerButton(Landroid/widget/ImageView;)V
++    iget-object v0, v0, Ltv/twitch/android/shared/player/overlay/databinding/PlayerControlOverlayBinding;->timerButton:Landroid/widget/ImageView;
++
++    invoke-static {v0}, Ltv/purple/monolith/features/timer/bridge/TimerHook;->maybeShowTimerButton(Landroid/widget/ImageView;)V
++
++    :cond_z
++    iget-object v0, p0, Ltv/twitch/android/shared/player/overlay/RxPlayerOverlayHeaderViewDelegate;->viewBinding:Ltv/twitch/android/shared/player/overlay/databinding/PlayerControlOverlayBinding;
 +
      iget-object v1, v0, Ltv/twitch/android/shared/player/overlay/databinding/PlayerControlOverlayBinding;->backButton:Landroid/widget/ImageView;
  

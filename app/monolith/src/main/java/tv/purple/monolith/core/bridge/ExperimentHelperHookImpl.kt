@@ -15,16 +15,12 @@ class ExperimentHelperHookImpl(
     companion object {
         private fun hookExperiment(p0: Experiment): Boolean? {
             return when (p0) {
-                Experiment.AVAILABILITY_TRACKING,
-                Experiment.NETWORK_REQUEST_TRACKING,
-                Experiment.THEATRE_MUTE_BUTTON,
-                Experiment.ADS_IFV,
-                Experiment.VISAGE_TRACKING -> false
+                Experiment.ADS_IFV -> false
 
                 Experiment.MESSAGE_EFFECT_RENDERING,
                 Experiment.ANIMATED_EMOTES,
                 Experiment.PROFILE_SETTINGS_REORG,
-                Experiment.CHAT_SETTINGS_MVVM, -> true
+                Experiment.THEATRE_MUTE_BUTTON, -> true
 
                 else -> null
             }

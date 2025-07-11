@@ -6,6 +6,7 @@ import androidx.fragment.app.FragmentActivity
 import tv.purple.monolith.bridge.PurpleTVAppContainer
 import tv.purple.monolith.bridge.RES_STRINGS
 import tv.purple.monolith.bridge.ex.ISeekbarOverlayPresenter
+import tv.purple.monolith.core.LoggerImpl
 import tv.purple.monolith.core.util.ViewUtil.changeVisibility
 import tv.purple.monolith.features.chapters.VodChapters.Companion.fixVodId
 import tv.twitch.android.models.videos.VodModel
@@ -18,7 +19,9 @@ object ChaptersHook {
 
     @JvmStatic
     fun getChaptersButton(view: View): ImageView? {
-        return chapters.createChaptersButton(view = view)
+        return chapters.createChaptersButton(view = view).also {
+            LoggerImpl.debug("ChaptersHook->getChaptersButton: $it")
+        }
     }
 
     @JvmStatic

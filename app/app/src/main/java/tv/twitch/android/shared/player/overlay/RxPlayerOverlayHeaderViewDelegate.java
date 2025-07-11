@@ -1,9 +1,7 @@
 package tv.twitch.android.shared.player.overlay;
 
-import android.view.View;
-
 import tv.purple.monolith.features.timer.bridge.TimerHook;
-import tv.purple.monolith.features.ui.bridge.UIHook;
+import tv.purple.monolith.models.exception.VirtualImpl;
 import tv.twitch.android.shared.player.overlay.databinding.PlayerControlOverlayBinding;
 
 public class RxPlayerOverlayHeaderViewDelegate {
@@ -14,13 +12,21 @@ public class RxPlayerOverlayHeaderViewDelegate {
     private final void showPlayerOverlayHeader(PlayerOverlayHeaderViewModel playerOverlayHeaderViewModel) {
         /* ... */
 
-        TimerHook.maybeShowTimerButton(viewBinding.timerButton); // TODO: __INJECT_CODE
+        if (viewBinding != null) {
+            TimerHook.maybeShowTimerButton(viewBinding.timerButton); // TODO: __INJECT_CODE
+        }
+
+        throw new VirtualImpl();
     }
 
     private final void hidePlayerOverlayOptions() {
         /* ... */
 
-        viewBinding.timerButton.setVisibility(View.GONE); // TODO: __INJECT_CODE
+        if (viewBinding != null) {
+            TimerHook.maybeHideTimerButton(viewBinding.timerButton); // TODO: __INJECT_CODE
+        }
+
+        throw new VirtualImpl();
     }
 
     /* ... */

@@ -18,10 +18,10 @@ diff --git a/smali_classes7/tv/twitch/android/shared/emotes/emotepicker/EmotePic
 +    new-instance v4, Lop/f;
 +
 +    invoke-direct {v4, v3}, Lop/f;-><init>(Lkotlin/jvm/functions/Function3;)V
++
++    invoke-static {v0, v1, v2, v4}, Lio/reactivex/Flowable;->combineLatest(Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lio/reactivex/functions/Function3;)Lio/reactivex/Flowable;
  
 -    invoke-direct {p1, v3}, Lop/f;-><init>(Lkotlin/jvm/functions/Function3;)V
-+    invoke-static {v0, v1, v2, v4}, Lio/reactivex/Flowable;->combineLatest(Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lio/reactivex/functions/Function3;)Lio/reactivex/Flowable;
-+
 +    move-result-object v4
  
 -    invoke-static {v0, v1, v2, p1}, Lio/reactivex/Flowable;->combineLatest(Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lorg/reactivestreams/Publisher;Lio/reactivex/functions/Function3;)Lio/reactivex/Flowable;
@@ -40,22 +40,13 @@ diff --git a/smali_classes7/tv/twitch/android/shared/emotes/emotepicker/EmotePic
      iget-object v0, p0, Ltv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter;->stateMachine:Ltv/twitch/android/core/mvp/presenter/StateMachine;
  
      new-instance v1, Ltv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter$UpdateEvent$NewEmoteSets;
-@@ -3273,3 +3283,18 @@
+@@ -3273,3 +3283,9 @@
  
      return-void
  .end method
 +
 +.method public notifyFavEmotesChanged()V
-+    .registers 3
++    .locals 0
 +
-+    .prologue
-+    .line 22
-+    iget-object v0, p0, Ltv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter;->stateMachine:Ltv/twitch/android/core/mvp/presenter/StateMachine;
-+
-+    sget-object v1, Ltv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter$UpdateEvent$AnimatedEmotesSettingsChanged;->INSTANCE:Ltv/twitch/android/shared/emotes/emotepicker/EmotePickerPresenter$UpdateEvent$AnimatedEmotesSettingsChanged;
-+
-+    invoke-virtual {v0, v1}, Ltv/twitch/android/core/mvp/presenter/StateMachine;->pushEvent(Ltv/twitch/android/core/mvp/presenter/StateUpdateEvent;)V
-+
-+    .line 23
 +    return-void
 +.end method
