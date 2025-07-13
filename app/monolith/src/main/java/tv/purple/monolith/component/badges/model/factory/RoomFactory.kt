@@ -8,6 +8,7 @@ import tv.purple.monolith.component.api.repository.FfzRepository
 import tv.purple.monolith.component.api.repository.FlxrsRepository
 import tv.purple.monolith.component.api.repository.HomiesRepository
 import tv.purple.monolith.component.api.repository.NopRepository
+import tv.purple.monolith.component.api.repository.ReyohohoRepository
 import tv.purple.monolith.component.api.repository.StvRepository
 import tv.purple.monolith.component.badges.model.BadgePackageImpl
 import tv.purple.monolith.component.badges.model.room.Room
@@ -27,7 +28,8 @@ class RoomFactory @Inject constructor(
     private val nop: NopRepository,
     private val hom: HomiesRepository,
     private val flxrs: FlxrsRepository,
-    private val cht: ChatsenRepository
+    private val cht: ChatsenRepository,
+    private val rhh: ReyohohoRepository
 ) {
     private data class BadgeConfig(
         val flag: Flag,
@@ -43,7 +45,8 @@ class RoomFactory @Inject constructor(
         BadgeConfig(Flag.PTV_BADGES, { nop.getPtvBadges() }, BadgePackageSet.PTV),
         BadgeConfig(Flag.BTTV_BADGES, { bttv.getBttvBadges() }, BadgePackageSet.BTTV),
         BadgeConfig(Flag.DANKCHAT_BADGES, { flxrs.getBadges() }, BadgePackageSet.DANKCHAT),
-        BadgeConfig(Flag.CHATSEN_BADGES, { cht.getBadges() }, BadgePackageSet.CHATSEN)
+        BadgeConfig(Flag.CHATSEN_BADGES, { cht.getBadges() }, BadgePackageSet.CHATSEN),
+        BadgeConfig(Flag.REYOHOHO_BADGES, { rhh.getBadges() }, BadgePackageSet.REYOHOHO)
     )
 
     fun create(): Room {

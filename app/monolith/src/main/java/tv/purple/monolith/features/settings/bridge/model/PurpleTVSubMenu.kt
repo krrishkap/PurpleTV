@@ -50,6 +50,7 @@ enum class PurpleTVSubMenu(
             Flag.BTTV_BADGES,
             Flag.DANKCHAT_BADGES,
             Flag.CHATSEN_BADGES,
+            Flag.REYOHOHO_BADGES,
         ).map { Item.FlagItem(it) }
     ),
     ThirdParty(

@@ -391,6 +391,8 @@
     <string name="purpletv_settings_dankchat_badges_desc">Enable support for DankChat badges in the chat</string>
     <string name="purpletv_settings_chatsen_badges">Chatsen badges</string>
     <string name="purpletv_settings_chatsen_badges_desc">Enable support for Chatsen badges in the chat</string>
+    <string name="purpletv_settings_reyohoho_badges">Reyohoho badges</string>
+    <string name="purpletv_settings_reyohoho_badges_desc" />
     <string name="purpletv_settings_disable_google_play_services">Disable Google Play services</string>
     <string name="purpletv_settings_disable_google_play_services_desc">Enabling this option will turn off Google Play services within the app</string>
     <string name="purpletv_settings_hide_discover_feed">Hide \"Discovery feed\"</string>

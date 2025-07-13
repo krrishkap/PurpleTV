@@ -10,4 +10,5 @@ enum class BadgePackageSet {
     BTTV,
     DANKCHAT,
     CHATSEN,
+    REYOHOHO,
 }

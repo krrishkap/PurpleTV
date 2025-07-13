@@ -260,6 +260,11 @@ enum class Flag(
         titleResName = "purpletv_settings_chatsen_badges",
         value = BooleanValue(true)
     ),
+    REYOHOHO_BADGES(
+        prefKey = "reyohoho_badges",
+        titleResName = "purpletv_settings_reyohoho_badges",
+        value = BooleanValue(false)
+    ),
     BTTV_WEBP(
         prefKey = "bttv_webp",
         titleResName = "purpletv_settings_bttv_webp",

@@ -18,6 +18,7 @@ import tv.purple.monolith.component.api.data.api.FlxrsApi
 import tv.purple.monolith.component.api.data.api.HomiesApi
 import tv.purple.monolith.component.api.data.api.NopApi
 import tv.purple.monolith.component.api.data.api.PronounsApi
+import tv.purple.monolith.component.api.data.api.ReyohohoApi
 import tv.purple.monolith.component.api.data.api.StvApi
 import tv.purple.monolith.component.api.data.api.StvOldApi
 import tv.purple.monolith.component.api.data.api.TwitchGQLApi
@@ -32,6 +33,7 @@ import tv.purple.monolith.component.api.di.scope.GQL
 import tv.purple.monolith.component.api.di.scope.HOMIES
 import tv.purple.monolith.component.api.di.scope.NOP
 import tv.purple.monolith.component.api.di.scope.PRN
+import tv.purple.monolith.component.api.di.scope.REYOHOHO
 import tv.purple.monolith.component.api.di.scope.STV
 import tv.purple.monolith.component.api.di.scope.STV_OLD_API
 import tv.purple.monolith.core.compat.ClassCompat.getPrivateField
@@ -67,6 +69,11 @@ object ApiModule {
     @Named(FFZ)
     fun provideFfzRetrofitClient(builder: Retrofit.Builder): Retrofit =
         builder.createRetrofit("https://api.frankerfacez.com/")
+
+    @Provides
+    @Named(REYOHOHO)
+    fun provideReyohohoRetrofitClient(builder: Retrofit.Builder): Retrofit =
+        builder.createRetrofit("https://starege.rhhhhhhh.live/")
 
     @Provides
     @Named(CHATTERINO)
@@ -136,6 +143,10 @@ object ApiModule {
     @Singleton
     @Provides
     fun provideFfzApi(@Named(FFZ) retrofit: Retrofit): FfzApi = retrofit.create()
+
+    @Singleton
+    @Provides
+    fun provideReyohohoApi(@Named(REYOHOHO) retrofit: Retrofit): ReyohohoApi = retrofit.create()
 
     @Singleton
     @Provides
