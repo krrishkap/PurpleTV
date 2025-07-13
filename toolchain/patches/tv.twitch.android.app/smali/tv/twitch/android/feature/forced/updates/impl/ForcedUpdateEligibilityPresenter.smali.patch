@@ -1,0 +1,21 @@
+diff --git a/smali/tv/twitch/android/feature/forced/updates/impl/ForcedUpdateEligibilityPresenter.smali b/smali/tv/twitch/android/feature/forced/updates/impl/ForcedUpdateEligibilityPresenter.smali
+--- a/smali/tv/twitch/android/feature/forced/updates/impl/ForcedUpdateEligibilityPresenter.smali
++++ b/smali/tv/twitch/android/feature/forced/updates/impl/ForcedUpdateEligibilityPresenter.smali
+@@ -56,15 +56,9 @@
+ .end method
+ 
+ .method private final isAvailable()Z
+-    .locals 2
+-
+-    iget-object v0, p0, Ltv/twitch/android/feature/forced/updates/impl/ForcedUpdateEligibilityPresenter;->experimentHelper:Ltv/twitch/android/provider/experiments/ExperimentHelper;
+-
+-    sget-object v1, Ltv/twitch/android/provider/experiments/Experiment;->FORCED_UPDATES:Ltv/twitch/android/provider/experiments/Experiment;
+-
+-    invoke-interface {v0, v1}, Ltv/twitch/android/provider/experiments/ExperimentHelper;->isInOnGroupForBinaryExperiment(Ltv/twitch/android/provider/experiments/Experiment;)Z
++    .locals 1
+ 
+-    move-result v0
++    const/4 v0, 0x0
+ 
+     return v0
+ .end method

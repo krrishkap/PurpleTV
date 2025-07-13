@@ -15,6 +15,13 @@ class ExperimentHelperHookImpl(
     companion object {
         private fun hookExperiment(p0: Experiment): Boolean? {
             return when (p0) {
+                Experiment.EXTENSIONS_USER_EDUCATION,
+                Experiment.UPDATE_PROMPT_ROLLOUT,
+                Experiment.ADS_PBYP,
+                Experiment.STREAM_DISPLAY_ADS,
+                Experiment.AUDIO_ADS,
+                Experiment.AUDIO_ADS_BACKGROUND,
+                Experiment.BANNER_ADS,
                 Experiment.ADS_IFV -> false
 
                 Experiment.MESSAGE_EFFECT_RENDERING,
