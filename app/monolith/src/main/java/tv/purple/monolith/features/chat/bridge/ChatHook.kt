@@ -383,6 +383,12 @@ object ChatHook {
 
     @JvmStatic
     fun getPurpleTVEmoteUrl(url: String?, emoteToken: MessageTokenV2.EmoteToken): String? {
+        emoteToken.id?.let { tokenId ->
+            if (tokenId.isBlank() || !tokenId.startsWith("{")) {
+                return url
+            }
+        }
+
         val model = EmoteCardModelWrapper.fromString(str = emoteToken.id)
         if (model != null) {
             if (model.set == EmotePackageSet.TwitchGlobal || model.set == EmotePackageSet.TwitchChannel) {
