@@ -19,3 +19,12 @@ diff --git a/smali_classes2/tv/twitch/android/network/graphql/TwitchApolloClient
      invoke-direct {p0, p2, p3}, Ltv/twitch/android/network/graphql/BaseApolloClient;-><init>(Lio/reactivex/subjects/PublishSubject;Lio/reactivex/subjects/PublishSubject;)V
  
      iput-boolean p4, p0, Ltv/twitch/android/network/graphql/TwitchApolloClient;->shouldEnableGqlCloudflareBotScoreTracking:Z
+@@ -173,7 +177,7 @@
+ 
+     move-object v1, v8
+ 
+-    invoke-static/range {v1 .. v7}, Lcom/apollographql/apollo3/cache/normalized/NormalizedCache;->configureApolloClientBuilder$default(Lcom/apollographql/apollo3/ApolloClient$Builder;Lcom/apollographql/apollo3/cache/normalized/api/NormalizedCacheFactory;Lcom/apollographql/apollo3/cache/normalized/api/CacheKeyGenerator;Lcom/apollographql/apollo3/cache/normalized/api/CacheResolver;ZILjava/lang/Object;)Lcom/apollographql/apollo3/ApolloClient$Builder;
++    # invoke-static/range {v1 .. v7}, Lcom/apollographql/apollo3/cache/normalized/NormalizedCache;->configureApolloClientBuilder$default(Lcom/apollographql/apollo3/ApolloClient$Builder;Lcom/apollographql/apollo3/cache/normalized/api/NormalizedCacheFactory;Lcom/apollographql/apollo3/cache/normalized/api/CacheKeyGenerator;Lcom/apollographql/apollo3/cache/normalized/api/CacheResolver;ZILjava/lang/Object;)Lcom/apollographql/apollo3/ApolloClient$Builder;
+ 
+     sget-object v1, Ltv/twitch/android/network/graphql/GqlInspector;->INSTANCE:Ltv/twitch/android/network/graphql/GqlInspector;
+ 
