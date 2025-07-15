@@ -1,7 +1,7 @@
 diff --git a/smali/tv/twitch/android/app/consumer/DaggerTwitchApplication_HiltComponents_SingletonC$ActivityCImpl.smali b/smali/tv/twitch/android/app/consumer/DaggerTwitchApplication_HiltComponents_SingletonC$ActivityCImpl.smali
 --- a/smali/tv/twitch/android/app/consumer/DaggerTwitchApplication_HiltComponents_SingletonC$ActivityCImpl.smali
 +++ b/smali/tv/twitch/android/app/consumer/DaggerTwitchApplication_HiltComponents_SingletonC$ActivityCImpl.smali
-@@ -15066,6 +15066,10 @@
+@@ -15122,6 +15122,10 @@
  
      move-result-object v0
  

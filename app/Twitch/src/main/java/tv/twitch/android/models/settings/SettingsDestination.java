@@ -27,6 +27,7 @@ public enum SettingsDestination {
     InAppNotifications(true),
     Legal(false),
     Licenses(false),
+    ModerationSettings(true),
     Notifications(true),
     PasswordConfirmation(true),
     PersonalizedAds(false),

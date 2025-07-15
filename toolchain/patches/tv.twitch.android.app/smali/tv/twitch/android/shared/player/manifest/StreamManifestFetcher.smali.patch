@@ -25,11 +25,11 @@ diff --git a/smali_classes2/tv/twitch/android/shared/player/manifest/StreamManif
  
      invoke-direct {v1, p0, p1, p2, p4}, Ltv/twitch/android/shared/player/manifest/StreamManifestFetcher$fetchSourceManifestFromFactory$2;-><init>(Ltv/twitch/android/shared/player/manifest/StreamManifestFetcher;Ljava/lang/String;Ltv/twitch/android/models/player/ManifestProperties;Ltv/twitch/android/models/analytics/FmpTrackingId;)V
  
--    new-instance p1, Lvt/b;
-+    new-instance v2, Lvt/b;
+-    new-instance p1, Lau/b;
++    new-instance v2, Lau/b;
  
--    invoke-direct {p1, v1}, Lvt/b;-><init>(Lkotlin/jvm/functions/Function1;)V
-+    invoke-direct {v2, v1}, Lvt/b;-><init>(Lkotlin/jvm/functions/Function1;)V
+-    invoke-direct {p1, v1}, Lau/b;-><init>(Lkotlin/jvm/functions/Function1;)V
++    invoke-direct {v2, v1}, Lau/b;-><init>(Lkotlin/jvm/functions/Function1;)V
  
 -    invoke-virtual {v0, p1}, Lio/reactivex/Single;->flatMap(Lio/reactivex/functions/Function;)Lio/reactivex/Single;
 +    invoke-virtual {v0, v2}, Lio/reactivex/Single;->flatMap(Lio/reactivex/functions/Function;)Lio/reactivex/Single;

@@ -10,15 +10,19 @@ diff --git a/smali_classes6/tv/twitch/android/shared/ads/eligibility/AdEligibili
      .annotation system Ldalvik/annotation/Signature;
          value = {
              "(",
-@@ -579,29 +579,11 @@
+@@ -575,33 +575,11 @@
+         }
+     .end annotation
  
-     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
- 
--    new-instance v0, Lxg/a;
+-    const-string v0, "adRequestInfo"
 -
--    invoke-direct {v0, p0, p1}, Lxg/a;-><init>(Ltv/twitch/android/shared/ads/eligibility/AdEligibilityFetcher;Ltv/twitch/android/shared/ads/models/AdRequestInfo;)V
+-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+-
+-    new-instance v0, Lyg/a;
 +    sget-object v0, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
  
+-    invoke-direct {v0, p0, p1}, Lyg/a;-><init>(Ltv/twitch/android/shared/ads/eligibility/AdEligibilityFetcher;Ltv/twitch/android/shared/ads/models/AdRequestInfo;)V
+-
 -    invoke-static {v0}, Lio/reactivex/Single;->create(Lio/reactivex/SingleOnSubscribe;)Lio/reactivex/Single;
 +    invoke-static {v0}, Lio/reactivex/Single;->just(Ljava/lang/Object;)Lio/reactivex/Single;
  
@@ -28,9 +32,9 @@ diff --git a/smali_classes6/tv/twitch/android/shared/ads/eligibility/AdEligibili
 -
 -    invoke-direct {v1, p1, p0}, Ltv/twitch/android/shared/ads/eligibility/AdEligibilityFetcher$shouldRequestAd$2;-><init>(Ltv/twitch/android/shared/ads/models/AdRequestInfo;Ltv/twitch/android/shared/ads/eligibility/AdEligibilityFetcher;)V
 -
--    new-instance p1, Lxg/b;
+-    new-instance p1, Lyg/b;
 -
--    invoke-direct {p1, v1}, Lxg/b;-><init>(Lkotlin/jvm/functions/Function1;)V
+-    invoke-direct {p1, v1}, Lyg/b;-><init>(Lkotlin/jvm/functions/Function1;)V
 -
 -    invoke-virtual {v0, p1}, Lio/reactivex/Single;->flatMap(Lio/reactivex/functions/Function;)Lio/reactivex/Single;
 -

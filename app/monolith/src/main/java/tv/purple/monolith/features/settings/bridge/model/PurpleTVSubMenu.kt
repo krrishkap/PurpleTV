@@ -204,11 +204,6 @@ enum class PurpleTVSubMenu(
         destination = SettingsDestination.PurpleWiki,
         title = RES_STRINGS.purpletv_settings_menu_wiki
     ),
-    OTA(
-        destination = SettingsDestination.PurpleOTA,
-        title = RES_STRINGS.purpletv_settings_menu_ota,
-        items = listOf(Item.FlagItem(Flag.UPDATE_CHANNEL))
-    ),
     Info(
         destination = SettingsDestination.PurpleInfo,
         title = RES_STRINGS.purpletv_settings_menu_info,

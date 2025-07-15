@@ -57,14 +57,14 @@ diff --git a/smali_classes8/tv/twitch/android/shared/ui/elements/span/UrlDrawabl
 +    const/4 v1, 0x0
 +
 +    invoke-virtual {v0, v1}, Landroid/graphics/ColorMatrix;->setSaturation(F)V
-+
+ 
 +    sput-object v0, Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;->GREY_MATRIX:Landroid/graphics/ColorMatrix;
 +
 +    .line 33
 +    new-instance v0, Landroid/graphics/ColorMatrixColorFilter;
 +
 +    sget-object v1, Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;->GREY_MATRIX:Landroid/graphics/ColorMatrix;
- 
++
 +    invoke-direct {v0, v1}, Landroid/graphics/ColorMatrixColorFilter;-><init>(Landroid/graphics/ColorMatrix;)V
 +
 +    sput-object v0, Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;->GREY_FILTER:Landroid/graphics/ColorMatrixColorFilter;
@@ -100,7 +100,7 @@ diff --git a/smali_classes8/tv/twitch/android/shared/ui/elements/span/UrlDrawabl
      return-void
  .end method
  
-@@ -88,70 +157,188 @@
+@@ -88,70 +157,187 @@
  
  
  # virtual methods
@@ -219,7 +219,7 @@ diff --git a/smali_classes8/tv/twitch/android/shared/ui/elements/span/UrlDrawabl
 +    if-nez v0, :cond_5
  
 -    iget-object v0, p0, Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;->drawable:Landroid/graphics/drawable/Drawable;
-+    .line 146
++    .line 147
 +    :cond_4
 +    return-void
  
@@ -229,15 +229,15 @@ diff --git a/smali_classes8/tv/twitch/android/shared/ui/elements/span/UrlDrawabl
 +    iget-boolean v2, p0, Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;->isFirstDraw:Z
 +
 +    if-eqz v2, :cond_19
- 
++
 +    .line 127
 +    iget-boolean v2, p0, Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;->grey:Z
 +
-+    if-eqz v2, :cond_44
++    if-eqz v2, :cond_4b
 +
 +    .line 128
 +    sget-object v2, Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;->GREY_FILTER:Landroid/graphics/ColorMatrixColorFilter;
-+
+ 
 +    invoke-virtual {v0, v2}, Landroid/graphics/drawable/Drawable;->setColorFilter(Landroid/graphics/ColorFilter;)V
 +
 +    .line 132
@@ -306,22 +306,21 @@ diff --git a/smali_classes8/tv/twitch/android/shared/ui/elements/span/UrlDrawabl
 +
 +    check-cast v1, Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;
 +
-+    .line 143
-+    .local v1, "stackItem":Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;
++    .line 144
 +    invoke-virtual {v1, p1}, Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;->draw(Landroid/graphics/Canvas;)V
 +
 +    goto :goto_34
 +
 +    .line 130
 +    .end local v1    # "stackItem":Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;
-+    :cond_44
++    :cond_4b
 +    invoke-virtual {v0}, Landroid/graphics/drawable/Drawable;->clearColorFilter()V
 +
 +    goto :goto_12
  .end method
  
  .method public final getImageSize()I
-@@ -225,10 +412,218 @@
+@@ -225,10 +411,289 @@
      return-void
  .end method
  
@@ -360,8 +359,8 @@ diff --git a/smali_classes8/tv/twitch/android/shared/ui/elements/span/UrlDrawabl
 +    iput-boolean v1, p0, Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;->isFirstDraw:Z
 +
 +    .line 88
-+    return-void
-+.end method
+     return-void
+ .end method
 +
 +.method public getStack()Ljava/util/List;
 +    .registers 2
@@ -540,5 +539,76 @@ diff --git a/smali_classes8/tv/twitch/android/shared/ui/elements/span/UrlDrawabl
 +    .line 192
 +    .end local v0    # "anim":Landroid/graphics/drawable/Animatable;
 +    :cond_10
-     return-void
- .end method
++    return-void
++.end method
++
++.method private centerStackItem(Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;Landroid/graphics/Rect;)V
++    .registers 13
++    .param p1, "stackItem"    # Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;
++    .param p2, "mainBounds"    # Landroid/graphics/Rect;
++
++    .prologue
++    .line 196
++    iget-object v5, p1, Ltv/twitch/android/shared/ui/elements/span/UrlDrawable;->drawable:Landroid/graphics/drawable/Drawable;
++
++    .line 197
++    .local v5, "stackDrawable":Landroid/graphics/drawable/Drawable;
++    if-nez v5, :cond_5
++
++    .line 220
++    :cond_4
++    :goto_4
++    return-void
++
++    .line 201
++    :cond_5
++    invoke-virtual {v5}, Landroid/graphics/drawable/Drawable;->getBounds()Landroid/graphics/Rect;
++
++    move-result-object v3
++
++    .line 202
++    .local v3, "rect":Landroid/graphics/Rect;
++    iget v7, v3, Landroid/graphics/Rect;->top:I
++
++    .line 203
++    .local v7, "top":I
++    iget v0, v3, Landroid/graphics/Rect;->bottom:I
++
++    .line 205
++    .local v0, "bottom":I
++    invoke-virtual {v5}, Landroid/graphics/drawable/Drawable;->getIntrinsicWidth()I
++
++    move-result v6
++
++    .line 207
++    .local v6, "stackWidth":I
++    if-lez v6, :cond_4
++
++    .line 210
++    iget v8, p2, Landroid/graphics/Rect;->right:I
++
++    iget v9, v3, Landroid/graphics/Rect;->right:I
++
++    if-gt v8, v9, :cond_4
++
++    .line 214
++    invoke-virtual {p2}, Landroid/graphics/Rect;->centerX()I
++
++    move-result v1
++
++    .line 216
++    .local v1, "centerX":I
++    div-int/lit8 v8, v6, 0x2
++
++    sub-int v2, v1, v8
++
++    .line 217
++    .local v2, "left":I
++    add-int v4, v2, v6
++
++    .line 219
++    .local v4, "right":I
++    invoke-virtual {v5, v2, v7, v4, v0}, Landroid/graphics/drawable/Drawable;->setBounds(IIII)V
++
++    goto :goto_4
++.end method

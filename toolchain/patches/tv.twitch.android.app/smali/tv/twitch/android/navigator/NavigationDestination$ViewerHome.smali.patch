@@ -1,7 +1,7 @@
 diff --git a/smali_classes2/tv/twitch/android/navigator/NavigationDestination$ViewerHome.smali b/smali_classes2/tv/twitch/android/navigator/NavigationDestination$ViewerHome.smali
 --- a/smali_classes2/tv/twitch/android/navigator/NavigationDestination$ViewerHome.smali
 +++ b/smali_classes2/tv/twitch/android/navigator/NavigationDestination$ViewerHome.smali
-@@ -77,11 +77,7 @@
+@@ -83,11 +83,7 @@
  
      if-eqz p6, :cond_0
  

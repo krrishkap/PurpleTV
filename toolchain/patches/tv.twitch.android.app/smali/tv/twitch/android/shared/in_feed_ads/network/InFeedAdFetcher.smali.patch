@@ -1,155 +1,70 @@
 diff --git a/smali_classes2/tv/twitch/android/shared/in_feed_ads/network/InFeedAdFetcher.smali b/smali_classes2/tv/twitch/android/shared/in_feed_ads/network/InFeedAdFetcher.smali
 --- a/smali_classes2/tv/twitch/android/shared/in_feed_ads/network/InFeedAdFetcher.smali
 +++ b/smali_classes2/tv/twitch/android/shared/in_feed_ads/network/InFeedAdFetcher.smali
-@@ -358,7 +358,7 @@
- .end method
+@@ -775,7 +775,7 @@
  
- .method private final parseDisplayAd(Ltv/twitch/android/shared/ads/models/edge/api/AdEdgeResponse$OpenRtbDisplayAd;Ljava/lang/String;Ltv/twitch/android/shared/ads/models/InFeedAdSlot;)Lio/reactivex/Single;
--    .locals 21
+ # virtual methods
+ .method public final requestInFeedAd(Ljava/lang/String;Ltv/twitch/android/shared/in_feed_ads/AdjacentFeedItems;Ltv/twitch/android/shared/ads/models/display/DisplayAdType;)Lio/reactivex/Single;
+-    .locals 2
 +    .locals 1
      .annotation system Ldalvik/annotation/Signature;
          value = {
              "(",
-@@ -373,103 +373,15 @@
+@@ -790,57 +790,15 @@
          }
      .end annotation
  
--    move-object/from16 v0, p0
+-    const-string v0, "adSessionId"
 -
--    move-object/from16 v1, p2
+-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 -
--    move-object/from16 v2, p3
+-    const-string v0, "displayAdType"
 -
--    invoke-virtual/range {p1 .. p1}, Ltv/twitch/android/shared/ads/models/edge/api/AdEdgeResponse$OpenRtbDisplayAd;->getDisplayAdResponse()Ltv/twitch/android/shared/ads/models/display/DisplayAdResponse;
+-    invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
 -
--    move-result-object v3
+-    iget-object v0, p0, Ltv/twitch/android/shared/in_feed_ads/network/InFeedAdFetcher;->adjacentFeedItemFetcher:Ltv/twitch/android/shared/in_feed_ads/network/AdjacentFeedItemFetcher;
 -
--    new-instance v15, Ltv/twitch/android/shared/ads/models/display/DisplayAdInfo;
+-    invoke-virtual {v0, p2}, Ltv/twitch/android/shared/in_feed_ads/network/AdjacentFeedItemFetcher;->fetchAdjacentItems(Ltv/twitch/android/shared/in_feed_ads/AdjacentFeedItems;)Lio/reactivex/Single;
 -
--    invoke-virtual {v3}, Ltv/twitch/android/shared/ads/models/display/DisplayAdResponse;->getWidth()I
+-    move-result-object p2
 -
--    move-result v5
+-    new-instance v0, Ltv/twitch/android/shared/in_feed_ads/network/InFeedAdFetcher$requestInFeedAd$1;
 -
--    invoke-virtual {v3}, Ltv/twitch/android/shared/ads/models/display/DisplayAdResponse;->getHeight()I
+-    invoke-direct {v0, p0, p1, p3}, Ltv/twitch/android/shared/in_feed_ads/network/InFeedAdFetcher$requestInFeedAd$1;-><init>(Ltv/twitch/android/shared/in_feed_ads/network/InFeedAdFetcher;Ljava/lang/String;Ltv/twitch/android/shared/ads/models/display/DisplayAdType;)V
 -
--    move-result v6
+-    new-instance v1, Lwq/k;
 -
--    invoke-virtual {v3}, Ltv/twitch/android/shared/ads/models/display/DisplayAdResponse;->getImpressionUrl()Ljava/lang/String;
+-    invoke-direct {v1, v0}, Lwq/k;-><init>(Lkotlin/jvm/functions/Function1;)V
 -
--    move-result-object v7
--
--    invoke-direct {v0, v2}, Ltv/twitch/android/shared/in_feed_ads/network/InFeedAdFetcher;->toDisplayAdType(Ltv/twitch/android/shared/ads/models/InFeedAdSlot;)Ltv/twitch/android/shared/ads/models/display/DisplayAdType;
--
--    move-result-object v8
--
--    invoke-virtual {v3}, Ltv/twitch/android/shared/ads/models/display/DisplayAdResponse;->getHtmlContent()Ljava/lang/String;
--
--    move-result-object v10
--
--    invoke-virtual {v3}, Ltv/twitch/android/shared/ads/models/display/DisplayAdResponse;->getAdId()Ljava/lang/String;
--
--    move-result-object v11
--
--    invoke-virtual {v3}, Ltv/twitch/android/shared/ads/models/display/DisplayAdResponse;->getCreativeId()Ljava/lang/String;
--
--    move-result-object v12
--
--    invoke-virtual {v3}, Ltv/twitch/android/shared/ads/models/display/DisplayAdResponse;->getCreativeCfId()Ljava/lang/String;
--
--    move-result-object v13
--
--    invoke-virtual {v3}, Ltv/twitch/android/shared/ads/models/display/DisplayAdResponse;->getProgramId()Ljava/lang/Integer;
--
--    move-result-object v14
--
--    invoke-virtual {v3}, Ltv/twitch/android/shared/ads/models/display/DisplayAdResponse;->getTransparencyInfo()Ltv/twitch/android/models/ads/TransparencyInfo;
--
--    move-result-object v3
--
--    const/16 v18, 0x1800
--
--    const/16 v19, 0x0
--
--    const/4 v9, 0x0
--
--    const/16 v16, 0x0
+-    invoke-virtual {p2, v1}, Lio/reactivex/Single;->flatMap(Lio/reactivex/functions/Function;)Lio/reactivex/Single;
 +    invoke-static {}, Ltv/twitch/android/util/Optional;->empty()Ltv/twitch/android/util/Optional;
  
--    const/16 v17, 0x0
+-    move-result-object p2
+-
+-    new-instance v0, Ltv/twitch/android/shared/in_feed_ads/network/InFeedAdFetcher$requestInFeedAd$2;
+-
+-    invoke-direct {v0, p0}, Ltv/twitch/android/shared/in_feed_ads/network/InFeedAdFetcher$requestInFeedAd$2;-><init>(Ltv/twitch/android/shared/in_feed_ads/network/InFeedAdFetcher;)V
+-
+-    new-instance v1, Lwq/l;
+-
+-    invoke-direct {v1, v0}, Lwq/l;-><init>(Lkotlin/jvm/functions/Function1;)V
+-
+-    invoke-virtual {p2, v1}, Lio/reactivex/Single;->doOnSuccess(Lio/reactivex/functions/Consumer;)Lio/reactivex/Single;
+-
+-    move-result-object p2
 +    move-result-object v0
  
--    move-object v4, v15
+-    new-instance v0, Lwq/m;
 +    invoke-static {v0}, Lio/reactivex/Single;->just(Ljava/lang/Object;)Lio/reactivex/Single;
  
--    move-object/from16 v20, v15
+-    invoke-direct {v0, p0, p1, p3}, Lwq/m;-><init>(Ltv/twitch/android/shared/in_feed_ads/network/InFeedAdFetcher;Ljava/lang/String;Ltv/twitch/android/shared/ads/models/display/DisplayAdType;)V
 +    move-result-object v0
  
--    move-object v15, v3
--
--    invoke-direct/range {v4 .. v19}, Ltv/twitch/android/shared/ads/models/display/DisplayAdInfo;-><init>(IILjava/lang/String;Ltv/twitch/android/shared/ads/models/display/DisplayAdType;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Ltv/twitch/android/models/ads/TransparencyInfo;Ljava/lang/Integer;Ljava/lang/Integer;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
--
--    invoke-direct {v0, v2}, Ltv/twitch/android/shared/in_feed_ads/network/InFeedAdFetcher;->toDisplayAdType(Ltv/twitch/android/shared/ads/models/InFeedAdSlot;)Ltv/twitch/android/shared/ads/models/display/DisplayAdType;
--
--    move-result-object v3
--
--    move-object/from16 v4, v20
--
--    invoke-direct {v0, v4, v1, v3}, Ltv/twitch/android/shared/in_feed_ads/network/InFeedAdFetcher;->maybeInjectOmSdkIntoResponse(Ltv/twitch/android/shared/ads/models/display/DisplayAdInfo;Ljava/lang/String;Ltv/twitch/android/shared/ads/models/display/DisplayAdType;)Lio/reactivex/Single;
--
--    move-result-object v3
--
--    new-instance v4, Ltv/twitch/android/shared/in_feed_ads/network/InFeedAdFetcher$parseDisplayAd$1;
--
--    invoke-direct {v4, v2, v1}, Ltv/twitch/android/shared/in_feed_ads/network/InFeedAdFetcher$parseDisplayAd$1;-><init>(Ltv/twitch/android/shared/ads/models/InFeedAdSlot;Ljava/lang/String;)V
--
--    new-instance v1, Lrq/o;
--
--    invoke-direct {v1, v4}, Lrq/o;-><init>(Lkotlin/jvm/functions/Function1;)V
--
--    invoke-virtual {v3, v1}, Lio/reactivex/Single;->flatMap(Lio/reactivex/functions/Function;)Lio/reactivex/Single;
--
--    move-result-object v1
--
--    const-string v2, "flatMap(...)"
--
--    invoke-static {v1, v2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
--
--    return-object v1
-+    return-object v0
- .end method
- 
- .method private static final parseDisplayAd$lambda$7(Lkotlin/jvm/functions/Function1;Ljava/lang/Object;)Lio/reactivex/SingleSource;
-@@ -508,33 +420,15 @@
-         }
-     .end annotation
- 
--    iget-object v0, p0, Ltv/twitch/android/shared/in_feed_ads/network/InFeedAdFetcher;->vastParser:Ltv/twitch/android/shared/ad/vast/parser/pub/VastParser;
-+    invoke-static {}, Ltv/twitch/android/util/Optional;->empty()Ltv/twitch/android/util/Optional;
- 
--    invoke-virtual {p1}, Ltv/twitch/android/shared/ads/models/edge/api/AdEdgeResponse$VastXml;->getVastString()Ljava/lang/String;
-+    move-result-object v0
- 
--    move-result-object p1
--
--    invoke-interface {v0, p1}, Ltv/twitch/android/shared/ad/vast/parser/pub/VastParser;->parseVideoAdVast(Ljava/lang/String;)Lio/reactivex/Single;
+-    invoke-virtual {p2, v0}, Lio/reactivex/Single;->onErrorReturn(Lio/reactivex/functions/Function;)Lio/reactivex/Single;
 -
 -    move-result-object p1
 -
--    new-instance v0, Ltv/twitch/android/shared/in_feed_ads/network/InFeedAdFetcher$parseVideoAd$1;
--
--    invoke-direct {v0, p0, p2, p3}, Ltv/twitch/android/shared/in_feed_ads/network/InFeedAdFetcher$parseVideoAd$1;-><init>(Ltv/twitch/android/shared/in_feed_ads/network/InFeedAdFetcher;Ljava/lang/String;Ltv/twitch/android/shared/ads/models/InFeedAdSlot;)V
--
--    new-instance p2, Lrq/n;
-+    invoke-static {v0}, Lio/reactivex/Single;->just(Ljava/lang/Object;)Lio/reactivex/Single;
- 
--    invoke-direct {p2, v0}, Lrq/n;-><init>(Lkotlin/jvm/functions/Function1;)V
-+    move-result-object v0
- 
--    invoke-virtual {p1, p2}, Lio/reactivex/Single;->map(Lio/reactivex/functions/Function;)Lio/reactivex/Single;
--
--    move-result-object p1
--
--    const-string p2, "map(...)"
+-    const-string p2, "onErrorReturn(...)"
 -
 -    invoke-static {p1, p2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
 -
@@ -157,4 +72,65 @@ diff --git a/smali_classes2/tv/twitch/android/shared/in_feed_ads/network/InFeedA
 +    return-object v0
  .end method
  
- .method private static final parseVideoAd$lambda$8(Lkotlin/jvm/functions/Function1;Ljava/lang/Object;)Ltv/twitch/android/util/Optional;
+ .method public final requestMultiFormatInFeedAd(Ljava/lang/String;Ltv/twitch/android/shared/in_feed_ads/AdjacentFeedItems;Ltv/twitch/android/shared/ads/models/InFeedAdSlot;Ljava/lang/String;)Lio/reactivex/Single;
+@@ -860,55 +818,13 @@
+         }
+     .end annotation
+ 
+-    const-string v0, "adSessionId"
++    invoke-static {}, Ltv/twitch/android/util/Optional;->empty()Ltv/twitch/android/util/Optional;
+ 
+-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+-
+-    const-string v0, "inFeedAdSlot"
+-
+-    invoke-static {p3, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+-
+-    iget-object v0, p0, Ltv/twitch/android/shared/in_feed_ads/network/InFeedAdFetcher;->adjacentFeedItemFetcher:Ltv/twitch/android/shared/in_feed_ads/network/AdjacentFeedItemFetcher;
+-
+-    invoke-virtual {v0, p2}, Ltv/twitch/android/shared/in_feed_ads/network/AdjacentFeedItemFetcher;->fetchAdjacentItems(Ltv/twitch/android/shared/in_feed_ads/AdjacentFeedItems;)Lio/reactivex/Single;
+-
+-    move-result-object p2
+-
+-    new-instance v0, Ltv/twitch/android/shared/in_feed_ads/network/InFeedAdFetcher$requestMultiFormatInFeedAd$1;
+-
+-    invoke-direct {v0, p0, p1, p3, p4}, Ltv/twitch/android/shared/in_feed_ads/network/InFeedAdFetcher$requestMultiFormatInFeedAd$1;-><init>(Ltv/twitch/android/shared/in_feed_ads/network/InFeedAdFetcher;Ljava/lang/String;Ltv/twitch/android/shared/ads/models/InFeedAdSlot;Ljava/lang/String;)V
+-
+-    new-instance p4, Lwq/h;
+-
+-    invoke-direct {p4, v0}, Lwq/h;-><init>(Lkotlin/jvm/functions/Function1;)V
+-
+-    invoke-virtual {p2, p4}, Lio/reactivex/Single;->flatMap(Lio/reactivex/functions/Function;)Lio/reactivex/Single;
+-
+-    move-result-object p2
++    move-result-object v0
+ 
+-    new-instance p4, Ltv/twitch/android/shared/in_feed_ads/network/InFeedAdFetcher$requestMultiFormatInFeedAd$2;
++    invoke-static {v0}, Lio/reactivex/Single;->just(Ljava/lang/Object;)Lio/reactivex/Single;
+ 
+-    invoke-direct {p4, p0}, Ltv/twitch/android/shared/in_feed_ads/network/InFeedAdFetcher$requestMultiFormatInFeedAd$2;-><init>(Ltv/twitch/android/shared/in_feed_ads/network/InFeedAdFetcher;)V
++    move-result-object v0
+ 
+-    new-instance v0, Lwq/i;
+-
+-    invoke-direct {v0, p4}, Lwq/i;-><init>(Lkotlin/jvm/functions/Function1;)V
+-
+-    invoke-virtual {p2, v0}, Lio/reactivex/Single;->doOnSuccess(Lio/reactivex/functions/Consumer;)Lio/reactivex/Single;
+-
+-    move-result-object p2
+-
+-    new-instance p4, Lwq/j;
+-
+-    invoke-direct {p4, p0, p1, p3}, Lwq/j;-><init>(Ltv/twitch/android/shared/in_feed_ads/network/InFeedAdFetcher;Ljava/lang/String;Ltv/twitch/android/shared/ads/models/InFeedAdSlot;)V
+-
+-    invoke-virtual {p2, p4}, Lio/reactivex/Single;->onErrorReturn(Lio/reactivex/functions/Function;)Lio/reactivex/Single;
+-
+-    move-result-object p1
+-
+-    const-string p2, "onErrorReturn(...)"
+-
+-    invoke-static {p1, p2}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullExpressionValue(Ljava/lang/Object;Ljava/lang/String;)V
+-
+-    return-object p1
++    return-object v0
+ .end method

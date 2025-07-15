@@ -140,6 +140,7 @@ public class UrlDrawable extends BitmapDrawable {
 
         if (!stack.isEmpty()) {
             for (UrlDrawable stackItem : stack) {
+                centerStackItem(stackItem, drw.getBounds());
                 stackItem.draw(canvas);
             }
         }
@@ -189,5 +190,32 @@ public class UrlDrawable extends BitmapDrawable {
                 anim.stop();
             }
         }
+    }
+
+    private void centerStackItem(UrlDrawable stackItem, Rect mainBounds) { // TODO: __INJECT_METHOD
+        Drawable stackDrawable = stackItem.drawable;
+        if (stackDrawable == null) {
+            return;
+        }
+
+        Rect rect = stackDrawable.getBounds();
+        int top = rect.top;
+        int bottom = rect.bottom;
+
+        int stackWidth = stackDrawable.getIntrinsicWidth();
+
+        if (stackWidth <= 0) {
+            return;
+        }
+        if (mainBounds.right > rect.right) {
+            return;
+        }
+
+        int centerX = mainBounds.centerX();
+
+        int left = centerX - stackWidth / 2;
+        int right = left + stackWidth;
+
+        stackDrawable.setBounds(left, top, right, bottom);
     }
 }

@@ -1,6 +1,8 @@
 package tv.twitch.android.models.settings
 
-enum class SettingsDestination(private val requiresLogin: Boolean) {
+enum class SettingsDestination(
+    private val requiresLogin: Boolean
+) {
     Account(true),
     AddEmail(true),
     ChallengeGates(true),
@@ -27,6 +29,7 @@ enum class SettingsDestination(private val requiresLogin: Boolean) {
     InAppNotifications(true),
     Legal(false),
     Licenses(false),
+    ModerationSettings(true),
     Notifications(true),
     PasswordConfirmation(true),
     PersonalizedAds(false),

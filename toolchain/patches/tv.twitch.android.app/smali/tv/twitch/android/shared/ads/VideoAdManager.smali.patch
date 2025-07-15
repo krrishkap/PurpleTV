@@ -23,17 +23,17 @@ diff --git a/smali_classes6/tv/twitch/android/shared/ads/VideoAdManager.smali b/
 -
 -    invoke-direct {v2, p0, p1, p2}, Ltv/twitch/android/shared/ads/VideoAdManager$checkAdEligibilityAndRequestAd$1;-><init>(Ltv/twitch/android/shared/ads/VideoAdManager;Ltv/twitch/android/shared/ads/models/AdRequestInfo;Landroid/view/ViewGroup;)V
 -
--    new-instance p2, Lsg/r;
+-    new-instance p2, Ltg/r;
 -
--    invoke-direct {p2, v2}, Lsg/r;-><init>(Lkotlin/jvm/functions/Function1;)V
+-    invoke-direct {p2, v2}, Ltg/r;-><init>(Lkotlin/jvm/functions/Function1;)V
 -
 -    new-instance v2, Ltv/twitch/android/shared/ads/VideoAdManager$checkAdEligibilityAndRequestAd$2;
 -
 -    invoke-direct {v2, p0, p1}, Ltv/twitch/android/shared/ads/VideoAdManager$checkAdEligibilityAndRequestAd$2;-><init>(Ltv/twitch/android/shared/ads/VideoAdManager;Ltv/twitch/android/shared/ads/models/AdRequestInfo;)V
 -
--    new-instance p1, Lsg/s;
+-    new-instance p1, Ltg/s;
 -
--    invoke-direct {p1, v2}, Lsg/s;-><init>(Lkotlin/jvm/functions/Function1;)V
+-    invoke-direct {p1, v2}, Ltg/s;-><init>(Lkotlin/jvm/functions/Function1;)V
 -
 -    invoke-virtual {v1, p2, p1}, Lio/reactivex/Single;->subscribe(Lio/reactivex/functions/Consumer;Lio/reactivex/functions/Consumer;)Lio/reactivex/disposables/Disposable;
 -
@@ -70,17 +70,16 @@ diff --git a/smali_classes6/tv/twitch/android/shared/ads/VideoAdManager.smali b/
  
      return-void
  .end method
-@@ -373,19 +322,11 @@
+@@ -373,19 +322,7 @@
  .end method
  
  .method public final requestAds(Ltv/twitch/android/shared/ads/models/AdRequestInfo;)V
 -    .locals 1
-+    .locals 0
- 
-     const-string v0, "adRequestInfo"
- 
-     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
- 
+-
+-    const-string v0, "adRequestInfo"
+-
+-    invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+-
 -    iget-object v0, p0, Ltv/twitch/android/shared/ads/VideoAdManager;->adTracker:Ltv/twitch/android/shared/ads/tracking/IAdTracker;
 -
 -    invoke-interface {v0, p1}, Ltv/twitch/android/shared/ads/tracking/IAdTracker;->trackVideoAdScheduled(Ltv/twitch/android/shared/ads/models/AdRequestInfo;)V
@@ -88,6 +87,7 @@ diff --git a/smali_classes6/tv/twitch/android/shared/ads/VideoAdManager.smali b/
 -    iget-object v0, p0, Ltv/twitch/android/shared/ads/VideoAdManager;->adRequestSubject:Lio/reactivex/subjects/PublishSubject;
 -
 -    invoke-virtual {v0, p1}, Lio/reactivex/subjects/PublishSubject;->onNext(Ljava/lang/Object;)V
--
++    .locals 0
+ 
      return-void
  .end method

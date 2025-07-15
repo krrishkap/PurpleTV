@@ -1,7 +1,7 @@
 diff --git a/res/values/strings.xml b/res/values/strings.xml
 --- a/res/values/strings.xml
 +++ b/res/values/strings.xml
-@@ -289,7 +289,7 @@ Licensed under the Apache License, Version 2.0 (the License); you may not use th
+@@ -290,7 +290,7 @@ Licensed under the Apache License, Version 2.0 (the License); you may not use th
  http://www.apache.org/licenses/LICENSE-2.0
  
  Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an AS IS BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License."</string>
@@ -10,12 +10,12 @@ diff --git a/res/values/strings.xml b/res/values/strings.xml
      <string name="app_settings_auto_popout">Automatically Pop-out Player</string>
      <string name="app_settings_background_audio">Continue playing audio in the background</string>
      <string name="app_settings_background_audio_headphones">Headphones / Speaker</string>
-@@ -5117,7 +5117,7 @@ Twitch will not use this number for marketing."</string>
+@@ -5140,7 +5140,7 @@ Twitch will not use this number for marketing."</string>
      <string name="verify_thanks">Thanks! Your email has been verified.</string>
      <string name="verify_two_factor_authentication_code_label_text">Verification Code</string>
      <string name="verify_two_factor_authentication_primary_info_text">We’ve sent you a 7-digit security code to <annotation bold="phone-number">%1$s</annotation>. Please enter your code.</string>
 -    <string name="version_label">Twitch v%1$s</string>
 +    <string name="version_label">PurpleTV v%1$s</string>
-     <string name="vertical_theatre_om_surestream_error">Error Parsing SureStream Verifications</string>
-     <string name="video">Video</string>
-     <string name="video_ad_ad_tag_error">Error building ad tag url</string>
+     <string name="vertical_theatre_FTUE_modal_description_pt1">We’re testing vertical video with a few streamers. It’s an alpha test, so features will be limited.</string>
+     <string name="vertical_theatre_FTUE_modal_description_pt2">Prefer the classic view? Tap to switch views. <annotation underlinedClickable="learn_more_url">Learn More</annotation>.</string>
+     <string name="vertical_theatre_FTUE_modal_title">Vertical Video is Here %1$s</string>

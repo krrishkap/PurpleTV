@@ -1,7 +1,7 @@
 diff --git a/smali_classes6/tv/twitch/android/settings/main/MainSettingsRouter.smali b/smali_classes6/tv/twitch/android/settings/main/MainSettingsRouter.smali
 --- a/smali_classes6/tv/twitch/android/settings/main/MainSettingsRouter.smali
 +++ b/smali_classes6/tv/twitch/android/settings/main/MainSettingsRouter.smali
-@@ -351,6 +351,15 @@
+@@ -379,6 +379,15 @@
      invoke-direct {v0}, Ltv/twitch/android/settings/account/AccountSettingsFragment;-><init>()V
  
      :goto_0
@@ -14,6 +14,6 @@ diff --git a/smali_classes6/tv/twitch/android/settings/main/MainSettingsRouter.s
 +    move-result-object v0
 +
 +    :cond_z
-     if-eqz v0, :cond_4
+     if-eqz v0, :cond_5
  
      iget-object v1, p0, Ltv/twitch/android/settings/main/MainSettingsRouter;->fragmentRouter:Ltv/twitch/android/routing/routers/IFragmentRouter;

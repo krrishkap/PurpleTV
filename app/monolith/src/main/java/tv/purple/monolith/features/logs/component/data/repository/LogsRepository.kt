@@ -50,23 +50,4 @@ class LogsRepository @Inject constructor(
             )
         )
     }
-
-    fun addLocalMessage(message: ChatMessageInfo, channelId: Int, channelName: String) {
-        localLogsDataSource.addMessage(
-            MessageInfo(
-                userId = message.userInfo.userId,
-                userName = message.userInfo.userName,
-                timestamp = message.timestamp,
-                channelId = channelId,
-                msg = ChatHistoryMessage(
-                    message.userInfo.userId,
-                    message.userInfo.userName,
-                    message.userInfo.displayName,
-                    String(),
-                    listOf(),
-                    listOf()
-                )
-            )
-        )
-    }
 }

@@ -10,7 +10,7 @@ public class EmotePickerPresenter$directSubscribeForEmoteClickedEvents$1 {
     /* ... */
 
     public final void invoke(EmoteClickedEvent clickEvent) {
-        if (ChatHook.hookEmotePickerPresenterLongEmoteClick(clickEvent, thos)) { // TODO: __INJECT_CODE
+        if (ChatHook.hookEmotePickerPresenterLongEmoteClick(clickEvent)) { // TODO: __INJECT_CODE
             return;
         }
 

@@ -181,6 +181,7 @@ class PurpleTVSettingsController @Inject constructor(
             Flag.STETHO_INTERCEPTOR,
             Flag.OKHTTP_LOGGING,
             Flag.PROXY_LIST,
+            Flag.REYOHOHO_BADGES
         )
     }
 }

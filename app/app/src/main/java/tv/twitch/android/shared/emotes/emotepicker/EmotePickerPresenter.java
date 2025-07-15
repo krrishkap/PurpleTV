@@ -5,7 +5,6 @@ import java.util.List;
 import io.reactivex.Flowable;
 import kotlin.Pair;
 import tv.purple.monolith.features.chat.bridge.ChatHook;
-import tv.purple.monolith.features.chat.bridge.IEmotePickerPresenter;
 import tv.purple.monolith.models.exception.VirtualImpl;
 import tv.twitch.android.core.mvp.presenter.PresenterAction;
 import tv.twitch.android.core.mvp.presenter.PresenterState;
@@ -14,13 +13,9 @@ import tv.twitch.android.core.mvp.presenter.StateUpdateEvent;
 import tv.twitch.android.core.mvp.viewdelegate.ViewDelegateState;
 import tv.twitch.android.shared.emotes.emotepicker.models.EmoteUiSet;
 
-public class EmotePickerPresenter implements IEmotePickerPresenter { // TODO: __IMPLEMENT
+public class EmotePickerPresenter {
     private StateMachine<EmotePickerState, UpdateEvent, PresenterAction> stateMachine;
 
-    @Override
-    public void notifyFavEmotesChanged() { // TODO: __INJECT_METHOD
-        stateMachine.pushEvent(UpdateEvent.AnimatedEmotesSettingsChanged.INSTANCE);
-    }
     /* ... */
 
     public static final class EmotePickerState implements PresenterState, ViewDelegateState {

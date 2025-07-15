@@ -1,0 +1,16 @@
+diff --git a/smali_classes6/tv/twitch/android/feature/theatre/vertical/chat/VerticalTheatreChatKt.smali b/smali_classes6/tv/twitch/android/feature/theatre/vertical/chat/VerticalTheatreChatKt.smali
+--- a/smali_classes6/tv/twitch/android/feature/theatre/vertical/chat/VerticalTheatreChatKt.smali
++++ b/smali_classes6/tv/twitch/android/feature/theatre/vertical/chat/VerticalTheatreChatKt.smali
+@@ -147,6 +147,12 @@
+ 
+     if-eqz v0, :cond_0
+ 
++    invoke-static {}, Ltv/purple/monolith/features/chat/bridge/ChatHook;->preventModClear()Z
++
++    move-result v0
++
++    if-nez v0, :goto_0
++
+     invoke-virtual {p0}, Ltv/twitch/android/feature/theatre/vertical/VerticalTheatreFragment;->getChatMessagesAdapterBinder$feature_theatre_vertical_release()Ltv/twitch/android/shared/chat/messages/ui/ChatMessagesAdapterBinder;
+ 
+     move-result-object p0

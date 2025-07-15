@@ -40,7 +40,6 @@ import tv.purple.monolith.core.util.ViewUtil.spToPx
 import tv.purple.monolith.features.chat.bridge.BindBridge
 import tv.purple.monolith.features.chat.bridge.ChatFactory
 import tv.purple.monolith.features.chat.bridge.ChatMessageInterfaceWrapper
-import tv.purple.monolith.features.chat.bridge.IEmotePickerPresenter
 import tv.purple.monolith.features.chat.bridge.OnBindCallback
 import tv.purple.monolith.features.chat.bridge.PurpleTVEmoteModel
 import tv.purple.monolith.features.chat.bridge.PurpleTVEmotePickerEmoteModel
@@ -756,8 +755,7 @@ class ChatHookProvider @Inject constructor(
     }
 
     fun hookEmotePickerPresenterLongEmoteClick(
-        clickEvent: EmoteClickedEvent,
-        emotePickerPresenter: IEmotePickerPresenter
+        clickEvent: EmoteClickedEvent
     ): Boolean {
         if (clickEvent !is EmoteClickedEvent.LongClick) {
             return false
@@ -796,10 +794,6 @@ class ChatHookProvider @Inject constructor(
             )
             logger.debug { "favEmote: $favEmote" }
             favEmotesRepository.addEmote(favEmote)
-            if (emotePickerPresenter is IEmotePickerPresenter) {
-                LoggerImpl.debug("Try update emotes")
-                emotePickerPresenter.notifyFavEmotesChanged();
-            }
             Toast.makeText(context, "Added: ${model.token}", Toast.LENGTH_SHORT).show()
         }
 

@@ -27,7 +27,7 @@ diff --git a/smali/tv/twitch/android/app/consumer/ApplicationLifecycleController
      :cond_1
      return-void
  .end method
-@@ -949,6 +961,14 @@
+@@ -953,6 +965,14 @@
  
      invoke-interface {v0, v1}, Ltv/twitch/android/network/clientintegrity/ClientIntegrityTokenManager;->fetchNewToken(Ltv/twitch/android/network/clientintegrity/Scope;)V
  
@@ -42,7 +42,7 @@ diff --git a/smali/tv/twitch/android/app/consumer/ApplicationLifecycleController
      return-void
  .end method
  
-@@ -1036,6 +1056,12 @@
+@@ -1040,6 +1060,12 @@
  
      invoke-virtual {v0}, Ltv/twitch/android/core/pubsub/PubSubController;->onLogout()V
  
@@ -55,7 +55,7 @@ diff --git a/smali/tv/twitch/android/app/consumer/ApplicationLifecycleController
      return-void
  .end method
  
-@@ -1151,6 +1177,12 @@
+@@ -1155,6 +1181,12 @@
  
      invoke-interface {p1}, Ltv/twitch/android/shared/activityfeed/pub/ActivityFeedPreferences;->maybeMigrateActivityFeedPreferences()V
  

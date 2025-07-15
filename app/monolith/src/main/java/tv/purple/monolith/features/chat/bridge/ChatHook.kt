@@ -186,12 +186,10 @@ object ChatHook {
 
     @JvmStatic
     fun hookEmotePickerPresenterLongEmoteClick(
-        clickEvent: EmoteClickedEvent,
-        thos: IEmotePickerPresenter
+        clickEvent: EmoteClickedEvent
     ): Boolean {
         return chatHookProvider.hookEmotePickerPresenterLongEmoteClick(
-            clickEvent = clickEvent,
-            emotePickerPresenter = thos
+            clickEvent = clickEvent
         )
     }
 
@@ -421,5 +419,10 @@ object ChatHook {
                 messageContainer.background = null
             }
         }
+    }
+
+    @JvmStatic
+    fun preventModClear(): Boolean {
+        return Flag.PREVENT_MOD_CLEAR.asBoolean()
     }
 }
