@@ -2,7 +2,7 @@ diff --git a/res/layout/stream_settings_fragment.xml b/res/layout/stream_setting
 --- a/res/layout/stream_settings_fragment.xml
 +++ b/res/layout/stream_settings_fragment.xml
 @@ -51,6 +51,11 @@
-                         <androidx.appcompat.widget.SwitchCompat android:layout_gravity="center|right" android:id="@id/pip_switch" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginRight="@dimen/stream_settings_content_margin" />
+                         <androidx.appcompat.widget.SwitchCompat android:layout_gravity="right|center" android:id="@id/pip_switch" android:layout_width="wrap_content" android:layout_height="fill_parent" android:layout_marginRight="@dimen/stream_settings_content_margin" />
                      </FrameLayout>
                  </LinearLayout>
 +                <LinearLayout android:id="@+id/stream_settings_fragment__chat_delay_section" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="@dimen/stream_settings_content_margin">
@@ -12,4 +12,4 @@ diff --git a/res/layout/stream_settings_fragment.xml b/res/layout/stream_setting
 +                </LinearLayout>
                  <tv.twitch.android.core.ui.kit.principles.typography.Header android:id="@id/broadcaster_options_header" android:layout_width="fill_parent" style="@style/StreamSectionHeaderStyle" />
                  <FrameLayout android:id="@id/report_user_button" android:background="?selectableItemBackground" android:layout_width="fill_parent" android:layout_height="@dimen/selectable_item_row_height">
-                     <TextView android:textSize="@dimen/font_large" android:textColor="@color/text_base" android:ellipsize="end" android:layout_gravity="center|left" android:id="@id/report_user_button_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/stream_settings_content_margin" android:layout_marginRight="@dimen/stream_settings_content_margin" android:text="@string/report_username" android:maxLines="1" />
+                     <TextView android:textSize="@dimen/font_large" android:textColor="@color/text_base" android:ellipsize="end" android:layout_gravity="left|center" android:id="@id/report_user_button_text" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginLeft="@dimen/stream_settings_content_margin" android:layout_marginRight="@dimen/stream_settings_content_margin" android:text="@string/report_username" android:maxLines="1" />

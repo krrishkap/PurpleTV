@@ -26,8 +26,7 @@ class DecompileApk(BaseTask):
         ctx = self.ctx()
         print(f"Decompiling `{ctx.apk_desc.file.as_posix()}` to `{ctx.apk_dir.as_posix()}`...")
         command = [*RUN_JAVA_COMMAND, "-jar", env.apktool_jar.as_posix(),
-                   "-p", env.bin_dir.joinpath("framework").as_posix(),
-                   "d", "-f", "-b", "--keep-broken-res", "--use-aapt2",
+                   "d", "-f", "-b", "--keep-broken-res",
                    ctx.apk_desc.file.as_posix(), "-o", ctx.apk_dir.as_posix()]
         if self._verbose:
             command.append("-v")
@@ -46,8 +45,15 @@ class CloneApk(BaseTask):
                     "tv/twitch/android/shared/pip/NativePictureInPicturePresenter.smali",
                     "tv/twitch/android/shared/pip/NativePictureInPicturePresenter$commandReceiver$1.smali",
                     "tv/twitch/android/shared/audio/ads/AudioAdsPresenter.smali",
-                    "tv/twitch/android/feature/foreground/audio/ads/foreground/AudioAdsForegroundPresenter.smali"]
-    ACTION_SMALI_FIX = ["tv/twitch/android/shared/pip/NativePictureInPicturePresenter$commandReceiver$1.smali"]
+                    "tv/twitch/android/feature/foreground/audio/ads/foreground/AudioAdsForegroundPresenter.smali",
+                    "tv/twitch/android/shared/pip/NativePipParamsUpdater$Companion$pipActionsFlow$1$receiver$1.smali",
+                    "tv/twitch/android/shared/pip/NativePipParamsUpdater$Companion$pipActionsFlow$1.smali",
+                    "tv/twitch/android/feature/theatre/ads/LastCommercialIdProvider.smali"]
+    ACTION_SMALI2 = ["tv/twitch/android/broadcast/gamebroadcast/GameBroadcastIntentHelper$GameBroadcastAction.smali",
+                     "tv/twitch/android/broadcast/routers/GameBroadcastingRouter.smali",
+                     "tv/twitch/android/broadcast/gamebroadcast/GameBroadcastPresenter.smali"]
+    ACTION_SMALI_FIX = ["tv/twitch/android/shared/pip/NativePictureInPicturePresenter$commandReceiver$1.smali",
+                        "tv/twitch/android/shared/pip/NativePipParamsUpdater$Companion$pipActionsFlow$1$receiver$1.smali"]
     PUSH_SMALI = ["tv/twitch/android/shared/notifications/pub/NotificationIntentAction.smali"]
     ANDROID_MANIFEST = ["AndroidManifest.xml"]
 
@@ -101,11 +107,17 @@ class CloneApk(BaseTask):
         replace = "{}.media.action.".format(self._package_name).encode("utf-8")
         self._replace(smali_map, files=self.ACTION_SMALI, replace_pairs=[(org, replace)])
 
+    def replace_action2(self, smali_map: dict):
+        org = b"tv.twitch.android.broadcast"
+        replace = "{}.broadcast".format(self._package_name).encode("utf-8")
+        self._replace(smali_map, files=self.ACTION_SMALI2, replace_pairs=[(org, replace)])
+
     def run(self, env: Env):
         ctx = self.ctx()
         logger.info("Generating smali map...")
         smali_map = {rel.as_posix(): file.as_posix() for rel, file in get_smali_classes(ctx)}
         self.replace_action(smali_map)
+        self.replace_action2(smali_map)
         self.fix_action_hash(smali_map)
         self.replace_push(smali_map)
         self.replace_android_manifest(ctx)
@@ -157,7 +169,6 @@ class RecompileApk(BaseTask):
         ctx = self.ctx()
         print(f"Recompiling `{ctx.apk_dir.as_posix()}` to `{ctx.out_apk.as_posix()}`...")
         command = [*RUN_JAVA_COMMAND, "-jar", env.apktool_jar.as_posix(),
-                   "-p", env.bin_dir.joinpath("framework").as_posix(), "--use-aapt2",
                    "b", ctx.apk_dir.as_posix(), "-o", ctx.out_apk.as_posix()]
         if self._verbose:
             command.append("-v")
