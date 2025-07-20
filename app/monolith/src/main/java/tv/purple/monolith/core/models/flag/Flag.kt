@@ -400,7 +400,11 @@ enum class Flag(
         "purpletv_settings_disable_theatre_autoplay",
         BooleanValue()
     ),
-    BYPASS_CHAT_BAN("bypass_chat_ban", "purpletv_settings_bypass_chat_ban", BooleanValue()),
+    ANON_CHAT_CONNECTION(
+        "anon_chat",
+        "purpletv_settings_anon_chat_connection",
+        BooleanValue(false)
+    ),
     HIDE_GAME_SECTION("hide_game_section", "purpletv_settings_hide_game_section", BooleanValue()),
 
     HIDE_FEATURED_CLIPS_SECTION(

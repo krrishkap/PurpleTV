@@ -428,6 +428,6 @@ object ChatHook {
 
     @JvmStatic
     fun bypassChatBan(): Boolean {
-        return Flag.BYPASS_CHAT_BAN.asBoolean()
+        return Flag.ANON_CHAT_CONNECTION.asBoolean()
     }
 }

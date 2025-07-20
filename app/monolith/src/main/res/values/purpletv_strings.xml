@@ -176,8 +176,8 @@
     <string name="purpletv_settings_info_discord_desc" translatable="false">https://discord.com/invite/fwr2NsP78g</string>
     <string name="purpletv_settings_vodhunter">VODHunter</string>
     <string name="purpletv_settings_vodhunter_desc">I See Dead VODs</string>
-    <string name="purpletv_settings_bypass_chat_ban">Bypass chat ban</string>
-    <string name="purpletv_settings_bypass_chat_ban_desc">Joins chat anonymously when you are banned. You can\'t send messages, receive/spend channel points.</string>
+    <string name="purpletv_settings_anon_chat_connection">Anon chat</string>
+    <string name="purpletv_settings_anon_chat_connection_desc">Connect to the chat as an anonymous user. You won\'t be able to send messages or earn/spend channel points</string>
     <string name="purpletv_settings_hide_chat_header">Hide chat header</string>
     <string name="purpletv_settings_hide_chat_header_desc">Enable this option to hide the chat header at the top of the chat</string>
     <string name="purpletv_settings_hide_resume_watching_section">Hide \"Recent Watching\"</string>

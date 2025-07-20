@@ -79,7 +79,7 @@ enum class PurpleTVSubMenu(
             Flag.PINNED_CHEER,
             Flag.ALTERNATING_BACKGROUND,
             Flag.VIBRATE_ON_MENTION,
-            Flag.BYPASS_CHAT_BAN,
+            Flag.ANON_CHAT_CONNECTION,
             Flag.CHAT_SETTINGS,
             Flag.PREVENT_MOD_CLEAR,
             Flag.MOD_LOG_NOTICES,
