@@ -22,7 +22,6 @@ import tv.purple.monolith.component.highlighter.Highlighter
 import tv.purple.monolith.component.pronouns.PronounSetter
 import tv.purple.monolith.component.pronouns.component.PronounProvider
 import tv.purple.monolith.core.CoreUtil
-import tv.purple.monolith.core.LifecycleCore
 import tv.purple.monolith.core.LoggerImpl
 import tv.purple.monolith.core.LoggerWithTag
 import tv.purple.monolith.core.ResManager.fromResToStringId
@@ -48,6 +47,9 @@ import tv.purple.monolith.features.chat.bridge.PurpleTVEmoteToken
 import tv.purple.monolith.features.chat.data.model.FavoriteEmote
 import tv.purple.monolith.features.chat.data.repository.FavEmotesRepository
 import tv.purple.monolith.features.chat.util.ChatUtil.isUserMentioned
+import tv.purple.monolith.features.stv.StvDispatchListener
+import tv.purple.monolith.features.stv.StvEventApiV3
+import tv.purple.monolith.features.stv.models.v7.events.EventApiDispatch
 import tv.purple.monolith.models.data.emotes.Emote
 import tv.purple.monolith.models.wrapper.EmotePackageSet
 import tv.twitch.android.core.adapters.RecyclerAdapterItem
@@ -70,7 +72,6 @@ import tv.twitch.android.shared.chat.pub.messages.ui.ChatMessageInterface
 import tv.twitch.android.shared.chat.pub.pinnedchat.CreatorPinnedChatTime
 import tv.twitch.android.shared.chat.pub.pinnedchat.CreatorPinnedChatUiModel
 import tv.twitch.android.shared.chat.pub.pinnedchat.PinnedChatMessageState
-import tv.twitch.android.shared.chat.settings.preferences.ChatSettingsPreferencesFile
 import tv.twitch.android.shared.emotes.emotepicker.models.ClickedEmote
 import tv.twitch.android.shared.emotes.emotepicker.models.EmoteClickedEvent
 import tv.twitch.android.shared.emotes.emotepicker.models.EmoteHeaderUiModel
@@ -96,13 +97,12 @@ class ChatHookProvider @Inject constructor(
     private val badgeProvider: BadgeProvider,
     private val pronounProvider: PronounProvider,
     private val twitchAccountManager: TwitchAccountManager,
-    private val lifecycleCore: LifecycleCore,
     private val favEmotesRepository: FavEmotesRepository,
     private val highlighter: Highlighter,
     private val blacklist: Blacklist,
     private val scheduler: Scheduler,
-    private val chatSettings: ChatSettingsPreferencesFile
-) : LifecycleAware, FlagListener, OnBindCallback {
+    private val stvEventApi: StvEventApiV3
+) : LifecycleAware, FlagListener, OnBindCallback, StvDispatchListener {
     private val currentChannelSubject = BehaviorSubject.create<Int>()
 
     private var currentEmoteSize: Emote.Size = Emote.Size.MEDIUM
@@ -110,10 +110,20 @@ class ChatHookProvider @Inject constructor(
 
     private val logger = LoggerWithTag("ChatHookProvider")
 
-    override fun onAllComponentStopped() {}
+    override fun onAllComponentStopped() {
+        stvEventApi.disconnect()
+        stvEventApi.removeListener(this)
+    }
+
     override fun onAccountLogout() {}
-    override fun onFirstActivityStarted() {}
-    override fun onConnectedToChannel(channelId: Int) {}
+    override fun onFirstActivityStarted() {
+        stvEventApi.connect()
+        stvEventApi.addListener(this)
+    }
+
+    override fun onConnectedToChannel(channelId: Int) {
+        stvEventApi.checkSubscriptionToChannel(channelId)
+    }
 
     private fun injectBadges(
         badges: List<MessageBadgeViewModel>,
@@ -391,11 +401,6 @@ class ChatHookProvider @Inject constructor(
         var alternatingBackground: Boolean = false
 
         private var killChat = false
-
-        @JvmStatic
-        fun bypassChatBan(): Boolean {
-            return Flag.BYPASS_CHAT_BAN.asBoolean()
-        }
 
         @JvmStatic
         fun hook(
@@ -835,6 +840,8 @@ class ChatHookProvider @Inject constructor(
             )
         )
 
+        stvEventApi.checkSubscriptionToChannel(channelId)
+
         return ChatMessage.LiveChatMessage(
             msg.messageId,
             msg.messageType,
@@ -885,5 +892,9 @@ class ChatHookProvider @Inject constructor(
         }
 
         return blacklist.isBlacklisted(merge)
+    }
+
+    override fun onDispatch(event: EventApiDispatch) {
+        LoggerImpl.debug("$event")
     }
 }
