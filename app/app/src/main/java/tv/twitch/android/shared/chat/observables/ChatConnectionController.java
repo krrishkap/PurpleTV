@@ -11,7 +11,7 @@ import tv.twitch.android.core.mvp.presenter.BasePresenter;
 import tv.twitch.android.models.channel.ChannelInfo;
 import tv.twitch.android.models.chat.ChannelState;
 import tv.twitch.android.models.streams.StreamType;
-import tv.twitch.android.shared.chat.ChatChannelEvent;
+import tv.twitch.android.shared.chat.ChatController;
 import tv.twitch.android.shared.chat.pub.events.ChatNoticeEvent;
 import tv.twitch.android.shared.chat.pub.events.MessagesReceivedEvent;
 import tv.twitch.chat.library.model.ErrorCode;
@@ -79,6 +79,14 @@ public class ChatConnectionController extends BasePresenter {
         /* ... */
 
         throw new VirtualImpl();
+    }
+
+    private final ChatController getChatController() {
+        throw new VirtualImpl();
+    }
+
+    public void reconnectAsAnon() {
+
     }
 
     /* ... */

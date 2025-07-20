@@ -2,6 +2,7 @@ package tv.twitch.android.shared.chat;
 
 import androidx.fragment.app.FragmentActivity;
 
+import tv.purple.monolith.features.chat.bridge.ChatHook;
 import tv.purple.monolith.features.logs.bridge.ChatLocalLogsCommand;
 import tv.purple.monolith.features.logs.bridge.ChatTwitchLogsCommand;
 import tv.purple.monolith.features.ui.UI;
@@ -33,10 +34,10 @@ public class ChatViewPresenter extends BasePresenter {
     /* ... */
 
     public final void onUserBanStateUpdated(boolean z) {
-//        if (z && ChatHookProvider.get().bypassChatBan()) { // TODO: __INJECT_CODE
-//            z = false;
-//            reconnectAsAnon();
-//        }
+        if (z && ChatHook.bypassChatBan()) { // TODO: __INJECT_CODE
+            z = false;
+            reconnectAsAnon();
+        }
 
         /* ... */
 

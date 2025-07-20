@@ -425,4 +425,9 @@ object ChatHook {
     fun preventModClear(): Boolean {
         return Flag.PREVENT_MOD_CLEAR.asBoolean()
     }
+
+    @JvmStatic
+    fun bypassChatBan(): Boolean {
+        return Flag.BYPASS_CHAT_BAN.asBoolean()
+    }
 }
