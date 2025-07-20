@@ -1,0 +1,19 @@
+diff --git a/smali_classes8/tv/twitch/chat/library/internal/ChatConnectionManagerImpl.smali b/smali_classes8/tv/twitch/chat/library/internal/ChatConnectionManagerImpl.smali
+--- a/smali_classes8/tv/twitch/chat/library/internal/ChatConnectionManagerImpl.smali
++++ b/smali_classes8/tv/twitch/chat/library/internal/ChatConnectionManagerImpl.smali
+@@ -3073,8 +3073,15 @@
+ 
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+ 
++    invoke-static {}, Ltv/purple/monolith/features/chat/bridge/ChatHook;->bypassChatBan()Z
++
++    move-result v0
++
++    if-nez v0, :cond_z
++
+     invoke-direct {p0, p1}, Ltv/twitch/chat/library/internal/ChatConnectionManagerImpl;->setLoggedInUser(Ltv/twitch/chat/library/LoggedInUser;)V
+ 
++    :cond_z
+     return-void
+ .end method
+ 

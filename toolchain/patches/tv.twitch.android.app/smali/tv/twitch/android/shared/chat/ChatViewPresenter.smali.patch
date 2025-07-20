@@ -22,7 +22,25 @@ diff --git a/smali_classes7/tv/twitch/android/shared/chat/ChatViewPresenter.smal
      instance-of v3, v2, Ltv/twitch/android/shared/chat/command/ChatCommandAction$WhisperUnverified;
  
      const/4 v4, 0x1
-@@ -5694,6 +5708,8 @@
+@@ -3484,6 +3498,17 @@
+ .method private final onUserBanStateUpdated(Z)V
+     .locals 1
+ 
++    if-eqz p1, :cond_z
++
++    invoke-static {}, Ltv/purple/monolith/features/chat/bridge/ChatHook;->bypassChatBan()Z
++
++    move-result v0
++
++    if-eqz v0, :cond_z
++
++    const/4 p1, 0x0
++
++    :cond_z
+     iput-boolean p1, p0, Ltv/twitch/android/shared/chat/ChatViewPresenter;->isBanned:Z
+ 
+     iget-object v0, p0, Ltv/twitch/android/shared/chat/ChatViewPresenter;->chatViewDelegate:Ltv/twitch/android/shared/chat/ChatViewDelegate;
+@@ -5694,6 +5719,8 @@
  
      invoke-virtual {v0}, Ltv/twitch/android/core/mvp/viewdelegate/BaseViewDelegate;->onConfigurationChanged()V
  
@@ -31,3 +49,39 @@ diff --git a/smali_classes7/tv/twitch/android/shared/chat/ChatViewPresenter.smal
      :cond_0
      return-void
  .end method
+@@ -6910,3 +6937,35 @@
+     :goto_3
+     return v16
+ .end method
++
++.method private reconnectAsAnon()V
++    .registers 4
++
++    .prologue
++    .line 48
++    iget-object v0, p0, Ltv/twitch/android/shared/chat/ChatViewPresenter;->channel:Ltv/twitch/android/models/channel/ChannelInfo;
++
++    .line 54
++    .local v0, "backupChannelInfo":Ltv/twitch/android/models/channel/ChannelInfo;
++    const/4 v1, 0x0
++
++    iput-object v1, p0, Ltv/twitch/android/shared/chat/ChatViewPresenter;->channel:Ltv/twitch/android/models/channel/ChannelInfo;
++
++    .line 55
++    const/4 v1, 0x0
++
++    iput v1, p0, Ltv/twitch/android/shared/chat/ChatViewPresenter;->chatUserId:I
++
++    .line 56
++    iget-object v1, p0, Ltv/twitch/android/shared/chat/ChatViewPresenter;->playbackSessionID:Ljava/lang/String;
++
++    iget-object v2, p0, Ltv/twitch/android/shared/chat/ChatViewPresenter;->streamType:Ltv/twitch/android/models/streams/StreamType;
++
++    invoke-virtual {p0, v0, v1, v2}, Ltv/twitch/android/shared/chat/ChatViewPresenter;->setChannel(Ltv/twitch/android/models/channel/ChannelInfo;Ljava/lang/String;Ltv/twitch/android/models/streams/StreamType;)V
++
++    .line 57
++    iput-object v0, p0, Ltv/twitch/android/shared/chat/ChatViewPresenter;->channel:Ltv/twitch/android/models/channel/ChannelInfo;
++
++    .line 58
++    return-void
++.end method
