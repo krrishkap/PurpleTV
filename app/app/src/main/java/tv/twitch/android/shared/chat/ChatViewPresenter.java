@@ -36,25 +36,11 @@ public class ChatViewPresenter extends BasePresenter {
     public final void onUserBanStateUpdated(boolean z) {
         if (z && ChatHook.bypassChatBan()) { // TODO: __INJECT_CODE
             z = false;
-            reconnectAsAnon();
         }
 
         /* ... */
 
         throw new VirtualImpl();
-    }
-
-    private void reconnectAsAnon() { // TODO: __INJECT_METHOD
-        ChannelInfo backupChannelInfo = this.channel;
-
-//        if (chatConnectionController != null) {
-//            chatConnectionController.setViewerId(0);
-//        }
-
-        this.channel = null;
-        this.chatUserId = 0;
-        this.setChannel(backupChannelInfo, playbackSessionID, streamType);
-        this.channel = backupChannelInfo;
     }
 
     public final void setChannel(ChannelInfo channel, String playbackSessionId, StreamType streamType) {
