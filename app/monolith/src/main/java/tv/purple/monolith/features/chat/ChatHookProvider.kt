@@ -84,7 +84,6 @@ import tv.twitch.chat.library.ChannelEvent
 import tv.twitch.chat.library.IrcEventComponents
 import tv.twitch.chat.library.model.ChatMessageInfo
 import tv.twitch.chat.library.model.IrcCommand
-import java.util.StringTokenizer
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -134,35 +133,42 @@ class ChatHookProvider @Inject constructor(
             return badges
         }
 
-        val newBadges = badgeProvider.getBadges(userId = userId).toMutableList()
+        val newBadges = badgeProvider.getBadges(userId = userId)
         if (newBadges.isEmpty()) {
             return badges
         }
 
-        val stack = mutableListOf<MessageBadgeViewModel>()
-        badges.forEach { badge ->
-            val replaces = newBadges.firstOrNull { it.getReplaces() == badge.name }
+        val replacesMap = newBadges.associateBy { it.getReplaces() }
+        val result = ArrayList<MessageBadgeViewModel>(badges.size + newBadges.size)
 
-            if (replaces != null) {
-                stack.add(
+        // Обрабатываем исходные бейджики
+        for (badge in badges) {
+            val replacement = replacesMap[badge.name]
+            if (replacement != null) {
+                result.add(
                     MessageBadgeViewModel(
-                        replaces.getCode(),
-                        replaces.getUrl()
+                        replacement.getCode(),
+                        replacement.getUrl()
                     )
                 )
-                newBadges.remove(replaces)
             } else {
-                stack.add(badge)
+                result.add(badge)
             }
         }
-        stack.addAll(newBadges.map {
-            MessageBadgeViewModel(
-                it.getCode(),
-                it.getUrl()
-            )
-        })
 
-        return stack
+        // Добавляем новые бейджи, которые не являются заменами
+        for (newBadge in newBadges) {
+            if (newBadge.getReplaces() == null) {
+                result.add(
+                    MessageBadgeViewModel(
+                        newBadge.getCode(),
+                        newBadge.getUrl()
+                    )
+                )
+            }
+        }
+
+        return result
     }
 
     private fun injectEmotes(
@@ -170,91 +176,156 @@ class ChatHookProvider @Inject constructor(
         userId: Int,
         channelId: Int
     ): List<MessageTokenV2> {
-        if (tokens.isEmpty() || !tokens.any { it is MessageTokenV2.TextToken }) {
+        if (tokens.isEmpty()) {
             return tokens
         }
 
-        val stack = ArrayList<MessageTokenV2>(tokens.size * 2)
-        val emoteCache = HashMap<String, Emote?>()
+        // Быстрая проверка наличия текстовых токенов
+        var hasTextTokens = false
+        for (token in tokens) {
+            if (token is MessageTokenV2.TextToken) {
+                hasTextTokens = true
+                break
+            }
+        }
 
-        tokens.forEach { token ->
+        if (!hasTextTokens) {
+            return tokens
+        }
+
+        val result = ArrayList<MessageTokenV2>(tokens.size * 2)
+        val emoteCache = HashMap<String, Emote?>(32)
+
+        for (token in tokens) {
             when (token) {
                 is MessageTokenV2.TextToken -> {
-                    val st = StringTokenizer(token.text, " \n\r\t")
-                    var isStartFromSpace = token.text.startsWith(" ")
-                    while (st.hasMoreTokens()) {
-                        if (isStartFromSpace) {
-                            stack.add(MessageTokenV2.TextToken(" "))
-                            isStartFromSpace = false
-                        }
-                        val word = st.nextToken()
-                        val emote = emoteCache.getOrPut(word) {
-                            emoteProvider.getEmote(code = word, channelId = channelId)
-                        }
-
-                        if (emote != null) {
-                            val spaceToken = MessageTokenV2.TextToken(" ")
-                            stack.add(
-                                PurpleTVEmoteToken.fromEmote(emote, currentEmoteSize)
-                            )
-                            stack.addAll(listOf(spaceToken))
-                        } else {
-                            stack.add(MessageTokenV2.TextToken("$word "))
-                        }
-                    }
+                    processTextToken(token.text, result, emoteCache, channelId)
                 }
 
                 is MentionToken, is EmoteToken -> {
-                    stack.add(token)
-                    stack.add(MessageTokenV2.TextToken(" "))
+                    result.add(token)
+                    result.add(MessageTokenV2.TextToken(" "))
                 }
 
                 else -> {
-                    stack.add(token)
+                    result.add(token)
                 }
             }
         }
 
-        return stack
+        return result
+    }
+
+    private fun processTextToken(
+        text: String,
+        result: MutableList<MessageTokenV2>,
+        emoteCache: HashMap<String, Emote?>,
+        channelId: Int
+    ) {
+        if (text.isBlank()) {
+            result.add(MessageTokenV2.TextToken(text))
+            return
+        }
+
+        var currentIndex = 0
+        val textLength = text.length
+        var needSpace = false
+
+        while (currentIndex < textLength) {
+            // Пропускаем пробелы в начале
+            while (currentIndex < textLength && isWhitespace(text[currentIndex])) {
+                currentIndex++
+                needSpace = true
+            }
+
+            if (currentIndex >= textLength) break
+
+            // Добавляем пробел если нужно
+            if (needSpace && result.isNotEmpty()) {
+                result.add(MessageTokenV2.TextToken(" "))
+                needSpace = false
+            }
+
+            // Находим следующее слово
+            val wordStart = currentIndex
+            while (currentIndex < textLength && !isWhitespace(text[currentIndex])) {
+                currentIndex++
+            }
+
+            if (wordStart < currentIndex) {
+                val word = text.substring(wordStart, currentIndex)
+                val emote = emoteCache.getOrPut(word) {
+                    emoteProvider.getEmote(code = word, channelId = channelId)
+                }
+
+                if (emote != null) {
+                    result.add(PurpleTVEmoteToken.fromEmote(emote, currentEmoteSize))
+                } else {
+                    result.add(MessageTokenV2.TextToken(word))
+                }
+            }
+        }
+
+        // Добавляем завершающий пробел если исходный текст заканчивался пробелом
+        if (textLength > 0 && isWhitespace(text[textLength - 1])) {
+            result.add(MessageTokenV2.TextToken(" "))
+        }
     }
 
     private fun combineZwEmoteTokens(tokens: Collection<MessageTokenV2>): MutableList<MessageTokenV2> {
-        val newTokens = mutableListOf<MessageTokenV2>()
+        if (tokens.isEmpty()) {
+            return mutableListOf()
+        }
 
-        var stack: PurpleTVEmoteToken? = null
+        val result = ArrayList<MessageTokenV2>(tokens.size)
+        var currentStack: PurpleTVEmoteToken? = null
+        var hasChanges = false
+
         for (token in tokens) {
             when (token) {
                 is MessageTokenV2.TextToken -> {
                     if (!token.text.isNullOrBlank()) {
-                        stack = null
+                        currentStack = null
                     }
-                    newTokens.add(token)
+                    result.add(token)
                 }
 
                 is PurpleTVEmoteToken -> {
                     if (!token.isZW) {
-                        stack = PurpleTVEmoteToken(token.id, token.text)
-                        newTokens.add(stack)
+                        currentStack = if (token.subEmotes.isEmpty()) {
+                            token
+                        } else {
+                            PurpleTVEmoteToken(token.id, token.text)
+                        }
+                        result.add(currentStack)
                     } else {
-                        stack?.subEmotes?.add(token) ?: newTokens.add(token)
+                        hasChanges = true
+                        if (currentStack != null) {
+                            currentStack.subEmotes.add(token)
+                        } else {
+                            currentStack = PurpleTVEmoteToken(token.id, token.text, isZW = true)
+                            result.add(currentStack)
+                        }
                     }
                 }
 
                 is EmoteToken -> {
-                    stack = PurpleTVEmoteToken(token.id, token.text, isTwitchEmote = true)
-                    newTokens.add(stack)
+                    currentStack = PurpleTVEmoteToken(token.id, token.text, isTwitchEmote = true)
+                    result.add(currentStack)
                 }
 
                 else -> {
-                    stack = null
-                    newTokens.add(token)
+                    currentStack = null
+                    result.add(token)
                 }
             }
         }
 
-        LoggerImpl.debugObject(newTokens)
+        if (hasChanges) {
+            LoggerImpl.debugObject(result)
+        }
 
-        return newTokens
+        return result
     }
 
     @Suppress("PLATFORM_CLASS_MAPPED_TO_KOTLIN")
@@ -401,6 +472,10 @@ class ChatHookProvider @Inject constructor(
         var alternatingBackground: Boolean = false
 
         private var killChat = false
+
+        private fun isWhitespace(char: Char): Boolean {
+            return char == ' ' || char == '\n' || char == '\r' || char == '\t'
+        }
 
         @JvmStatic
         fun hook(
