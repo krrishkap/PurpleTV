@@ -884,6 +884,7 @@ class ChatHookProvider @Inject constructor(
     fun forceUpdateEmotesAndBadges() {
         emoteProvider.rebuild()
         badgeProvider.rebuild()
+        stvEventApi.reconnect()
     }
 
     fun isMessageInBlacklist(merge: ChatMessage): Boolean {

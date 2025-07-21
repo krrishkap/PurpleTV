@@ -1,7 +1,7 @@
 diff --git a/smali_classes8/tv/twitch/android/shared/messageinput/impl/ChatMessageInputViewDelegate.smali b/smali_classes8/tv/twitch/android/shared/messageinput/impl/ChatMessageInputViewDelegate.smali
 --- a/smali_classes8/tv/twitch/android/shared/messageinput/impl/ChatMessageInputViewDelegate.smali
 +++ b/smali_classes8/tv/twitch/android/shared/messageinput/impl/ChatMessageInputViewDelegate.smali
-@@ -571,6 +571,10 @@
+@@ -571,6 +571,14 @@
      :goto_2
      invoke-virtual {v0, v2}, Landroid/view/View;->setVisibility(I)V
  
@@ -9,10 +9,14 @@ diff --git a/smali_classes8/tv/twitch/android/shared/messageinput/impl/ChatMessa
 +
 +    invoke-static {v0}, Ltv/purple/monolith/features/ui/bridge/UIHook;->maybeHideChatSettingsButton(Landroid/widget/ImageView;)V
 +
++    iget-object v0, p0, Ltv/twitch/android/shared/messageinput/impl/ChatMessageInputViewDelegate;->inputBackground:Landroid/view/View;
++
++    invoke-static {v0}, Ltv/purple/monolith/features/ui/UI;->maybeChangeBackgroundColor(Landroid/view/View;)V
++
      return-void
  .end method
  
-@@ -679,3 +683,23 @@
+@@ -679,3 +687,23 @@
  
      return-void
  .end method

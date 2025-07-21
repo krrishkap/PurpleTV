@@ -1,0 +1,18 @@
+diff --git a/smali_classes7/tv/twitch/android/shared/chat/ChatViewDelegate.smali b/smali_classes7/tv/twitch/android/shared/chat/ChatViewDelegate.smali
+--- a/smali_classes7/tv/twitch/android/shared/chat/ChatViewDelegate.smali
++++ b/smali_classes7/tv/twitch/android/shared/chat/ChatViewDelegate.smali
+@@ -427,6 +427,14 @@
+ 
+     iput-object p1, p0, Ltv/twitch/android/shared/chat/ChatViewDelegate;->bitsViewDelegateFactory$delegate:Lkotlin/Lazy;
+ 
++    iget-object v0, p0, Ltv/twitch/android/shared/chat/ChatViewDelegate;->chatHeaderContainer:Ltv/twitch/android/core/mvp/viewdelegate/ViewDelegateContainer;
++
++    invoke-virtual {v0}, Ltv/twitch/android/core/mvp/viewdelegate/ViewDelegateContainer;->getViewGroup()Landroid/view/ViewGroup;
++
++    move-result-object v0
++
++    invoke-static {v0}, Ltv/purple/monolith/features/ui/UI;->maybeChangeBackgroundColor(Landroid/view/View;)V
++
+     return-void
+ .end method
+ 

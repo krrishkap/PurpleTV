@@ -13,22 +13,30 @@ class ExperimentHelperHookImpl(
     private val org: IExperimentHelper
 ) : ExperimentHelper {
     companion object {
+        private val experimentsToForceFalse = setOf(
+            Experiment.EXTENSIONS_USER_EDUCATION,
+            Experiment.UPDATE_PROMPT_ROLLOUT,
+            Experiment.ADS_PBYP,
+            Experiment.STREAM_DISPLAY_ADS,
+            Experiment.AUDIO_ADS,
+            Experiment.AUDIO_ADS_BACKGROUND,
+            Experiment.BANNER_ADS,
+            Experiment.PLAY_INTEGRITY_POC,
+            Experiment.ADS_IFV,
+            Experiment.CHAT_SETTINGS_MVVM
+        )
+
+        private val experimentsToForceTrue = setOf(
+            Experiment.MESSAGE_EFFECT_RENDERING,
+            Experiment.ANIMATED_EMOTES,
+            Experiment.PROFILE_SETTINGS_REORG,
+            Experiment.THEATRE_MUTE_BUTTON
+        )
+
         private fun hookExperiment(p0: Experiment): Boolean? {
             return when (p0) {
-                Experiment.EXTENSIONS_USER_EDUCATION,
-                Experiment.UPDATE_PROMPT_ROLLOUT,
-                Experiment.ADS_PBYP,
-                Experiment.STREAM_DISPLAY_ADS,
-                Experiment.AUDIO_ADS,
-                Experiment.AUDIO_ADS_BACKGROUND,
-                Experiment.BANNER_ADS,
-                Experiment.ADS_IFV -> false
-
-                Experiment.MESSAGE_EFFECT_RENDERING,
-                Experiment.ANIMATED_EMOTES,
-                Experiment.PROFILE_SETTINGS_REORG,
-                Experiment.THEATRE_MUTE_BUTTON, -> true
-
+                in experimentsToForceFalse -> false
+                in experimentsToForceTrue -> true
                 else -> null
             }
         }

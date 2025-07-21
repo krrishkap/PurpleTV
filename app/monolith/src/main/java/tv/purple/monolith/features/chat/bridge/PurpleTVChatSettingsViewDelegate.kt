@@ -30,15 +30,10 @@ class PurpleTVChatSettingsViewDelegate(
         container = orangeContainer,
         context = context,
     )
-    private val toggleKillChat = createToggleRowItem(
-        container = orangeContainer,
-        resName = RES_STRINGS.purpletv_kill_chat
-    )
 
     init {
         for (v in listOf(
-            actionRefreshEmotesAndBadges,
-            toggleKillChat
+            actionRefreshEmotesAndBadges
         ).map { it.contentView }) {
             orangeContainer.addView(v)
         }
@@ -51,12 +46,6 @@ class PurpleTVChatSettingsViewDelegate(
 
     private fun renderCurrentState() {
         actionRefreshEmotesAndBadges.render(createInfoState(RES_STRINGS.purpletv_chat_settings_refresh))
-        toggleKillChat.render(
-            SimpleToggleRowViewDelegate.ToggleState(
-                ChatHookProvider.isChatKilled,
-                true
-            )
-        )
     }
 
     fun injectEvents(listOf: List<Flowable<ChatSettingsViewDelegate.ChatSettingsEvents>>): List<Flowable<ChatSettingsViewDelegate.ChatSettingsEvents>> {
@@ -65,12 +54,6 @@ class PurpleTVChatSettingsViewDelegate(
                 chatHookProvider.forceUpdateEmotesAndBadges()
             }.map {
                 Closable()
-            })
-            add(toggleKillChat.eventObserver().doOnNext {
-                chatHookProvider.switchKillChatState()
-                renderCurrentState()
-            }.map {
-                Toggle()
             })
         }
     }

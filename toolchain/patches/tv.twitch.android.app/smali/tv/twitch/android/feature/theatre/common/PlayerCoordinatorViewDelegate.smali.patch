@@ -1,0 +1,14 @@
+diff --git a/smali_classes6/tv/twitch/android/feature/theatre/common/PlayerCoordinatorViewDelegate.smali b/smali_classes6/tv/twitch/android/feature/theatre/common/PlayerCoordinatorViewDelegate.smali
+--- a/smali_classes6/tv/twitch/android/feature/theatre/common/PlayerCoordinatorViewDelegate.smali
++++ b/smali_classes6/tv/twitch/android/feature/theatre/common/PlayerCoordinatorViewDelegate.smali
+@@ -796,6 +796,10 @@
+ 
+     iput-object p1, p0, Ltv/twitch/android/feature/theatre/common/PlayerCoordinatorViewDelegate;->keyboardListener:Ltv/twitch/android/util/KeyboardListener;
+ 
++    iget-object v0, p0, Ltv/twitch/android/feature/theatre/common/PlayerCoordinatorViewDelegate;->landscapeChatContainer:Landroid/view/ViewGroup;
++
++    invoke-static {v0}, Ltv/purple/monolith/features/ui/UI;->changeLandscapeChatContainerOpacity(Landroid/view/ViewGroup;)V
++
+     return-void
+ .end method
+ 

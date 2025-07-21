@@ -1,7 +1,20 @@
 diff --git a/smali_classes6/tv/twitch/android/feature/theatre/refactor/TheatreViewCoordinatorViewDelegate.smali b/smali_classes6/tv/twitch/android/feature/theatre/refactor/TheatreViewCoordinatorViewDelegate.smali
 --- a/smali_classes6/tv/twitch/android/feature/theatre/refactor/TheatreViewCoordinatorViewDelegate.smali
 +++ b/smali_classes6/tv/twitch/android/feature/theatre/refactor/TheatreViewCoordinatorViewDelegate.smali
-@@ -2512,7 +2512,9 @@
+@@ -728,6 +728,12 @@
+ 
+     invoke-virtual {p1, p2}, Landroid/view/View;->setOnClickListener(Landroid/view/View$OnClickListener;)V
+ 
++    iget-object v0, p0, Ltv/twitch/android/feature/theatre/refactor/TheatreViewCoordinatorViewDelegate;->binding:Ltv/twitch/android/feature/theatre/databinding/TheatreCoordinatorBinding;
++
++    iget-object v0, v0, Ltv/twitch/android/feature/theatre/databinding/TheatreCoordinatorBinding;->chatWrapper:Landroid/widget/FrameLayout;
++
++    invoke-static {v0}, Ltv/purple/monolith/features/ui/UI;->changeLandscapeChatContainerOpacity(Landroid/view/ViewGroup;)V
++
+     return-void
+ .end method
+ 
+@@ -2512,7 +2518,9 @@
  
      move-result p2
  
@@ -12,7 +25,7 @@ diff --git a/smali_classes6/tv/twitch/android/feature/theatre/refactor/TheatreVi
  
      invoke-virtual {p1, p2, v0}, Landroidx/constraintlayout/widget/ConstraintSet;->setGuidelinePercent(IF)V
  
-@@ -2608,6 +2610,10 @@
+@@ -2608,6 +2616,10 @@
      const v3, 0x3f333333    # 0.7f
  
      :goto_1

@@ -67,11 +67,13 @@ class StvEventApiV3 @Inject constructor(
         )
     }
 
-    fun disconnect() {
+    fun disconnect(clearChannels: Boolean = true) {
         job.cancel()
         reconnectJob?.cancel()
         socket?.close(1000, null)
-        subscribedChannels.clear()
+        if (clearChannels) {
+            subscribedChannels.clear()
+        }
     }
 
     fun checkSubscriptionToChannel(channelId: Int) {
@@ -140,6 +142,11 @@ class StvEventApiV3 @Inject constructor(
         socket?.send(message.asJson().toString())
     }
 
+    fun reconnect() {
+        disconnect(clearChannels = false)
+        connect()
+    }
+
     private inner class EventSocketListener : WebSocketListener() {
         override fun onOpen(webSocket: WebSocket, response: Response) {
             logger.debug("onOpen")
@@ -159,16 +166,16 @@ class StvEventApiV3 @Inject constructor(
                     heartbeatJob = launch {
                         while (isActive) {
                             delay(hello.heartbeatInterval.toLong())
-                            logger.debug("Send: $HEARTBEAT_MESSAGE")
+                            logger.debug("Send heartbeat message: $HEARTBEAT_MESSAGE")
                             socket?.send(HEARTBEAT_MESSAGE)
                         }
                     }
                 }
-
                 EventApiEvent.OpCode.DISPATCH -> {
                     val dispatch = EventApiDispatch(event.data)
                     subscribers.forEach { it.onDispatch(dispatch) }
                 }
+                EventApiEvent.OpCode.RECONNECT -> reconnect()
 
                 else -> {
                     logger.debug("Event: $event")

@@ -1,0 +1,16 @@
+diff --git a/smali_classes8/tv/twitch/android/shared/messageinput/impl/chatrestrictions/ChatRestrictionsBannerViewDelegate.smali b/smali_classes8/tv/twitch/android/shared/messageinput/impl/chatrestrictions/ChatRestrictionsBannerViewDelegate.smali
+--- a/smali_classes8/tv/twitch/android/shared/messageinput/impl/chatrestrictions/ChatRestrictionsBannerViewDelegate.smali
++++ b/smali_classes8/tv/twitch/android/shared/messageinput/impl/chatrestrictions/ChatRestrictionsBannerViewDelegate.smali
+@@ -104,6 +104,12 @@
+ 
+     iput-object p1, p0, Ltv/twitch/android/shared/messageinput/impl/chatrestrictions/ChatRestrictionsBannerViewDelegate;->layout:Landroid/widget/LinearLayout;
+ 
++    invoke-virtual {p0}, Ltv/twitch/android/shared/messageinput/impl/chatrestrictions/ChatRestrictionsBannerViewDelegate;->getContentView()Landroid/view/View;
++
++    move-result-object v0
++
++    invoke-static {v0}, Ltv/purple/monolith/features/ui/UI;->maybeChangeBackgroundColor(Landroid/view/View;)V
++
+     return-void
+ .end method
+ 
