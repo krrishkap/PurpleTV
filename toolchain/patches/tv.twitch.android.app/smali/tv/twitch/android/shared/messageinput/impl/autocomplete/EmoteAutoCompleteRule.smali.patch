@@ -1,0 +1,45 @@
+diff --git a/smali_classes8/tv/twitch/android/shared/messageinput/impl/autocomplete/EmoteAutoCompleteRule.smali b/smali_classes8/tv/twitch/android/shared/messageinput/impl/autocomplete/EmoteAutoCompleteRule.smali
+--- a/smali_classes8/tv/twitch/android/shared/messageinput/impl/autocomplete/EmoteAutoCompleteRule.smali
++++ b/smali_classes8/tv/twitch/android/shared/messageinput/impl/autocomplete/EmoteAutoCompleteRule.smali
+@@ -27,6 +27,17 @@
+ 
+     invoke-static {p1, v0}, Lkotlin/jvm/internal/Intrinsics;->checkNotNullParameter(Ljava/lang/Object;Ljava/lang/String;)V
+ 
++    invoke-static {}, Ltv/purple/monolith/features/chat/bridge/ChatHook;->hookStartToken()Z
++
++    move-result v0
++
++    if-eqz v0, :cond_z
++
++    const/4 p1, 0x1
++
++    goto :cond_zz
++
++    :cond_z
+     invoke-virtual {p1}, Ljava/lang/Object;->toString()Ljava/lang/String;
+ 
+     move-result-object v1
+@@ -69,6 +80,7 @@
+ 
+     move-result p1
+ 
++    :cond_zz
+     return p1
+ .end method
+ 
+@@ -121,8 +133,15 @@
+ 
+     move-result v1
+ 
++    if-nez v1, :cond_z
++
++    invoke-static {}, Ltv/purple/monolith/features/chat/bridge/ChatHook;->hookStartToken()Z
++
++    move-result v1
++
+     if-eqz v1, :cond_0
+ 
++    :cond_z
+     invoke-interface {p1}, Ljava/lang/CharSequence;->length()I
+ 
+     move-result p1

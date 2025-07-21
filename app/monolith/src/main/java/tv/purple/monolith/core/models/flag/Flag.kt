@@ -230,11 +230,6 @@ enum class Flag(
         titleResName = "purpletv_settings_ffz_badges",
         value = BooleanValue(true)
     ),
-//    STV_BADGES(
-//        prefKey = "stv_badges_disabled_v2",
-//        titleResName = "purpletv_settings_stv_badges",
-//        value = BooleanValue(true)
-//    ),
     CHA_BADGES(
         prefKey = "cha_badges",
         titleResName = "purpletv_settings_cha_badges",
@@ -486,8 +481,16 @@ enum class Flag(
         "purpletv_settings_landscape_chat_opacity",
         IntRangeValue(0, 100, 30)
     ),
-
-    CUSTOM_PROXY_URL("custom_proxy_url_v2", "orange_custom_proxy_url", StringValue(""));
+    CUSTOM_PROXY_URL(
+        prefKey = "custom_proxy_url_v2",
+        titleResName = "orange_custom_proxy_url",
+        value = StringValue("")
+    ),
+    FAST_EMOTE_AUTOCOMPLETE(
+        prefKey = "fast_emote_autocomplete",
+        titleResName = "purpletv_fast_emote_autocomplete",
+        value = BooleanValue(true)
+    );
 
     constructor(prefKey: String, titleResName: String, value: ValueHolder) : this(
         preferenceKey = prefKey,

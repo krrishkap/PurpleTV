@@ -430,4 +430,9 @@ object ChatHook {
     fun bypassChatBan(): Boolean {
         return Flag.ANON_CHAT_CONNECTION.asBoolean()
     }
+
+    @JvmStatic
+    fun hookStartToken(): Boolean {
+        return Flag.FAST_EMOTE_AUTOCOMPLETE.asBoolean()
+    }
 }

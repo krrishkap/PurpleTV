@@ -85,7 +85,7 @@ enum class PurpleTVSubMenu(
             Flag.MOD_LOG_NOTICES,
             Flag.DISABLE_LINK_DISCLAIMER,
             Flag.HIDE_CHAT_HEADER,
-            //Flag.HIDE_TOP_CHAT_PANEL_VODS,
+            Flag.FAST_EMOTE_AUTOCOMPLETE,
             Flag.HIDE_MESSAGE_INPUT,
             Flag.AUTO_HIDE_MESSAGE_INPUT,
             Flag.HIDE_BITS_BUTTON,
