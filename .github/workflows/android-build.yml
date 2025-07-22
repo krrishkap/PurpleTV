@@ -23,8 +23,9 @@ jobs:
         working-directory: ./app/
 
       - name: Build Debug APK
-        run: ./gradlew assembleDebug --warning-mode=none
+        run: ./gradlew assembleDebug --warning-mode=none --scan
         working-directory: ./app/
+        
 
       - name: Upload Debug APK
         uses: actions/upload-artifact@v4
