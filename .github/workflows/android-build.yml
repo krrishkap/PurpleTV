@@ -23,7 +23,7 @@ jobs:
         working-directory: ./app/
 
       - name: Build Debug APK
-        run: ./gradlew assembleAndroidTest --warning-mode=none --scan
+        run: ./gradlew assembleAndroidTest
         working-directory: ./app/
 
       - name: Upload Debug APK
