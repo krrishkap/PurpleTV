@@ -12,7 +12,7 @@ jobs:
 
     - name: Clear Gradle Cache
       run: |
-           rm -rf ~/.gradle/caches/
+           ./gradlew cleanBuildCache
            ./gradlew clean
 
     - name: Set up JDK 21
