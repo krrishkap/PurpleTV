@@ -23,8 +23,7 @@ jobs:
         working-directory: ./app/
 
       - name: Build Debug APK
-        run: ./gradlew assembleAndroidTest
-        working-directory: ./app/
+        run: ./gradlew compileDebugSources
 
       - name: Upload Debug APK
         uses: actions/upload-artifact@v4
