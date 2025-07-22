@@ -23,7 +23,7 @@ jobs:
         working-directory: ./app/
 
       - name: Build Debug APK
-        run: ./gradlew assembleDebug --warning-mode=none --scan
+        run: ./gradlew assembleTwitchDebug --warning-mode=none --scan
         working-directory: ./app/
 
       - name: Upload Debug APK
