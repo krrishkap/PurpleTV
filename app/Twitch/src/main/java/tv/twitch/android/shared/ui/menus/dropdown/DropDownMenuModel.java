@@ -3,7 +3,6 @@ package tv.twitch.android.shared.ui.menus.dropdown;
 import android.content.Context;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import tv.twitch.android.core.mvp.view.VisibilityProvider;
 
 import kotlin.NotImplementedError;
 import tv.twitch.android.core.mvp.lifecycle.VisibilityProvider;
