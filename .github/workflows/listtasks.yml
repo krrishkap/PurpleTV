@@ -1,0 +1,28 @@
+name: List Gradle Tasks
+
+on:
+  workflow_dispatch: # Allows you to manually trigger this workflow from the GitHub Actions UI
+
+jobs:
+  list_tasks:
+    runs-on: ubuntu-latest # Use the latest Ubuntu runner
+
+    steps:
+      - name: Checkout Repository Code
+        uses: actions/checkout@v4 # Essential step to get your code into the runner
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin' # A common and reliable JDK distribution
+          java-version: '17'      # Using JDK 21 as per your project's needs
+          cache: 'gradle'         # Caches Gradle dependencies
+
+      - name: Grant Execute Permission to gradlew
+        run: chmod +x gradlew
+        working-directory: ./app/ # Assuming your main Android Gradle module is at './app/'
+                                  # If gradlew is at the repo root, change this to './'
+
+      - name: List All Gradle Tasks # This step runs the command to list tasks
+        run: ./gradlew tasks
+        working-directory: ./app/ # Ensure this matches the directory where gradlew is located and where the main build.gradle is
